@@ -1,8 +1,9 @@
 plugins {
-    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
-group 'org.example'
+group 'be.umons.coffeemachine'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -12,3 +13,10 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+javafx {
+    version = "13"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+mainClassName = 'be.umons.coffeemachine.Main'
