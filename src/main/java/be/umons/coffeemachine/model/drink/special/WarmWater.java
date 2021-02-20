@@ -1,11 +1,10 @@
-package be.umons.coffeemachine.model.drink;
+package be.umons.coffeemachine.model.drink.special;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 
-public class MilkFroth extends Drink {
+public class WarmWater extends Special {
 
-
-    public MilkFroth(String name) {
+    public WarmWater(String name) {
         super(name);
     }
 

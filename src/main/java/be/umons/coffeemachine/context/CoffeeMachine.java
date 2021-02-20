@@ -1,4 +1,6 @@
 package be.umons.coffeemachine.context;
 
-public class CoffeeMachine {
+import be.umons.coffeemachine.observer.Subject;
+
+public class CoffeeMachine extends Subject {
 }

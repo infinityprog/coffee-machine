@@ -1,6 +1,7 @@
-package be.umons.coffeemachine.model.drink;
+package be.umons.coffeemachine.model.drink.coffee;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.model.drink.Drink;
 
 public class Coffee extends Drink {
 
