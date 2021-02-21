@@ -7,9 +7,9 @@ public class MilkyDrink extends Drink {
 
     private MilkFroth milkFroth;
 
-    public MilkyDrink(String name, MilkFroth milkFroth) {
+    public MilkyDrink(String name) {
         super(name);
-        this.milkFroth = milkFroth;
+        this.milkFroth = new MilkFroth("Milk Froth");
     }
 
     public MilkFroth getMilkFroth() {
