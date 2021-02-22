@@ -9,35 +9,67 @@ public abstract class State {
 
     private Integer quantity;
 
-    public abstract void entry(CoffeeMachine coffeeMachine);
+    public void entry(CoffeeMachine coffeeMachine) {
 
-    public abstract void exit(CoffeeMachine coffeeMachine);
+    }
 
-    public abstract void startStop(CoffeeMachine coffeeMachine);
+    public void exit(CoffeeMachine coffeeMachine) {
 
-    public abstract void intensity(CoffeeMachine coffeeMachine);
+    }
 
-    public abstract void ok(CoffeeMachine coffeeMachine);
+    public void startStop(CoffeeMachine coffeeMachine) {
 
-    public abstract void menu(CoffeeMachine coffeeMachine);
+    }
 
-    public abstract void two(CoffeeMachine coffeeMachine);
+    public void intensity(CoffeeMachine coffeeMachine) {
 
-    public abstract void back(CoffeeMachine coffeeMachine);
+    }
 
-    public abstract void quantity(CoffeeMachine coffeeMachine);
+    public void ok(CoffeeMachine coffeeMachine) {
 
-    public abstract void security(CoffeeMachine coffeeMachine);
+    }
 
-    public abstract void scrolling(CoffeeMachine coffeeMachine);
+    public void menu(CoffeeMachine coffeeMachine) {
 
-    public abstract void coffee(CoffeeMachine coffeeMachine);
+    }
 
-    public abstract void milky(CoffeeMachine coffeeMachine);
+    public void two(CoffeeMachine coffeeMachine) {
 
-    public abstract void special(CoffeeMachine coffeeMachine);
+    }
 
-    public abstract void favori(CoffeeMachine coffeeMachine);
+    public void back(CoffeeMachine coffeeMachine) {
 
-    public abstract void changeOption();
+    }
+
+    public void quantity(CoffeeMachine coffeeMachine) {
+
+    }
+
+    public void security(CoffeeMachine coffeeMachine) {
+
+    }
+
+    public void scrolling(CoffeeMachine coffeeMachine) {
+
+    }
+
+    public void coffee(CoffeeMachine coffeeMachine) {
+
+    }
+
+    public void milky(CoffeeMachine coffeeMachine) {
+
+    }
+
+    public void special(CoffeeMachine coffeeMachine) {
+
+    }
+
+    public void favori(CoffeeMachine coffeeMachine) {
+
+    }
+
+    public void changeOption() {
+
+    }
 }

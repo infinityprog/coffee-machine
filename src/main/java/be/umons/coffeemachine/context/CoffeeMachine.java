@@ -6,10 +6,12 @@ import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
 import be.umons.coffeemachine.model.drink.coffee.MilkyDrink;
 import be.umons.coffeemachine.model.format.Quantity;
+import be.umons.coffeemachine.model.pieces.MilkFrother;
 import be.umons.coffeemachine.model.pieces.MilkPipe;
 import be.umons.coffeemachine.model.pieces.WaterReservoir;
 import be.umons.coffeemachine.observer.Observer;
 import be.umons.coffeemachine.observer.Subject;
+import be.umons.coffeemachine.state.Rinsing;
 import be.umons.coffeemachine.state.State;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,7 +27,7 @@ public class CoffeeMachine extends Subject {
     private Drink drink;
     private State state;
     private WaterReservoir waterReservoir;
-    private MilkFroth milkFroth;
+    private MilkFrother milkFrother;
     private MilkPipe milkPipe;
     private Observer observer;
     private String titleDisplay;
@@ -33,7 +35,13 @@ public class CoffeeMachine extends Subject {
     private String quantityDisplay;
     private List<Profil> profils;
 
-
+    public CoffeeMachine(Observer observer) {
+        state = Rinsing.instance();
+        attach(observer);
+        waterReservoir = new WaterReservoir();
+        milkFrother = new MilkFrother();
+        milkPipe = new MilkPipe();
+    }
 
     public void btnStartStop() {
         logger.info("User presses on btn start stop");
@@ -159,12 +167,12 @@ public class CoffeeMachine extends Subject {
         return this;
     }
 
-    public MilkFroth getMilkFroth() {
-        return milkFroth;
+    public MilkFrother getMilkFrother() {
+        return milkFrother;
     }
 
-    public CoffeeMachine setMilkFroth(MilkFroth milkFroth) {
-        this.milkFroth = milkFroth;
+    public CoffeeMachine setMilkFrother(MilkFrother milkFrother) {
+        this.milkFrother = milkFrother;
         return this;
     }
 
