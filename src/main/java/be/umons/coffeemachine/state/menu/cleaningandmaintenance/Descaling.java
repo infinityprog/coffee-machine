@@ -1,14 +1,14 @@
-package be.umons.coffeemachine.state.menu;
+package be.umons.coffeemachine.state.menu.cleaningandmaintenance;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 
-public class Reset extends Menu {
+public class Descaling extends CalcAndClean {
 
-    private static Reset instance;
+    private static Descaling instance;
 
-    public static Reset instance() {
+    public static Descaling instance() {
         if (instance == null) {
-            instance = new Reset();
+            instance = new Descaling();
         }
 
         return instance;
@@ -18,5 +18,4 @@ public class Reset extends Menu {
     public void startStop(CoffeeMachine coffeeMachine) {
         super.startStop(coffeeMachine);
     }
-
 }
