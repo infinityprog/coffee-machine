@@ -31,8 +31,8 @@ public class CoffeeMachine extends Subject {
     private MilkPipe milkPipe;
     private Observer observer;
     private String titleDisplay;
-    private String intensityDisplay;
-    private String quantityDisplay;
+    private String intensityDisplay = "Normal";
+    private String quantityDisplay = "Moyen";
     private List<Profil> profils;
 
     public CoffeeMachine(Observer observer) {
@@ -97,6 +97,7 @@ public class CoffeeMachine extends Subject {
 
     public void btnExpresso() {
         logger.info("User presses on btn Expresso");
+        setTitleDisplay("Expresso");
         drink = new Coffee("Expresso");
 
         state.coffee(this);
@@ -104,6 +105,7 @@ public class CoffeeMachine extends Subject {
 
     public void btnExpressoMacch() {
         logger.info("User presses on btn Expresso Macch");
+        setTitleDisplay("Expresso Macch");
         drink = new Coffee("Expresso Macch");
 
         state.coffee(this);
@@ -200,6 +202,7 @@ public class CoffeeMachine extends Subject {
 
     public CoffeeMachine setTitleDisplay(String titleDisplay) {
         this.titleDisplay = titleDisplay;
+        notif();
         return this;
     }
 
@@ -209,6 +212,7 @@ public class CoffeeMachine extends Subject {
 
     public CoffeeMachine setIntensityDisplay(String intensityDisplay) {
         this.intensityDisplay = intensityDisplay;
+        notif();
         return this;
     }
 
@@ -218,6 +222,7 @@ public class CoffeeMachine extends Subject {
 
     public CoffeeMachine setQuantityDisplay(String quantityDisplay) {
         this.quantityDisplay = quantityDisplay;
+        notif();
         return this;
     }
 
