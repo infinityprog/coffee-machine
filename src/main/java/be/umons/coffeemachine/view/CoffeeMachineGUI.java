@@ -46,7 +46,7 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     private Button btnScrolling;
 
     @FXML
-    private Button btnTwo;
+    private Button btnDouble;
 
     @FXML
     private Button btnIntensity;
@@ -92,11 +92,71 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     }
 
 
-    public void makeExpresso(ActionEvent event) {
+    public void onExpresso(ActionEvent event) {
         coffeeMachine.btnExpresso();
     }
 
-    public void makeExpressoMacc(ActionEvent event) {
+    public void onExpressoMacc(ActionEvent event) {
         coffeeMachine.btnExpressoMacch();
+    }
+
+    public void onCoffee(ActionEvent event) {
+        coffeeMachine.btnCoffee();
+    }
+
+    public void onCappucino(ActionEvent event) {
+        coffeeMachine.btnCappuccino();
+    }
+
+    public void onLatteMacc(ActionEvent event) {
+        coffeeMachine.btnLatteMacchiate();
+    }
+
+    public void onMilkCoffee(ActionEvent event) {
+        coffeeMachine.btnMilkCoffee();
+    }
+
+    public void onMilkFroth(ActionEvent event) {
+        coffeeMachine.btnMilkFroth();
+    }
+
+    public void onSpecial(ActionEvent event) {
+        coffeeMachine.btnSpecial();
+    }
+
+    public void onStartStop(ActionEvent event) {
+        coffeeMachine.btnStartStop();
+    }
+
+    public void onScrolling(ActionEvent event) {
+        coffeeMachine.btnScrolling();
+    }
+
+    public void onDouble(ActionEvent event) {
+        coffeeMachine.btnDouble();
+    }
+
+    public void onIntensity(ActionEvent event) {
+        coffeeMachine.btnIntensity();
+    }
+
+    public void onExit(ActionEvent event) {
+        coffeeMachine.btnBack();
+    }
+
+    public void onQuantity(ActionEvent event) {
+        coffeeMachine.btnQuantity();
+    }
+
+    public void onSecurity(ActionEvent event) {
+        coffeeMachine.btnSecurity();
+    }
+
+    public void onOk(ActionEvent event) {
+        coffeeMachine.btnOk();
+    }
+
+    public void onMenu(ActionEvent event) {
+        coffeeMachine.btnMenu();
     }
 }
