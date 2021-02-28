@@ -1,6 +1,7 @@
 package be.umons.coffeemachine.state;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.state.takedrink.CoffeeDrink;
 
 public class Waiting extends State {
 
@@ -36,7 +37,7 @@ public class Waiting extends State {
 
     @Override
     public void coffee(CoffeeMachine coffeeMachine) {
-        super.coffee(coffeeMachine);
+        coffeeMachine.transition(CoffeeDrink.instance());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.state.takedrink.preparing.Preparing;
 
 public class CoffeeDrink extends TakeDrink {
 
@@ -17,11 +18,12 @@ public class CoffeeDrink extends TakeDrink {
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
         super.entry(coffeeMachine);
+        coffeeMachine.setMilky(false);
     }
 
     @Override
     public void startStop(CoffeeMachine coffeeMachine) {
-        super.startStop(coffeeMachine);
+        coffeeMachine.transition(Preparing.instance());
     }
 
     @Override

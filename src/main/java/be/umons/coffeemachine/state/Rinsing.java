@@ -24,11 +24,11 @@ public class Rinsing extends State {
     public void entry(CoffeeMachine coffeeMachine) {
         logger.info("Execute entry method");
 
-        PauseTransition pause = new PauseTransition(Duration.seconds(1));
-        onPause(pause, coffeeMachine,3);
+        onPause(coffeeMachine,3);
     }
 
-    private void onPause(PauseTransition pause, CoffeeMachine coffeeMachine, int nbr) {
+    private void onPause(CoffeeMachine coffeeMachine, int nbr) {
+        PauseTransition pause = new PauseTransition(Duration.seconds(1));
         onPause(pause, coffeeMachine, 0, nbr);
     }
 

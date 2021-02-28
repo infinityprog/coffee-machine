@@ -16,7 +16,8 @@ public abstract class TakeDrink extends State {
         super.back(coffeeMachine);
     }
 
-    public void displayChoice() {
-
+    @Override
+    public void entry(CoffeeMachine coffeeMachine) {
+        coffeeMachine.setTitleDisplay(coffeeMachine.getDrink().getName());
     }
 }

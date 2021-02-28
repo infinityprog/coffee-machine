@@ -32,8 +32,9 @@ public class CoffeeMachine extends Subject {
     private WaterReservoir waterReservoir;
     private MilkFrother milkFrother;
     private MilkPipe milkPipe;
-    private boolean hot = false;
-    private boolean served = false;
+    private boolean hot;
+    private boolean served;
+    private boolean milky;
     private Observer observer;
     private String titleDisplay;
     private String intensityDisplay;
@@ -102,52 +103,50 @@ public class CoffeeMachine extends Subject {
 
     public void btnExpresso() {
         logger.info("User presses on btn Expresso");
-        setTitleDisplay("Expresso");
-        drink = new Coffee("Expresso");
 
+        drink = new Coffee("Expresso");
         state.coffee(this);
     }
 
     public void btnExpressoMacch() {
         logger.info("User presses on btn Expresso Macch");
-        setTitleDisplay("Expresso Macch");
-        drink = new Coffee("Expresso Macch");
 
+        drink = new Coffee("Expresso Macch");
         state.coffee(this);
     }
 
     public void btnCoffee() {
         logger.info("User presses on btn Coffee");
-        drink = new Coffee("Coffee");
 
+        drink = new Coffee("Coffee");
         state.coffee(this);
     }
 
     public void btnCappuccino() {
         logger.info("User presses on btn Cappuccino");
-        drink = new Coffee("Cappuccino");
 
+        drink = new Coffee("Cappuccino");
         state.coffee(this);
     }
 
     public void btnLatteMacchiate() {
         logger.info("User presses on btn Latte Macchiate");
-        drink = new MilkyDrink("Latte Machiate");
 
+        drink = new MilkyDrink("Latte Machiate");
         state.milky(this);
     }
 
     public void btnMilkCoffee() {
         logger.info("User presses on btn Milk Coffee");
-        drink = new MilkyDrink("Milk Coffee");
 
+        drink = new MilkyDrink("Milk Coffee");
         state.milky(this);
     }
 
     public void btnMilkFroth() {
         logger.info("User presses on btn Milk Froth");
-        drink = new MilkyDrink("Milk Froth");
 
+        drink = new MilkyDrink("Milk Froth");
         state.milky(this);
     }
 
@@ -266,5 +265,17 @@ public class CoffeeMachine extends Subject {
         } else {
             state = Waiting.instance();
         }
+    }
+
+    public Drink getDrink() {
+        return drink;
+    }
+
+    public boolean isMilky() {
+        return milky;
+    }
+
+    public void setMilky(boolean milky) {
+        this.milky = milky;
     }
 }
