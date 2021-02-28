@@ -12,6 +12,7 @@ import be.umons.coffeemachine.model.pieces.WaterReservoir;
 import be.umons.coffeemachine.observer.Observer;
 import be.umons.coffeemachine.observer.Subject;
 import be.umons.coffeemachine.state.Rinsing;
+import be.umons.coffeemachine.state.Start;
 import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.Waiting;
 import be.umons.coffeemachine.view.CoffeeMachineGUI;
@@ -31,12 +32,12 @@ public class CoffeeMachine extends Subject {
     private WaterReservoir waterReservoir;
     private MilkFrother milkFrother;
     private MilkPipe milkPipe;
-    private boolean hot;
-    private boolean served;
+    private boolean hot = false;
+    private boolean served = false;
     private Observer observer;
     private String titleDisplay;
-    private String intensityDisplay = "Normal";
-    private String quantityDisplay = "Moyen";
+    private String intensityDisplay;
+    private String quantityDisplay;
     private List<Profil> profils;
 
     public CoffeeMachine(Observer observer) {
@@ -44,6 +45,7 @@ public class CoffeeMachine extends Subject {
         waterReservoir = new WaterReservoir();
         milkFrother = new MilkFrother();
         milkPipe = new MilkPipe();
+        state = Start.instance();
     }
 
     public void btnStartStop() {
@@ -152,6 +154,7 @@ public class CoffeeMachine extends Subject {
     public void transition(State next) {
         logger.info("Change state to " + next.getClass().getName());
         state = next;
+        next.entry(this);
     }
 
     public Map<Quantity, Integer> getQuantity() {

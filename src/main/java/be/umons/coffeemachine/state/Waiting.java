@@ -15,6 +15,11 @@ public class Waiting extends State {
     }
 
     @Override
+    public void entry(CoffeeMachine coffeeMachine) {
+        coffeeMachine.setTitleDisplay("En attente");
+    }
+
+    @Override
     public void startStop(CoffeeMachine coffeeMachine) {
         super.startStop(coffeeMachine);
     }
