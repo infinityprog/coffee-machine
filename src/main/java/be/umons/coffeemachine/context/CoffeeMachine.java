@@ -13,6 +13,8 @@ import be.umons.coffeemachine.observer.Observer;
 import be.umons.coffeemachine.observer.Subject;
 import be.umons.coffeemachine.state.Rinsing;
 import be.umons.coffeemachine.state.State;
+import be.umons.coffeemachine.state.Waiting;
+import be.umons.coffeemachine.view.CoffeeMachineGUI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,6 +31,8 @@ public class CoffeeMachine extends Subject {
     private WaterReservoir waterReservoir;
     private MilkFrother milkFrother;
     private MilkPipe milkPipe;
+    private boolean hot;
+    private boolean served;
     private Observer observer;
     private String titleDisplay;
     private String intensityDisplay = "Normal";
@@ -36,7 +40,6 @@ public class CoffeeMachine extends Subject {
     private List<Profil> profils;
 
     public CoffeeMachine(Observer observer) {
-        state = Rinsing.instance();
         attach(observer);
         waterReservoir = new WaterReservoir();
         milkFrother = new MilkFrother();
@@ -233,5 +236,32 @@ public class CoffeeMachine extends Subject {
     public CoffeeMachine setProfils(List<Profil> profils) {
         this.profils = profils;
         return this;
+    }
+
+    public Boolean isHot() {
+        return hot;
+    }
+
+    public CoffeeMachine setHot(Boolean hot) {
+        this.hot = hot;
+        return this;
+    }
+
+    public Boolean isServed() {
+        return served;
+    }
+
+    public CoffeeMachine setServed(Boolean served) {
+        this.served = served;
+        return this;
+    }
+
+    public void initState() {
+        if (!isHot() && !isServed()) {
+            state = Rinsing.instance();
+            state.entry(this);
+        } else {
+            state = Waiting.instance();
+        }
     }
 }

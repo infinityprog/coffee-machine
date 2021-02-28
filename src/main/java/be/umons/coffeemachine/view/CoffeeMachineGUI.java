@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,9 @@ import java.util.ResourceBundle;
 public class CoffeeMachineGUI implements Initializable, Observer {
 
     private CoffeeMachine coffeeMachine;
+
+    @FXML
+    private Pane window;
 
     //Sort of coffee
     @FXML
@@ -76,12 +80,12 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     private Label lbQuantity;
 
     public CoffeeMachineGUI() {
-        coffeeMachine = new CoffeeMachine(this);
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        coffeeMachine = new CoffeeMachine(this);
     }
 
     @Override
@@ -158,5 +162,14 @@ public class CoffeeMachineGUI implements Initializable, Observer {
 
     public void onMenu(ActionEvent event) {
         coffeeMachine.btnMenu();
+    }
+
+    public CoffeeMachineGUI setCoffeeMachine(CoffeeMachine coffeeMachine) {
+        this.coffeeMachine = coffeeMachine;
+        return this;
+    }
+
+    public CoffeeMachine getCoffeeMachine() {
+        return coffeeMachine;
     }
 }

@@ -3,9 +3,6 @@ package be.umons.coffeemachine.state;
 import be.umons.coffeemachine.context.CoffeeMachine;
 
 public abstract class State {
-    private Boolean isHot;
-
-    private Boolean isServed;
 
     private Integer quantity;
 
