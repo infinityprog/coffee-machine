@@ -71,6 +71,7 @@ public class CoffeeMachine extends Subject {
 
     public void btnIntensity() {
         logger.info("User presses on btn intensity");
+        System.out.println("User presses on btn intensity");
         state.intensity(this);
     }
 

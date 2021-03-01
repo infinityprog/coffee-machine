@@ -1,9 +1,15 @@
 package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.model.drink.Drink;
+import be.umons.coffeemachine.model.format.Intensity;
 import be.umons.coffeemachine.state.takedrink.preparing.Preparing;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CoffeeDrink extends TakeDrink {
+
+    private Logger logger = LogManager.getLogger(CoffeeDrink.class);
 
     private static CoffeeDrink instance;
 
@@ -28,7 +34,17 @@ public class CoffeeDrink extends TakeDrink {
 
     @Override
     public void intensity(CoffeeMachine coffeeMachine) {
-        super.intensity(coffeeMachine);
+        logger.info("Change intensity");
+
+        Drink drink = coffeeMachine.getDrink();
+        Intensity actulalIntensity = drink.getIntensity();
+
+        Intensity newIntensity = changeIntensity(actulalIntensity);
+        drink.setIntensity(newIntensity);
+
+        System.out.println(newIntensity);
+
+        entry(coffeeMachine);
     }
 
     @Override

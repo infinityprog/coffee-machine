@@ -2,19 +2,29 @@ package be.umons.coffeemachine.model.format;
 
 public enum Intensity {
 
-    VERY_SOFT,
+    VERY_SOFT("Très faible"),
 
-    SOFT,
+    SOFT("Faible"),
 
-    NORMAL,
+    NORMAL("Normal"),
 
-    STRONG,
+    STRONG("Fort"),
 
-    VERY_STRONG,
+    VERY_STRONG("Très fort"),
 
-    DOUBLESHOT_STRONG,
+    DOUBLESHOT_STRONG("Double shot fort"),
 
-    DOUBLESHOT_STRONG_MORE,
+    DOUBLESHOT_STRONG_MORE("Double shot fort +"),
 
-    COMP_POWDER
+    COMP_POWDER("En poudre");
+
+    private String name;
+
+    Intensity(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

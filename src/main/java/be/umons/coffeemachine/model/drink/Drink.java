@@ -8,9 +8,9 @@ public abstract class Drink {
 
     private String name;
 
-    private Quantity quantity;
+    private Quantity quantity = Quantity.MEDIUM;
 
-    private Intensity intensity;
+    private Intensity intensity = Intensity.NORMAL;
 
     private boolean two = false;
 

@@ -9,11 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CoffeeMachineGUI implements Initializable, Observer {
+
+    private Logger logger = LogManager.getLogger(CoffeeMachineGUI.class);
 
     private CoffeeMachine coffeeMachine;
 
@@ -141,6 +145,9 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     }
 
     public void onIntensity(ActionEvent event) {
+        logger.info("User click on intensity");
+        System.out.println("User click on intensity");
+
         coffeeMachine.btnIntensity();
     }
 
