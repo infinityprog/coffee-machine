@@ -34,6 +34,12 @@ public class Preparing extends TakeDrink {
         coffeeMachine.transition(Waiting.instance());
     }
 
+    @Override
+    public void exit(CoffeeMachine coffeeMachine) {
+        coffeeMachine.setIntensityDisplay("");
+        coffeeMachine.setQuantityDisplay("");
+    }
+
     private void onPreparing(CoffeeMachine coffeeMachine) {
         pause = new PauseTransition(Duration.millis(100));
         onPreparing(pause, coffeeMachine, 0, 100);
@@ -41,6 +47,7 @@ public class Preparing extends TakeDrink {
 
     private void onPreparing(PauseTransition pause, CoffeeMachine coffeeMachine, int nbrNow, int end) {
         String drinkName = coffeeMachine.getDrink().getName();
+        System.out.println(drinkName);
         pause.setOnFinished(event -> {
             coffeeMachine.setTitleDisplay("Préparation " + drinkName + "\n" + nbrNow + "/100");
             int resultNbr = nbrNow + 1;

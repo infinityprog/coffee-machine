@@ -38,7 +38,7 @@
       </VBox>
       <Pane layoutX="281.0" layoutY="177.0" prefHeight="200.0" prefWidth="375.0">
          <children>
-            <Label fx:id="lbTitle" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="71.0" layoutY="37.0" prefHeight="50.0" prefWidth="235.0">
+            <Label fx:id="lbTitle" textAlignment="CENTER" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="71.0" layoutY="37.0" prefHeight="85.0" prefWidth="235.0">
                <font>
                   <Font size="24.0" />
                </font>

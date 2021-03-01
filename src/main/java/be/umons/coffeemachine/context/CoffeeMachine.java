@@ -153,6 +153,7 @@ public class CoffeeMachine extends Subject {
 
     public void transition(State next) {
         logger.info("Change state to " + next.getClass().getName());
+        state.exit(this);
         state = next;
         next.entry(this);
     }
