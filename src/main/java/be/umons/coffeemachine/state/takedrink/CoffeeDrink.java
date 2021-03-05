@@ -50,7 +50,8 @@ public class CoffeeDrink extends TakeDrink {
 
     @Override
     public void two(CoffeeMachine coffeeMachine) {
-        super.two(coffeeMachine);
+        Drink drink = coffeeMachine.getDrink();
+        drink.setTwo(!drink.isTwo());
     }
 
     @Override

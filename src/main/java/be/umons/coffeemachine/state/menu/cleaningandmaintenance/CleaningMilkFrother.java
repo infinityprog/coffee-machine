@@ -1,7 +1,6 @@
 package be.umons.coffeemachine.state.menu.cleaningandmaintenance;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.state.menu.Reset;
 
 public class CleaningMilkFrother extends CAMOptions {
 

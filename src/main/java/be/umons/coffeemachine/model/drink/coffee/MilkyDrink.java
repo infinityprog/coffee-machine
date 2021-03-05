@@ -7,23 +7,25 @@ public class MilkyDrink extends Drink {
 
     private MilkFroth milkFroth;
 
-    public MilkyDrink(String name) {
+    public MilkyDrink(String name, String milkName) {
         super(name);
-        this.milkFroth = new MilkFroth("Milk Froth");
-        coffee = true;
-    }
-
-    public MilkFroth getMilkFroth() {
-        return milkFroth;
+        this.milkFroth = new MilkFroth(milkName);
     }
 
     @Override
     public void makeDrink(CoffeeMachine coffeeMachine) {
-
+        milkFroth.getEndPreparation().setOnFinished(event -> onPreparing(coffeeMachine));
+        milkFroth.makeDrink(coffeeMachine);
     }
 
     @Override
-    public boolean isMilk() {
-        return milkFroth.isMilk();
+    public void stop(CoffeeMachine coffeeMachine) {
+        if (!milkFroth.isPreparing()){
+            milkFroth.stop(coffeeMachine);
+            onPreparing(coffeeMachine);
+        } else {
+            pause.stop();
+            preparing = true;
+        }
     }
 }

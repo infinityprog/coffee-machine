@@ -1,7 +1,6 @@
 package be.umons.coffeemachine.view;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.observer.Observer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

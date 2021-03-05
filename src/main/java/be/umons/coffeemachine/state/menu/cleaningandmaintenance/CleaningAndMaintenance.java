@@ -1,7 +1,6 @@
 package be.umons.coffeemachine.state.menu.cleaningandmaintenance;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.state.menu.Favorite;
 import be.umons.coffeemachine.state.menu.Menu;
 
 public class CleaningAndMaintenance extends Menu {

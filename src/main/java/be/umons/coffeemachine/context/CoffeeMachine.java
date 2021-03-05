@@ -15,7 +15,6 @@ import be.umons.coffeemachine.state.Rinsing;
 import be.umons.coffeemachine.state.Start;
 import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.Waiting;
-import be.umons.coffeemachine.view.CoffeeMachineGUI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -112,42 +111,42 @@ public class CoffeeMachine extends Subject {
     public void btnExpressoMacch() {
         logger.info("User presses on btn Expresso Macch");
 
-        drink = new Coffee("Expresso Macch");
+        drink = new Coffee("Expresso Macchiato");
         state.coffee(this);
     }
 
     public void btnCoffee() {
         logger.info("User presses on btn Coffee");
 
-        drink = new Coffee("Coffee");
+        drink = new Coffee("Caffé");
         state.coffee(this);
     }
 
     public void btnCappuccino() {
         logger.info("User presses on btn Cappuccino");
 
-        drink = new Coffee("Cappuccino");
+        drink = new MilkyDrink("Cappuccino", "Mousse de lait");
         state.coffee(this);
     }
 
     public void btnLatteMacchiate() {
         logger.info("User presses on btn Latte Macchiate");
 
-        drink = new MilkyDrink("Latte Machiate");
+        drink = new MilkyDrink("Latte Machiate", "Lait");
         state.milky(this);
     }
 
     public void btnMilkCoffee() {
         logger.info("User presses on btn Milk Coffee");
 
-        drink = new MilkyDrink("Milk Coffee");
+        drink = new MilkyDrink("Caffé au lait", "Lait");
         state.milky(this);
     }
 
     public void btnMilkFroth() {
         logger.info("User presses on btn Milk Froth");
 
-        drink = new MilkFroth("Milk Froth");
+        drink = new MilkFroth("Mousse de Lait");
         state.milky(this);
     }
 

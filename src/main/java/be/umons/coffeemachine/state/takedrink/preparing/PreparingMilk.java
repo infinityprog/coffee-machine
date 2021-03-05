@@ -2,7 +2,6 @@ package be.umons.coffeemachine.state.takedrink.preparing;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.drink.Drink;
-import be.umons.coffeemachine.state.Waiting;
 import be.umons.coffeemachine.state.takedrink.TakeDrink;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
@@ -43,11 +42,7 @@ public class PreparingMilk extends TakeDrink {
             int resultNbr = nbrNow + 1;
             if (nbrNow >= end) {
                 PauseTransition endPause = new PauseTransition(Duration.seconds(0.5));
-                if (drink.isCoffee()){
-                    endPause.setOnFinished(event1 -> coffeeMachine.transition(Preparing.instance()));
-                } else {
-                    endPause.setOnFinished(event1 -> coffeeMachine.transition(Waiting.instance()));
-                }
+
                 endPause.play();
             } else {
                 onPreparing(pause, coffeeMachine, resultNbr, end);
