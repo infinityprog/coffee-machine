@@ -4,7 +4,6 @@ import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.format.Intensity;
 import be.umons.coffeemachine.model.format.Quantity;
-import be.umons.coffeemachine.state.takedrink.preparing.Preparing;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

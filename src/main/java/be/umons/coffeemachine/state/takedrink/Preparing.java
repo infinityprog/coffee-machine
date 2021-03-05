@@ -1,9 +1,8 @@
-package be.umons.coffeemachine.state.takedrink.preparing;
+package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.state.Waiting;
-import be.umons.coffeemachine.state.takedrink.TakeDrink;
 
 public class Preparing extends TakeDrink {
 

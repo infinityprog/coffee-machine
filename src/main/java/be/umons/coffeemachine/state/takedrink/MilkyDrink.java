@@ -1,7 +1,6 @@
 package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.state.takedrink.preparing.Preparing;
 
 public class MilkyDrink extends TakeDrink {
 
