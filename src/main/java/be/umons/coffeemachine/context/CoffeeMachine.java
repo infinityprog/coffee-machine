@@ -147,7 +147,7 @@ public class CoffeeMachine extends Subject {
     public void btnMilkFroth() {
         logger.info("User presses on btn Milk Froth");
 
-        drink = new MilkyDrink("Milk Froth");
+        drink = new MilkFroth("Milk Froth");
         state.milky(this);
     }
 

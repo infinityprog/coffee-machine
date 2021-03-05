@@ -8,6 +8,7 @@ public class MilkFroth extends Drink {
 
     public MilkFroth(String name) {
         super(name);
+        milk = true;
     }
 
     @Override

@@ -12,6 +12,10 @@ public abstract class Drink {
 
     private Intensity intensity = Intensity.NORMAL;
 
+    protected boolean coffee = false;
+
+    protected boolean milk = false;
+
     private boolean two = false;
 
     public Drink(String name) {
@@ -55,4 +59,12 @@ public abstract class Drink {
     }
 
     public abstract void makeDrink(CoffeeMachine coffeeMachine);
+
+    public boolean isCoffee() {
+        return coffee;
+    }
+
+    public boolean isMilk() {
+        return milk;
+    }
 }

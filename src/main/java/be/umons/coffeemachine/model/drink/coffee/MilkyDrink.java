@@ -10,6 +10,7 @@ public class MilkyDrink extends Drink {
     public MilkyDrink(String name) {
         super(name);
         this.milkFroth = new MilkFroth("Milk Froth");
+        coffee = true;
     }
 
     public MilkFroth getMilkFroth() {
@@ -19,5 +20,10 @@ public class MilkyDrink extends Drink {
     @Override
     public void makeDrink(CoffeeMachine coffeeMachine) {
 
+    }
+
+    @Override
+    public boolean isMilk() {
+        return milkFroth.isMilk();
     }
 }

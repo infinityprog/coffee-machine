@@ -7,6 +7,7 @@ public class Coffee extends Drink {
 
     public Coffee(String name) {
         super(name);
+        coffee = true;
     }
 
     @Override
