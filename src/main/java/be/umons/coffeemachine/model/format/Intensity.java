@@ -2,9 +2,9 @@ package be.umons.coffeemachine.model.format;
 
 public enum Intensity {
 
-    VERY_SOFT("Très faible"),
+    VERY_SOFT("Très doux"),
 
-    SOFT("Faible"),
+    SOFT("Doux"),
 
     NORMAL("Normal"),
 
@@ -12,9 +12,9 @@ public enum Intensity {
 
     VERY_STRONG("Très fort"),
 
-    DOUBLESHOT_STRONG("Double shot fort"),
+    DOUBLESHOT_STRONG("Doubleshot fort"),
 
-    DOUBLESHOT_STRONG_MORE("Double shot fort +"),
+    DOUBLESHOT_STRONG_MORE("Doubleshot fort +"),
 
     COMP_POWDER("En poudre");
 
