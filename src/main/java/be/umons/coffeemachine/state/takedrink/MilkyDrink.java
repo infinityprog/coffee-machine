@@ -2,7 +2,7 @@ package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.drink.Drink;
-import be.umons.coffeemachine.model.format.Intensity;
+import be.umons.coffeemachine.model.enums.Intensity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

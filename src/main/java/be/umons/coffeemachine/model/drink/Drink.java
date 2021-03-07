@@ -1,8 +1,8 @@
 package be.umons.coffeemachine.model.drink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.model.format.Intensity;
-import be.umons.coffeemachine.model.format.Quantity;
+import be.umons.coffeemachine.model.enums.Intensity;
+import be.umons.coffeemachine.model.enums.Quantity;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;

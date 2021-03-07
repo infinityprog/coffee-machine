@@ -1,4 +1,4 @@
-package be.umons.coffeemachine.model.format;
+package be.umons.coffeemachine.model.enums;
 
 public enum Intensity {
 

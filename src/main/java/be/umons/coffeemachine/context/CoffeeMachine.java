@@ -5,7 +5,7 @@ import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
 import be.umons.coffeemachine.model.drink.coffee.MilkyDrink;
-import be.umons.coffeemachine.model.format.Quantity;
+import be.umons.coffeemachine.model.enums.Quantity;
 import be.umons.coffeemachine.model.pieces.MilkFrother;
 import be.umons.coffeemachine.model.pieces.MilkPipe;
 import be.umons.coffeemachine.model.pieces.WaterReservoir;

@@ -16,12 +16,14 @@ public class MilkyDrink extends Drink {
         super(name);
         this.milkFroth = new MilkFroth(milkName);
         this.coffee = new Coffee(name);
+
     }
 
     @Override
     public void makeDrink(CoffeeMachine coffeeMachine) {
         if (!milkFroth.isPreparing()){
             milkFroth.onFinish(() -> {
+                coffee.setIntensity(getIntensity());
                 coffee.makeDrink(coffeeMachine);
                 preparing = true;
             });
@@ -35,6 +37,7 @@ public class MilkyDrink extends Drink {
     public void stop(CoffeeMachine coffeeMachine) {
         if (!milkFroth.isPreparing()){
             milkFroth.stop(coffeeMachine);
+            coffee.setIntensity(getIntensity());
             coffee.makeDrink(coffeeMachine);
         } else {
             coffee.stop(coffeeMachine);

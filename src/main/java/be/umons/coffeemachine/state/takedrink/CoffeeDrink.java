@@ -2,7 +2,7 @@ package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.drink.Drink;
-import be.umons.coffeemachine.model.format.Intensity;
+import be.umons.coffeemachine.model.enums.Intensity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -44,7 +44,9 @@ public class CoffeeDrink extends TakeDrink {
     @Override
     public void two(CoffeeMachine coffeeMachine) {
         Drink drink = coffeeMachine.getDrink();
-        if (drink.getIntensity() != Intensity.DOUBLESHOT_STRONG_MORE && drink.getIntensity() != Intensity.DOUBLESHOT_STRONG) {
+        if (drink.getIntensity() != Intensity.DOUBLESHOT_STRONG_MORE
+                && drink.getIntensity() != Intensity.DOUBLESHOT_STRONG
+                && drink.getIntensity() != Intensity.COMP_POWDER) {
             drink.setTwo(!drink.isTwo());
         } else {
             displayErrorMessage(coffeeMachine,"Vous ne pouvez pas faire deux café si l'intensité est sur double shot");
