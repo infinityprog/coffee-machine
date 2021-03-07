@@ -66,6 +66,14 @@ public abstract class State {
 
     }
 
+    public void water(CoffeeMachine coffeeMachine) {
+
+    }
+
+    public void verseuse(CoffeeMachine coffeeMachine) {
+
+    }
+
     public void changeOption() {
 
     }

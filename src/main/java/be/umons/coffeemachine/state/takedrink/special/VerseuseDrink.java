@@ -1,18 +1,17 @@
-package be.umons.coffeemachine.state;
+package be.umons.coffeemachine.state.takedrink.special;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.state.takedrink.CoffeeDrink;
 import be.umons.coffeemachine.state.takedrink.MilkyDrink;
-import be.umons.coffeemachine.state.takedrink.special.VerseuseDrink;
-import be.umons.coffeemachine.state.takedrink.special.WaterDrink;
+import be.umons.coffeemachine.state.takedrink.TakeDrink;
 
-public class Waiting extends State {
+public class VerseuseDrink extends TakeDrink {
 
-    private static Waiting instance;
+    private static VerseuseDrink instance;
 
-    public static Waiting instance() {
+    public static VerseuseDrink instance() {
         if (instance == null) {
-            instance = new Waiting();
+            instance = new VerseuseDrink();
         }
 
         return instance;
@@ -20,7 +19,7 @@ public class Waiting extends State {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
-        coffeeMachine.setTitleDisplay("En attente");
+        super.entry(coffeeMachine);
     }
 
     @Override
@@ -29,13 +28,8 @@ public class Waiting extends State {
     }
 
     @Override
-    public void menu(CoffeeMachine coffeeMachine) {
-        super.menu(coffeeMachine);
-    }
-
-    @Override
-    public void security(CoffeeMachine coffeeMachine) {
-        super.security(coffeeMachine);
+    public void quantity(CoffeeMachine coffeeMachine) {
+        super.quantity(coffeeMachine);
     }
 
     @Override
@@ -58,13 +52,4 @@ public class Waiting extends State {
         coffeeMachine.transition(VerseuseDrink.instance());
     }
 
-    @Override
-    public void special(CoffeeMachine coffeeMachine) {
-        super.special(coffeeMachine);
-    }
-
-    @Override
-    public void favori(CoffeeMachine coffeeMachine) {
-        super.favori(coffeeMachine);
-    }
 }
