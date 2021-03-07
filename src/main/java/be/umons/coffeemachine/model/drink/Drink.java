@@ -5,8 +5,12 @@ import be.umons.coffeemachine.model.format.Intensity;
 import be.umons.coffeemachine.model.format.Quantity;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class Drink {
+
+    private static final Logger LOGGER = LogManager.getLogger(Drink.class);
 
     private String name;
 
@@ -106,6 +110,20 @@ public abstract class Drink {
             }
         });
         pause.play();
+    }
+
+    public abstract void resetPieces(CoffeeMachine coffeeMachine);
+
+    public void onFinish(Runnable finishFunc) {
+
+            endPreparation.setOnFinished(event -> {
+                try {
+                    finishFunc.run();
+                } catch (Exception e) {
+                    LOGGER.error(e.getMessage());
+                }
+            });
+
     }
 
 }

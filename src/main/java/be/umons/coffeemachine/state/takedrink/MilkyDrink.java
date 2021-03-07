@@ -23,7 +23,6 @@ public class MilkyDrink extends TakeDrink {
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
         super.entry(coffeeMachine);
-        coffeeMachine.setMilky(true);
     }
 
     @Override

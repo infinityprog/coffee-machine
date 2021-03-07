@@ -22,7 +22,7 @@ public class Preparing extends TakeDrink {
         coffeeMachine.setIntensityDisplay("");
         coffeeMachine.setQuantityDisplay("");
         Drink drink = coffeeMachine.getDrink();
-        drink.getEndPreparation().setOnFinished(event -> coffeeMachine.transition(Waiting.instance()));
+        drink.onFinish(() -> coffeeMachine.transition(Waiting.instance()));
         drink.makeDrink(coffeeMachine);
     }
 
@@ -37,7 +37,11 @@ public class Preparing extends TakeDrink {
 
     @Override
     public void exit(CoffeeMachine coffeeMachine) {
+        Drink drink = coffeeMachine.getDrink();
         coffeeMachine.setIntensityDisplay("");
         coffeeMachine.setQuantityDisplay("");
+        if (drink.isPreparing()) {
+            drink.resetPieces(coffeeMachine);
+        }
     }
 }

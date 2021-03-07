@@ -12,4 +12,9 @@ public class WarmWater extends Special {
     public void makeDrink(CoffeeMachine coffeeMachine) {
 
     }
+
+    @Override
+    public void resetPieces(CoffeeMachine coffeeMachine) {
+
+    }
 }

@@ -11,10 +11,8 @@ import be.umons.coffeemachine.model.pieces.MilkPipe;
 import be.umons.coffeemachine.model.pieces.WaterReservoir;
 import be.umons.coffeemachine.observer.Observer;
 import be.umons.coffeemachine.observer.Subject;
-import be.umons.coffeemachine.state.Rinsing;
 import be.umons.coffeemachine.state.Start;
 import be.umons.coffeemachine.state.State;
-import be.umons.coffeemachine.state.Waiting;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,7 +31,6 @@ public class CoffeeMachine extends Subject {
     private MilkPipe milkPipe;
     private boolean hot;
     private boolean served;
-    private boolean milky;
     private Observer observer;
     private String titleDisplay;
     private String intensityDisplay;
@@ -259,24 +256,8 @@ public class CoffeeMachine extends Subject {
         return this;
     }
 
-    public void initState() {
-        if (!isHot() && !isServed()) {
-            state = Rinsing.instance();
-            state.entry(this);
-        } else {
-            state = Waiting.instance();
-        }
-    }
-
     public Drink getDrink() {
         return drink;
     }
 
-    public boolean isMilky() {
-        return milky;
-    }
-
-    public void setMilky(boolean milky) {
-        this.milky = milky;
-    }
 }

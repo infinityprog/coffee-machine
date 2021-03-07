@@ -2,11 +2,17 @@ package be.umons.coffeemachine.model.pieces;
 
 public class MilkPipe {
 
-    public void remove() {
+    private boolean connected = false;
 
+    public void  connecte() {
+        connected = true;
     }
 
-    public void add() {
+    public void disconnect() {
+        connected = false;
+    }
 
+    public boolean isDisconnected() {
+        return !connected;
     }
 }
