@@ -2,9 +2,10 @@ package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.drink.Drink;
+import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.Waiting;
 
-public class Preparing extends TakeDrink {
+public class Preparing extends State {
 
     private static Preparing instance;
 

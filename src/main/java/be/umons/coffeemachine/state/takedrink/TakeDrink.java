@@ -27,6 +27,11 @@ public abstract class TakeDrink extends State {
         coffeeMachine.setQuantityDisplay(drink.getQuantity().getName());
     }
 
+    @Override
+    public void startStop(CoffeeMachine coffeeMachine) {
+        coffeeMachine.transition(Preparing.instance());
+    }
+
     protected void changeIntensity(Drink drink) {
         Intensity[] intensities;
         Intensity currentIntensity = drink.getIntensity();
