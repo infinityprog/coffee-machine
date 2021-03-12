@@ -154,6 +154,7 @@ public class CoffeeMachine extends Subject {
         logger.info("Change state to " + next.getClass().getName());
         state.exit(this);
         state = next;
+        System.out.println(next.getClass().getName());
         next.entry(this);
     }
 
@@ -266,7 +267,8 @@ public class CoffeeMachine extends Subject {
     private void  makeSpecial() {
 
         try {
-            SpecialName specialName = SpecialName.valueOf(drink.getName());
+            System.out.println(drink.getName());
+            SpecialName specialName = SpecialName.fromName(drink.getName());
             changeSpecial(specialName);
         } catch (Exception ignored){
             SpecialDrinkFactory specialDrinkFactory = new SpecialDrinkFactory();
@@ -277,8 +279,14 @@ public class CoffeeMachine extends Subject {
     }
 
     private void changeSpecial(SpecialName name) {
-        SpecialName[] specialNames = SpecialName.values();
         SpecialDrinkFactory specialDrinkFactory = new SpecialDrinkFactory();
+
+        if (name == null) {
+            drink = specialDrinkFactory.getSpecialDrink(SpecialName.HOT_WATER);
+            state.water(this);
+        }
+
+        SpecialName[] specialNames = SpecialName.values();
 
         for (int i = 0; i < specialNames.length; i++) {
             if (specialNames[i] == name &&  i + 1 < specialNames.length) {
@@ -306,27 +314,6 @@ public class CoffeeMachine extends Subject {
             default:
                 state.coffee(this);
                 break;
-        }
-    }
-
-    protected void changeQuantity(Drink drink) {
-        Quantity[] quantities;
-        Quantity currentQuantity = drink.getQuantity();
-
-        if (drink.getIntensity() == Intensity.DOUBLESHOT_STRONG || drink.getIntensity() == Intensity.DOUBLESHOT_STRONG_MORE) {
-            quantities = Arrays.stream(Quantity.values())
-                    .filter(filter -> filter != Quantity.SMALL)
-                    .toArray(Quantity[]::new);
-        } else {
-            quantities = Quantity.values();
-        }
-
-        for (int i = 0; i < quantities.length; i++) {
-            if (quantities[i] == currentQuantity &&  i + 1 < quantities.length) {
-                drink.setQuantity(quantities[i + 1]);
-            } else if (quantities[i] == currentQuantity &&  i + 1 == quantities.length) {
-                drink.setQuantity(quantities[0]);
-            }
         }
     }
 

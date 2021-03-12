@@ -22,4 +22,13 @@ public enum SpecialName {
     public String getName() {
         return name;
     }
+
+    public static SpecialName fromName(String name) {
+        for (SpecialName specialName : SpecialName.values()) {
+            if (specialName.name.equalsIgnoreCase(name)) {
+                return specialName;
+            }
+        }
+        return null;
+    }
 }

@@ -50,6 +50,7 @@ public class Waiting extends State {
 
     @Override
     public void water(CoffeeMachine coffeeMachine) {
+        System.out.println("waiting water");
         coffeeMachine.transition(WaterDrink.instance());
     }
 
