@@ -38,8 +38,7 @@ public class WaterDrink extends TakeDrink {
         LOGGER.info("Change quantity");
 
         Drink drink = coffeeMachine.getDrink();
-
-        changeQuantity(drink);
+        drink.changeQuantity();
 
         super.entry(coffeeMachine);
     }

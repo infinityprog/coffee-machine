@@ -37,8 +37,7 @@ public class CoffeeDrink extends TakeDrink {
         logger.info("Change intensity");
 
         Drink drink = coffeeMachine.getDrink();
-
-        changeIntensity(drink);
+        drink.changeIntensity();
 
         super.entry(coffeeMachine);
     }
@@ -61,8 +60,7 @@ public class CoffeeDrink extends TakeDrink {
         logger.info("Change quantity");
 
         Drink drink = coffeeMachine.getDrink();
-
-        changeQuantity(drink);
+        drink.changeQuantity();
 
         super.entry(coffeeMachine);
     }

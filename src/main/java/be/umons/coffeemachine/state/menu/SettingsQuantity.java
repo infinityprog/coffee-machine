@@ -2,19 +2,24 @@ package be.umons.coffeemachine.state.menu;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.drink.Drink;
+import be.umons.coffeemachine.model.enums.MenuName;
 
 public class SettingsQuantity extends Menu {
 
-    private static SettingsQuantity instance;
+    private static Menu instance;
 
     private Drink currentDrink;
 
-    public static SettingsQuantity instance() {
+    public static Menu instance() {
         if (instance == null) {
             instance = new SettingsQuantity();
         }
 
         return instance;
+    }
+
+    public SettingsQuantity() {
+        super(MenuName.SETTINGS_DRINK_QUANTITY);
     }
 
     @Override

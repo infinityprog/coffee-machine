@@ -1,7 +1,9 @@
 package be.umons.coffeemachine.state.menu.cleaningandmaintenance;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.model.enums.MenuName;
 import be.umons.coffeemachine.state.menu.Menu;
+import be.umons.coffeemachine.state.menu.MenuChoice;
 
 public class CleaningAndMaintenance extends Menu {
 
@@ -15,6 +17,10 @@ public class CleaningAndMaintenance extends Menu {
         }
 
         return instance;
+    }
+
+    public CleaningAndMaintenance() {
+        super(null);
     }
 
     @Override

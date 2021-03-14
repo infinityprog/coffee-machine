@@ -1,6 +1,7 @@
 package be.umons.coffeemachine.state.menu;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.model.enums.MenuName;
 
 public class FrostProtection extends Menu {
 
@@ -12,6 +13,10 @@ public class FrostProtection extends Menu {
         }
 
         return instance;
+    }
+
+    public FrostProtection() {
+        super(MenuName.FROST_PROTECTION);
     }
 
     @Override

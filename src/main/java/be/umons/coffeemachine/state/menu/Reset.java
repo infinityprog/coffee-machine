@@ -1,17 +1,22 @@
 package be.umons.coffeemachine.state.menu;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.model.enums.MenuName;
 
 public class Reset extends Menu {
 
-    private static Reset instance;
+    private static Menu instance;
 
-    public static Reset instance() {
+    public static Menu instance() {
         if (instance == null) {
             instance = new Reset();
         }
 
         return instance;
+    }
+
+    public Reset() {
+        super(MenuName.RESET);
     }
 
     @Override

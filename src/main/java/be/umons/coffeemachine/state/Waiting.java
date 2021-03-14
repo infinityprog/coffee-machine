@@ -1,6 +1,7 @@
 package be.umons.coffeemachine.state;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.state.menu.MenuChoice;
 import be.umons.coffeemachine.state.takedrink.CoffeeDrink;
 import be.umons.coffeemachine.state.takedrink.MilkyDrink;
 import be.umons.coffeemachine.state.takedrink.special.VerseuseDrink;
@@ -30,7 +31,7 @@ public class Waiting extends State {
 
     @Override
     public void menu(CoffeeMachine coffeeMachine) {
-        super.menu(coffeeMachine);
+        coffeeMachine.transition(MenuChoice.instance());
     }
 
     @Override

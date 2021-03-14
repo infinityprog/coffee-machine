@@ -58,8 +58,7 @@ public class VerseuseDrink extends TakeDrink {
         LOGGER.info("Change intensity");
 
         Drink drink = coffeeMachine.getDrink();
-
-        changeIntensity(drink);
+        drink.changeIntensity();
 
         super.entry(coffeeMachine);
     }

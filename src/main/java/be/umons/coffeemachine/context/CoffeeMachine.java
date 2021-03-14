@@ -1,11 +1,11 @@
 package be.umons.coffeemachine.context;
 
-import be.umons.coffeemachine.model.Profil;
+import be.umons.coffeemachine.model.Profile;
 import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
 import be.umons.coffeemachine.model.drink.coffee.MilkyDrink;
-import be.umons.coffeemachine.model.enums.Intensity;
+import be.umons.coffeemachine.model.enums.ProfileName;
 import be.umons.coffeemachine.model.enums.Quantity;
 import be.umons.coffeemachine.model.enums.SpecialName;
 import be.umons.coffeemachine.model.factory.SpecialDrinkFactory;
@@ -19,7 +19,7 @@ import be.umons.coffeemachine.state.State;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -39,13 +39,15 @@ public class CoffeeMachine extends Subject {
     private String titleDisplay;
     private String intensityDisplay;
     private String quantityDisplay;
-    private List<Profil> profils;
+    private List<Profile> profiles;
+    private Profile selectedProfile;
 
     public CoffeeMachine(Observer observer) {
         attach(observer);
         waterReservoir = new WaterReservoir();
         milkFrother = new MilkFrother();
         milkPipe = new MilkPipe();
+        profiles = createProfil();
         state = Start.instance();
     }
 
@@ -233,12 +235,12 @@ public class CoffeeMachine extends Subject {
         return this;
     }
 
-    public List<Profil> getProfils() {
-        return profils;
+    public List<Profile> getProfils() {
+        return profiles;
     }
 
-    public CoffeeMachine setProfils(List<Profil> profils) {
-        this.profils = profils;
+    public CoffeeMachine setProfils(List<Profile> profiles) {
+        this.profiles = profiles;
         return this;
     }
 
@@ -317,4 +319,23 @@ public class CoffeeMachine extends Subject {
         }
     }
 
+    private List<Profile> createProfil() {
+        List<Profile> profiles = new ArrayList<>();
+        ProfileName[] profileNames = ProfileName.values();
+
+        for (int i = 0; i < profileNames.length; i++) {
+            boolean used = i % 2 == 0;
+            profiles.add(new Profile(profileNames[i], used));
+        }
+
+        return profiles;
+    }
+
+    public Profile getSelectedProfile() {
+        return selectedProfile;
+    }
+
+    public void setSelectedProfile(Profile selectedProfile) {
+        this.selectedProfile = selectedProfile;
+    }
 }

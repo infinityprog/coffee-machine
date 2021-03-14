@@ -8,6 +8,9 @@ import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public abstract class Drink {
 
     private static final Logger LOGGER = LogManager.getLogger(Drink.class);
@@ -50,6 +53,28 @@ public abstract class Drink {
         return this;
     }
 
+    public void changeQuantity() {
+        Quantity[] quantities;
+
+        if (intensity == Intensity.DOUBLESHOT_STRONG || intensity == Intensity.DOUBLESHOT_STRONG_MORE) {
+            quantities = Arrays.stream(Quantity.values())
+                    .filter(filter -> filter != Quantity.SMALL)
+                    .toArray(Quantity[]::new);
+        } else {
+            quantities = Quantity.values();
+        }
+
+        for (int i = 0; i < quantities.length; i++) {
+            if (quantities[i] == quantity &&  i + 1 < quantities.length) {
+                quantity = quantities[i + 1];
+                return;
+            } else if (quantities[i] == quantity &&  i + 1 == quantities.length) {
+                quantity = quantities[0];
+                return;
+            }
+        }
+    }
+
     public Intensity getIntensity() {
         return intensity;
     }
@@ -57,6 +82,29 @@ public abstract class Drink {
     public Drink setIntensity(Intensity intensity) {
         this.intensity = intensity;
         return this;
+    }
+
+    public void changeIntensity() {
+        Intensity[] intensities;
+
+        if (isTwo() || quantity == Quantity.SMALL) {
+            intensities = Arrays.stream(Intensity.values())
+                    .filter(filter -> filter != Intensity.DOUBLESHOT_STRONG && filter != Intensity.DOUBLESHOT_STRONG_MORE)
+                    .toArray(Intensity[]::new);
+        } else {
+            intensities = Intensity.values();
+        }
+
+
+        for (int i = 0; i < intensities.length; i++) {
+            if (intensities[i] == intensity &&  i + 1 < intensities.length) {
+                intensity = intensities[i + 1];
+                return;
+            } else if (intensities[i] == intensity &&  i + 1 == intensities.length) {
+                intensity = intensities[0];
+                return;
+            }
+        }
     }
 
     public boolean isTwo() {
@@ -126,4 +174,16 @@ public abstract class Drink {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Drink drink = (Drink) o;
+        return name.equals(drink.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
