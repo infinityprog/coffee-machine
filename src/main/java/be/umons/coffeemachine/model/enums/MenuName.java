@@ -21,15 +21,15 @@ public enum MenuName {
 
     RESET("Préréglage d'usine"),
 
+    CLEANING_AND_MAINTENANCE("Néttoyage et entretien"),
+
     CALC_AND_CLEAN("Calc'nClean"),
 
     CLEANING_MILK_FROTH("Nettoyage du mousseur de laît"),
 
     CLEANING("Nettoyage"),
 
-    DESCALING("Détartrage")
-
-    ;
+    DESCALING("Détartrage");
 
     private String name;
 

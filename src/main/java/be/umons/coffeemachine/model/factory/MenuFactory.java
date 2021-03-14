@@ -6,10 +6,7 @@ import be.umons.coffeemachine.state.menu.Favorite;
 import be.umons.coffeemachine.state.menu.Menu;
 import be.umons.coffeemachine.state.menu.Reset;
 import be.umons.coffeemachine.state.menu.SettingsQuantity;
-import be.umons.coffeemachine.state.menu.cleaningandmaintenance.CalcAndClean;
-import be.umons.coffeemachine.state.menu.cleaningandmaintenance.Cleaning;
-import be.umons.coffeemachine.state.menu.cleaningandmaintenance.CleaningMilkFrother;
-import be.umons.coffeemachine.state.menu.cleaningandmaintenance.Descaling;
+import be.umons.coffeemachine.state.menu.programme.ChoiceProgram;
 
 public class MenuFactory {
 
@@ -22,16 +19,10 @@ public class MenuFactory {
                 return Favorite.instance();
             case SETTINGS_DRINK_QUANTITY:
                 return SettingsQuantity.instance();
-            case CLEANING:
-                return Cleaning.instance();
-            case CLEANING_MILK_FROTH:
-                return CleaningMilkFrother.instance();
-            case DESCALING:
-                return Descaling.instance();
-            case CALC_AND_CLEAN:
-                return CalcAndClean.instance();
             case DRINK_SERVED:
-                return new DrinkServed();
+                return DrinkServed.instance();
+            case CLEANING_AND_MAINTENANCE:
+                return ChoiceProgram.instance();
             default:
                 return Reset.instance();
 

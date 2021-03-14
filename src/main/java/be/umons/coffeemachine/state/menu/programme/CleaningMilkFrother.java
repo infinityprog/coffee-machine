@@ -1,14 +1,14 @@
-package be.umons.coffeemachine.state.menu.cleaningandmaintenance;
+package be.umons.coffeemachine.state.menu.programme;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.model.enums.MenuName;
-import be.umons.coffeemachine.state.menu.Menu;
 
-public class CleaningMilkFrother extends CAMOptions {
+import static be.umons.coffeemachine.model.enums.MenuName.CLEANING_MILK_FROTH;
 
-    private static Menu instance;
+public class CleaningMilkFrother extends Program {
 
-    public static Menu instance() {
+    private static CleaningMilkFrother instance;
+
+    public static CleaningMilkFrother instance() {
         if (instance == null) {
             instance = new CleaningMilkFrother();
         }
@@ -17,7 +17,7 @@ public class CleaningMilkFrother extends CAMOptions {
     }
 
     public CleaningMilkFrother() {
-        super(MenuName.CLEANING_MILK_FROTH);
+        super(CLEANING_MILK_FROTH);
     }
 
     @Override

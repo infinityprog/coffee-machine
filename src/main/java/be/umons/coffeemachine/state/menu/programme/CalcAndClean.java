@@ -1,15 +1,16 @@
-package be.umons.coffeemachine.state.menu.cleaningandmaintenance;
+package be.umons.coffeemachine.state.menu.programme;
 
 import be.umons.coffeemachine.model.enums.MenuName;
-import be.umons.coffeemachine.state.menu.Menu;
 
-public class CalcAndClean extends CAMOptions {
+import static be.umons.coffeemachine.model.enums.MenuName.CALC_AND_CLEAN;
 
-    private static Menu instance;
+public class CalcAndClean extends Program {
+
+    private static CalcAndClean instance;
 
     private boolean calcAndClean;
 
-    public static Menu instance() {
+    public static CalcAndClean instance() {
         if (instance == null) {
             instance = new CalcAndClean();
         }
@@ -18,7 +19,7 @@ public class CalcAndClean extends CAMOptions {
     }
 
     public CalcAndClean() {
-        super(MenuName.CALC_AND_CLEAN);
+        super(CALC_AND_CLEAN);
     }
 
     public CalcAndClean(MenuName name) {

@@ -1,14 +1,14 @@
-package be.umons.coffeemachine.state.menu.cleaningandmaintenance;
+package be.umons.coffeemachine.state.menu.programme;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.model.enums.MenuName;
-import be.umons.coffeemachine.state.menu.Menu;
+
+import static be.umons.coffeemachine.model.enums.MenuName.CLEANING;
 
 public class Cleaning extends CalcAndClean {
 
-    private static Menu instance;
+    private static Cleaning instance;
 
-    public static Menu instance() {
+    public static Cleaning instance() {
         if (instance == null) {
             instance = new Cleaning();
         }
@@ -17,7 +17,7 @@ public class Cleaning extends CalcAndClean {
     }
 
     public Cleaning() {
-        super(MenuName.CLEANING);
+        super(CLEANING);
     }
 
     @Override

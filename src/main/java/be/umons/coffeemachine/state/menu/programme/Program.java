@@ -1,10 +1,9 @@
-package be.umons.coffeemachine.state.menu.cleaningandmaintenance;
+package be.umons.coffeemachine.state.menu.programme;
 
 import be.umons.coffeemachine.model.enums.MenuName;
 import be.umons.coffeemachine.state.menu.Menu;
-import be.umons.coffeemachine.state.menu.MenuChoice;
 
-public class CAMOptions extends Menu {
+public class Program extends Menu {
 
     private String errorMessage;
 
@@ -12,12 +11,12 @@ public class CAMOptions extends Menu {
         return errorMessage;
     }
 
-    public CAMOptions setErrorMessage(String errorMessage) {
+    public Program setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
         return this;
     }
 
-    public CAMOptions(MenuName name) {
+    public Program(MenuName name) {
         super(name);
     }
 }

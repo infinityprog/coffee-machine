@@ -67,7 +67,14 @@ public class UpdateProfil extends Menu {
 
     @Override
     public void milky(CoffeeMachine coffeeMachine) {
-        super.milky(coffeeMachine);
+        Drink drink = coffeeMachine.getDrink();
+
+        profile.addFavorite(drink);
+        currentDrink = profile.getFavorite(drink);
+
+        coffeeMachine.setTitleDisplay("Favoris : " + currentDrink.getName());
+        coffeeMachine.setIntensityDisplay(currentDrink.getIntensity().getName());
+        coffeeMachine.setQuantityDisplay(currentDrink.getQuantity().getName());
     }
 
     @Override

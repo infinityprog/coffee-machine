@@ -35,6 +35,7 @@ public class CoffeeMachine extends Subject {
     private MilkPipe milkPipe;
     private boolean hot;
     private boolean served;
+    private boolean calcAndClean;
     private Observer observer;
     private String titleDisplay;
     private String intensityDisplay;
@@ -337,5 +338,13 @@ public class CoffeeMachine extends Subject {
 
     public void setSelectedProfile(Profile selectedProfile) {
         this.selectedProfile = selectedProfile;
+    }
+
+    public boolean isCalcAndClean() {
+        return calcAndClean;
+    }
+
+    public void setCalcAndClean(boolean calcAndClean) {
+        this.calcAndClean = calcAndClean;
     }
 }
