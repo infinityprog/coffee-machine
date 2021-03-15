@@ -1,4 +1,4 @@
-package be.umons.coffeemachine.state.menu.programme;
+package be.umons.coffeemachine.state.menu.program;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.enums.MenuName;
@@ -10,11 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static be.umons.coffeemachine.model.enums.MenuName.CALC_AND_CLEAN;
-import static be.umons.coffeemachine.model.enums.MenuName.CLEANING;
-import static be.umons.coffeemachine.model.enums.MenuName.CLEANING_AND_MAINTENANCE;
-import static be.umons.coffeemachine.model.enums.MenuName.CLEANING_MILK_FROTH;
-import static be.umons.coffeemachine.model.enums.MenuName.DESCALING;
+import static be.umons.coffeemachine.model.enums.MenuName.*;
 
 public class ChoiceProgram extends Menu {
 

@@ -1,12 +1,8 @@
 package be.umons.coffeemachine.model.factory;
 
 import be.umons.coffeemachine.model.enums.MenuName;
-import be.umons.coffeemachine.state.menu.DrinkServed;
-import be.umons.coffeemachine.state.menu.Favorite;
-import be.umons.coffeemachine.state.menu.Menu;
-import be.umons.coffeemachine.state.menu.Reset;
-import be.umons.coffeemachine.state.menu.SettingsQuantity;
-import be.umons.coffeemachine.state.menu.programme.ChoiceProgram;
+import be.umons.coffeemachine.state.menu.*;
+import be.umons.coffeemachine.state.menu.program.ChoiceProgram;
 
 public class MenuFactory {
 

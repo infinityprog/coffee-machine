@@ -1,4 +1,4 @@
-package be.umons.coffeemachine.state.menu.programme;
+package be.umons.coffeemachine.state.menu.program;
 
 import be.umons.coffeemachine.model.enums.MenuName;
 import be.umons.coffeemachine.state.menu.Menu;

@@ -3,14 +3,20 @@ package be.umons.coffeemachine.model.program;
 import be.umons.coffeemachine.context.CoffeeMachine;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class Program {
 
-    protected PauseTransition pause = new PauseTransition(Duration.millis(100));;
+    private static final Logger LOGGER = LogManager.getLogger(Program.class);
+
+    protected PauseTransition pause = new PauseTransition(Duration.millis(100));
 
     protected PauseTransition endPreparation = new PauseTransition(Duration.seconds(1));
 
     protected boolean finish;
+
+    protected boolean inPreparing;
 
     private String name;
 
@@ -27,6 +33,7 @@ public abstract class Program {
     abstract void fixError();
 
     protected void onPreparing(CoffeeMachine coffeeMachine) {
+        inPreparing = true;
         onPreparing(coffeeMachine, 0, 100);
     }
 
@@ -36,7 +43,6 @@ public abstract class Program {
             int resultNbr = nbrNow + 1;
             if (nbrNow >= end) {
                 endPreparation.play();
-                finish = true;
             } else {
                 onPreparing(coffeeMachine, resultNbr, end);
             }
@@ -44,12 +50,26 @@ public abstract class Program {
         pause.play();
     }
 
+    public void onFinish(Runnable finishFunc) {
+
+        endPreparation.setOnFinished(event -> {
+            try {
+                finishFunc.run();
+                inPreparing = false;
+                finish = true;
+            } catch (Exception e) {
+                LOGGER.error(e.getMessage());
+            }
+        });
+
+    }
+
     public boolean isFinish() {
         return finish;
     }
 
-    public void setFinish(boolean finish) {
-        this.finish = finish;
+    public boolean isInPreparing() {
+        return inPreparing;
     }
 
     public String getName() {

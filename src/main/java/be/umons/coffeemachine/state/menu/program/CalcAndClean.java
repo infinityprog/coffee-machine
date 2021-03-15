@@ -1,5 +1,6 @@
-package be.umons.coffeemachine.state.menu.programme;
+package be.umons.coffeemachine.state.menu.program;
 
+import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.enums.MenuName;
 
 import static be.umons.coffeemachine.model.enums.MenuName.CALC_AND_CLEAN;
@@ -16,6 +17,17 @@ public class CalcAndClean extends Program {
         }
 
         return instance;
+    }
+
+    @Override
+    public void entry(CoffeeMachine coffeeMachine) {
+        coffeeMachine.setTitleDisplay(getName().getName());
+    }
+
+    @Override
+    public void startStop(CoffeeMachine coffeeMachine) {
+        coffeeMachine.setCalcAndClean(true);
+        coffeeMachine.transition(Descaling.instance());
     }
 
     public CalcAndClean() {

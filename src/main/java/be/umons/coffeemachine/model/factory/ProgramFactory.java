@@ -1,11 +1,7 @@
 package be.umons.coffeemachine.model.factory;
 
 import be.umons.coffeemachine.model.enums.MenuName;
-import be.umons.coffeemachine.state.menu.programme.Program;
-import be.umons.coffeemachine.state.menu.programme.CalcAndClean;
-import be.umons.coffeemachine.state.menu.programme.Cleaning;
-import be.umons.coffeemachine.state.menu.programme.CleaningMilkFrother;
-import be.umons.coffeemachine.state.menu.programme.Descaling;
+import be.umons.coffeemachine.state.menu.program.*;
 
 import java.security.InvalidParameterException;
 

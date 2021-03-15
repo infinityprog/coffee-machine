@@ -1,34 +1,35 @@
 package be.umons.coffeemachine.model.program;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.model.enums.DescalingError;
+import be.umons.coffeemachine.model.enums.CleaningError;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static be.umons.coffeemachine.model.enums.MenuName.DESCALING;
+import static be.umons.coffeemachine.model.enums.CleaningError.COLLECTING_TRAY;
+import static be.umons.coffeemachine.model.enums.CleaningError.INSERT_TABLET;
+import static be.umons.coffeemachine.model.enums.MenuName.CLEANING;
 
-public class Descaling extends Program {
-
+public class Cleaning extends Program{
     private static final Logger LOGGER = LogManager.getLogger(Descaling.class);
 
-    private static Descaling instance;
+    private static Cleaning instance;
 
-    private boolean waterFilter;
+    private boolean insertTablet;
 
     private boolean collectingTray;
 
-    private DescalingError error;
+    private CleaningError error;
 
-    public static Descaling instance() {
+    public static Cleaning instance() {
         if (instance == null) {
-            instance = new Descaling();
+            instance = new Cleaning();
         }
 
         return instance;
     }
 
-    public Descaling() {
-        super(DESCALING.getName());
+    public Cleaning() {
+        super(CLEANING.getName());
     }
 
     @Override
@@ -45,15 +46,15 @@ public class Descaling extends Program {
 
     @Override
     boolean isReady() {
-        return collectingTray && waterFilter;
+        return collectingTray && insertTablet;
     }
 
     @Override
     String errorMessage() {
         if (!collectingTray) {
-            error = DescalingError.COLLECTING_TRAY;
-        } else if (!waterFilter) {
-            error = DescalingError.WATER_FILTER;
+            error = COLLECTING_TRAY;
+        } if (!insertTablet) {
+            error = INSERT_TABLET;
         }
 
         return error.getName();
@@ -70,8 +71,8 @@ public class Descaling extends Program {
             case COLLECTING_TRAY:
                 collectingTray = true;
                 break;
-            case WATER_FILTER:
-                waterFilter = true;
+            case INSERT_TABLET:
+                insertTablet = true;
                 break;
         }
     }
