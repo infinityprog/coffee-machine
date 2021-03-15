@@ -12,6 +12,8 @@ public class Rinsing extends State {
 
     private static Rinsing instance;
 
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
     public static Rinsing instance() {
         if (instance == null) {
             instance = new Rinsing();
@@ -28,11 +30,10 @@ public class Rinsing extends State {
     }
 
     private void onPause(CoffeeMachine coffeeMachine, int nbr) {
-        PauseTransition pause = new PauseTransition(Duration.seconds(1));
-        onPause(pause, coffeeMachine, 0, nbr);
+        onPause(coffeeMachine, 0, nbr);
     }
 
-    private void onPause(PauseTransition pause, CoffeeMachine coffeeMachine, int start, int end) {
+    private void onPause(CoffeeMachine coffeeMachine, int start, int end) {
         pause.setOnFinished(event -> {
             String evolution = "";
             for (int i = 0; i < start; i++) {
@@ -45,7 +46,7 @@ public class Rinsing extends State {
                 endPause.setOnFinished(event1 -> coffeeMachine.transition(Waiting.instance()));
                 endPause.play();
             } else {
-                onPause(pause, coffeeMachine, startResult, end);
+                onPause(coffeeMachine, startResult, end);
             }
         });
         pause.play();
