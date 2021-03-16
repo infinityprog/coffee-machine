@@ -186,4 +186,14 @@ public abstract class Drink {
     public int hashCode() {
         return Objects.hash(name);
     }
+
+    /**
+     * Use only for testing
+     * @param pause
+     * @return
+     */
+    public Drink setPause(PauseTransition pause) {
+        this.pause = pause;
+        return this;
+    }
 }
