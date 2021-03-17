@@ -64,4 +64,13 @@ public class MilkyDrink extends Drink {
         });
 
     }
+
+    protected void setMilkFroth(MilkFroth milkFroth) {
+        this.milkFroth = milkFroth;
+    }
+
+
+    protected void setCoffee(Coffee coffee) {
+        this.coffee = coffee;
+    }
 }

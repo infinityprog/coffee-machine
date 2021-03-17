@@ -6,16 +6,20 @@ import be.umons.coffeemachine.model.enums.Intensity;
 import be.umons.coffeemachine.model.pieces.WaterReservoir;
 import be.umons.coffeemachine.state.takedrink.precondition.FillReservoir;
 import javafx.animation.PauseTransition;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-@RunWith(MockitoJUnitRunner.class)
+
+@ExtendWith(MockitoExtension.class)
+@DisplayName("Coffee Model")
 public class CoffeeTest {
 
     @InjectMocks
@@ -30,9 +34,14 @@ public class CoffeeTest {
     @Mock
     PauseTransition pauseTransition;
 
-    @Test
-    public void testMakeDrink_waterReservoirIsEmpty() {
+    @BeforeEach
+    public void setUp() throws Exception {
         when(coffeeMachine.getWaterReservoir()).thenReturn(waterReservoir);
+    }
+
+    @Test
+    @DisplayName("Make drink : Water reservoir is empty")
+    public void testMakeDrink_waterReservoirIsEmpty() {
         when(waterReservoir.isEmpty()).thenReturn(true);
 
         coffee.makeDrink(coffeeMachine);
@@ -42,8 +51,8 @@ public class CoffeeTest {
     }
 
     @Test
+    @DisplayName("Make drink : Intensity is powder")
     public void testMakeDrink_intensityIsPowder() throws Exception {
-        when(coffeeMachine.getWaterReservoir()).thenReturn(waterReservoir);
         when(waterReservoir.isEmpty()).thenReturn(false);
         coffee.setIntensity(Intensity.COMP_POWDER);
 
@@ -55,13 +64,13 @@ public class CoffeeTest {
         coffee.makeDrink(coffeeMachine);
 
         assertEquals("test Percolation", coffee.getName());
-        //verify(coffeeMachine, times(1)).transition(any(FillReservoir.class));
+        verify(pauseTransition, times(1)).play();
 
     }
 
     @Test
+    @DisplayName("Reset pieces")
     public void testResetPieces() {
-        when(coffeeMachine.getWaterReservoir()).thenReturn(waterReservoir);
         coffee.resetPieces(coffeeMachine);
 
         verify(waterReservoir, times(1)).useWater();
