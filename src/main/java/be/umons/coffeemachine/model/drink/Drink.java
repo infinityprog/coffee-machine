@@ -196,4 +196,14 @@ public abstract class Drink {
         this.pause = pause;
         return this;
     }
+
+    /**
+     * Use only for testing
+     * @param endPreparation
+     * @return
+     */
+    protected Drink setEndPreparation(PauseTransition endPreparation) {
+        this.endPreparation = endPreparation;
+        return this;
+    }
 }
