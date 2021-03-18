@@ -7,6 +7,8 @@ import be.umons.coffeemachine.model.drink.special.Verseuse;
 import be.umons.coffeemachine.model.drink.special.WarmWater;
 import be.umons.coffeemachine.model.enums.SpecialName;
 
+import java.security.InvalidParameterException;
+
 public class SpecialDrinkFactory {
 
     public Drink getSpecialDrink(SpecialName specialName) {
@@ -19,13 +21,11 @@ public class SpecialDrinkFactory {
             case VERSEUSE:
                 return new Verseuse();
             case AMERICANO:
-                return new Coffee(specialName.getName());
+            case CORDATO_COFFEE:
             case FLAT_WHITE:
                 return new Coffee(specialName.getName());
-            case CORDATO_COFFEE:
-                return new Coffee(specialName.getName());
             default:
-                return null;
+                throw new InvalidParameterException("There is not case for value " + specialName);
         }
     }
 }

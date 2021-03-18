@@ -1,7 +1,7 @@
 package be.umons.coffeemachine.model.enums;
 
 public enum MenuName {
-    Favori("Favoris"),
+    FAVORI("Favoris"),
 
     SETTINGS_DRINK_QUANTITY("Réglage de la quantité"),
 

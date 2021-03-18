@@ -3,8 +3,6 @@ package be.umons.coffeemachine.state.menu;
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.Profile;
 import be.umons.coffeemachine.model.enums.MenuName;
-import be.umons.coffeemachine.model.enums.ProfileName;
-import be.umons.coffeemachine.model.factory.MenuFactory;
 
 import java.util.List;
 
@@ -23,7 +21,7 @@ public class Favorite extends Menu {
     }
 
     public Favorite() {
-        super(MenuName.Favori);
+        super(MenuName.FAVORI);
     }
 
     @Override
