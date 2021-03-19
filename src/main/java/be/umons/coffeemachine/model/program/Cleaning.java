@@ -9,7 +9,8 @@ import static be.umons.coffeemachine.model.enums.CleaningError.COLLECTING_TRAY;
 import static be.umons.coffeemachine.model.enums.CleaningError.INSERT_TABLET;
 import static be.umons.coffeemachine.model.enums.MenuName.CLEANING;
 
-public class Cleaning extends Program{
+public class Cleaning extends Program {
+
     private static final Logger LOGGER = LogManager.getLogger(Descaling.class);
 
     private static Cleaning instance;
@@ -53,7 +54,7 @@ public class Cleaning extends Program{
     String errorMessage() {
         if (!collectingTray) {
             error = COLLECTING_TRAY;
-        } if (!insertTablet) {
+        } else if (!insertTablet) {
             error = INSERT_TABLET;
         }
 
@@ -75,5 +76,29 @@ public class Cleaning extends Program{
                 insertTablet = true;
                 break;
         }
+    }
+
+    public boolean isInsertTablet() {
+        return insertTablet;
+    }
+
+    public void setInsertTablet(boolean insertTablet) {
+        this.insertTablet = insertTablet;
+    }
+
+    public boolean isCollectingTray() {
+        return collectingTray;
+    }
+
+    public void setCollectingTray(boolean collectingTray) {
+        this.collectingTray = collectingTray;
+    }
+
+    public CleaningError getError() {
+        return error;
+    }
+
+    public void setError(CleaningError error) {
+        this.error = error;
     }
 }
