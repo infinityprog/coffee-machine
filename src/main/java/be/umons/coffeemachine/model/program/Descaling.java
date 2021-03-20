@@ -75,4 +75,28 @@ public class Descaling extends Program {
                 break;
         }
     }
+
+    protected boolean isWaterFilter() {
+        return waterFilter;
+    }
+
+    protected void setWaterFilter(boolean waterFilter) {
+        this.waterFilter = waterFilter;
+    }
+
+    protected boolean isCollectingTray() {
+        return collectingTray;
+    }
+
+    protected void setCollectingTray(boolean collectingTray) {
+        this.collectingTray = collectingTray;
+    }
+
+    protected DescalingError getError() {
+        return error;
+    }
+
+    protected void setError(DescalingError error) {
+        this.error = error;
+    }
 }
