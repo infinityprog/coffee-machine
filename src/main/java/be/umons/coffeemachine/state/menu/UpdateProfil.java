@@ -78,11 +78,6 @@ public class UpdateProfil extends Menu {
     }
 
     @Override
-    public void special(CoffeeMachine coffeeMachine) {
-        super.special(coffeeMachine);
-    }
-
-    @Override
     public void ok(CoffeeMachine coffeeMachine) {
         Profile profile = coffeeMachine.getSelectedProfile();
 
@@ -100,13 +95,6 @@ public class UpdateProfil extends Menu {
     @Override
     public void back(CoffeeMachine coffeeMachine) {
         coffeeMachine.transition(Favorite.instance());
-    }
-
-    private Profile findProfile(List<Profile> profiles, ProfileName targetProfile) {
-        return profiles.stream()
-                .filter(profile -> profile.getName() == targetProfile)
-                .findAny()
-                .get();
     }
 
     private Profile clone(Profile profile) {

@@ -84,9 +84,4 @@ public class CoffeeDrink extends TakeDrink {
     public void verseuse(CoffeeMachine coffeeMachine) {
         coffeeMachine.transition(VerseuseDrink.instance());
     }
-
-    @Override
-    public void back(CoffeeMachine coffeeMachine) {
-        super.back(coffeeMachine);
-    }
 }

@@ -59,7 +59,7 @@ public class Favorite extends Menu {
             }
 
             for (int i = 0; i < profiles.size(); i++) {
-                if (profiles.get(i)== currentProfile &&  i + 1 < profiles.size()) {
+                if (profiles.get(i) == currentProfile &&  i + 1 < profiles.size()) {
                     return profiles.get(i + 1);
                 } else if (profiles.get(i) == currentProfile &&  i + 1 == profiles.size()) {
                     return profiles.get(0);

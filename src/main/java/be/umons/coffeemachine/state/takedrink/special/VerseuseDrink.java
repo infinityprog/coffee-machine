@@ -36,11 +36,6 @@ public class VerseuseDrink extends TakeDrink {
     }
 
     @Override
-    public void startStop(CoffeeMachine coffeeMachine) {
-        super.startStop(coffeeMachine);
-    }
-
-    @Override
     public void quantity(CoffeeMachine coffeeMachine) {
         Drink drink = coffeeMachine.getDrink();
 

@@ -24,16 +24,6 @@ public class WaterDrink extends TakeDrink {
     }
 
     @Override
-    public void entry(CoffeeMachine coffeeMachine) {
-        super.entry(coffeeMachine);
-    }
-
-    @Override
-    public void startStop(CoffeeMachine coffeeMachine) {
-        super.startStop(coffeeMachine);
-    }
-
-    @Override
     public void quantity(CoffeeMachine coffeeMachine) {
         LOGGER.info("Change quantity");
 

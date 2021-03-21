@@ -4,6 +4,7 @@ import be.umons.coffeemachine.observer.Observer;
 import be.umons.coffeemachine.state.Start;
 import javafx.animation.PauseTransition;
 import javafx.animation.Transition;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -21,6 +22,7 @@ import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.withSettings;
 
 @RunWith(MockitoJUnitRunner.class)
+@Ignore
 public class CoffeeMachineTest {
 
     @InjectMocks

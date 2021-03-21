@@ -8,6 +8,15 @@ import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.Waiting;
 import be.umons.coffeemachine.state.takedrink.special.WaterDrink;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static be.umons.coffeemachine.model.enums.MenuName.CALC_AND_CLEAN;
+import static be.umons.coffeemachine.model.enums.MenuName.CLEANING;
+import static be.umons.coffeemachine.model.enums.MenuName.CLEANING_MILK_FROTH;
+import static be.umons.coffeemachine.model.enums.MenuName.DESCALING;
+
 public class MenuChoice extends State {
 
     private static MenuChoice instance;
@@ -59,15 +68,17 @@ public class MenuChoice extends State {
             return Favorite.instance();
         }
 
-        MenuName[] menuList = MenuName.values();
+        List<MenuName> menuList = Arrays.stream(MenuName.values())
+                .filter(this::withoutProgram)
+                .collect(Collectors.toList());
         MenuName currentMenuName = this.currentMenu.getName();
         MenuFactory menuFactory = new MenuFactory();
 
-        for (int i = 0; i < menuList.length; i++) {
-            if (menuList[i] == currentMenuName &&  i + 1 < menuList.length) {
-                return menuFactory.getMenu(menuList[i + 1]);
-            } else if (menuList[i] == currentMenuName &&  i + 1 == menuList.length) {
-                return menuFactory.getMenu(menuList[0]);
+        for (int i = 0; i < menuList.size(); i++) {
+            if (menuList.get(i) == currentMenuName &&  i + 1 < menuList.size()) {
+                return menuFactory.getMenu(menuList.get(i + 1));
+            } else if (menuList.get(i) == currentMenuName &&  i + 1 == menuList.size()) {
+                return menuFactory.getMenu(menuList.get(0));
             }
         }
 
@@ -81,5 +92,10 @@ public class MenuChoice extends State {
     public MenuChoice setCurrentMenu(Menu currentMenu) {
         this.currentMenu = currentMenu;
         return this;
+    }
+
+    private boolean withoutProgram(MenuName name) {
+        return name != CALC_AND_CLEAN && name != CLEANING && name != CLEANING_MILK_FROTH
+                && name != DESCALING;
     }
 }

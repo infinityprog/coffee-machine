@@ -77,7 +77,7 @@ public class ChoiceProgram extends Menu {
         }
 
         List<MenuName> programmes = Arrays.stream(MenuName.values())
-                .filter(programme -> isProgramme(programme))
+                .filter(this::isProgram)
                 .collect(Collectors.toList());
         MenuName currentMenuName = this.currentOptions.getName();
         ProgramFactory programFactory = new ProgramFactory();
@@ -93,7 +93,7 @@ public class ChoiceProgram extends Menu {
         return null;
     }
 
-    private boolean isProgramme(MenuName name) {
+    private boolean isProgram(MenuName name) {
         return name == CLEANING || name == DESCALING || name == CLEANING_MILK_FROTH || name == CALC_AND_CLEAN;
     }
 }
