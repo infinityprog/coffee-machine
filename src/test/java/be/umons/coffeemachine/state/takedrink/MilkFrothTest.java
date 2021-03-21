@@ -6,11 +6,8 @@ import be.umons.coffeemachine.state.takedrink.special.WaterDrink;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.*;
 
 class MilkFrothTest extends TakeDrinkConfigTest {
 
@@ -35,7 +32,7 @@ class MilkFrothTest extends TakeDrinkConfigTest {
     void quantity() {
         milkFroth.quantity(coffeeMachine);
 
-        verifyNoInteractions(coffeeMachine);
+        verifyZeroInteractions(coffeeMachine);
 
     }
 

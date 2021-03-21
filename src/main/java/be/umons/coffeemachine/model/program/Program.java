@@ -75,4 +75,10 @@ public abstract class Program {
     public String getName() {
         return name;
     }
+
+    public void mockDuration() {
+        pause = new PauseTransition(Duration.ZERO);
+
+        endPreparation = new PauseTransition(Duration.ZERO);
+    }
 }

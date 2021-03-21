@@ -47,11 +47,6 @@ public class ChoiceProgram extends Menu {
     }
 
     @Override
-    public void security(CoffeeMachine coffeeMachine) {
-        super.security(coffeeMachine);
-    }
-
-    @Override
     public void entry(CoffeeMachine coffeeMachine) {
         if (currentOptions == null) {
             currentOptions = Cleaning.instance();

@@ -35,7 +35,6 @@ public class CoffeeMachine extends Subject {
     private MilkPipe milkPipe;
     private boolean hot;
     private boolean served;
-    private boolean calcAndClean;
     private Observer observer;
     private String titleDisplay;
     private String intensityDisplay;
@@ -340,11 +339,13 @@ public class CoffeeMachine extends Subject {
         this.selectedProfile = selectedProfile;
     }
 
-    public boolean isCalcAndClean() {
-        return calcAndClean;
+    protected CoffeeMachine setState(State state) {
+        this.state = state;
+        return this;
     }
 
-    public void setCalcAndClean(boolean calcAndClean) {
-        this.calcAndClean = calcAndClean;
+    protected CoffeeMachine setDrink(Drink drink) {
+        this.drink = drink;
+        return this;
     }
 }

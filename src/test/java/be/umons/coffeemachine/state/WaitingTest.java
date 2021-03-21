@@ -1,6 +1,5 @@
 package be.umons.coffeemachine.state;
 
-import be.umons.coffeemachine.model.drink.special.Verseuse;
 import be.umons.coffeemachine.state.config.StateConfigTest;
 import be.umons.coffeemachine.state.menu.MenuChoice;
 import be.umons.coffeemachine.state.takedrink.CoffeeDrink;
@@ -10,11 +9,8 @@ import be.umons.coffeemachine.state.takedrink.special.WaterDrink;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.*;
 
 class WaitingTest extends StateConfigTest {
 
@@ -32,7 +28,7 @@ class WaitingTest extends StateConfigTest {
     void startStop() {
         waiting.startStop(coffeeMachine);
 
-        verifyNoInteractions(coffeeMachine);
+        verifyZeroInteractions(coffeeMachine);
     }
 
     @Test

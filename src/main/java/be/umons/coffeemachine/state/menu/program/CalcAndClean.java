@@ -26,8 +26,13 @@ public class CalcAndClean extends Program {
 
     @Override
     public void startStop(CoffeeMachine coffeeMachine) {
-        coffeeMachine.setCalcAndClean(true);
+        calcAndClean = true;
         coffeeMachine.transition(Descaling.instance());
+    }
+
+    @Override
+    public void back(CoffeeMachine coffeeMachine) {
+        coffeeMachine.transition(ChoiceProgram.instance());
     }
 
     public CalcAndClean() {

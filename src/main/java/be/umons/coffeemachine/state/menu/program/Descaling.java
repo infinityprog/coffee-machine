@@ -28,7 +28,7 @@ public class Descaling extends CalcAndClean {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
-        if (coffeeMachine.isCalcAndClean()) {
+        if (CalcAndClean.instance().isCalcAndClean()) {
             run(coffeeMachine);
         } else {
             coffeeMachine.setTitleDisplay(getName().getName());
@@ -38,7 +38,7 @@ public class Descaling extends CalcAndClean {
     private void run(CoffeeMachine coffeeMachine) {
         be.umons.coffeemachine.model.program.Descaling descaling = be.umons.coffeemachine.model.program.Descaling.instance();
         if (!descaling.isInPreparing()) {
-            if (coffeeMachine.isCalcAndClean()) {
+            if (CalcAndClean.instance().isCalcAndClean()) {
                 descaling.onFinish(() -> coffeeMachine.transition(Cleaning.instance()));
             } else {
                 descaling.onFinish(() -> coffeeMachine.transition(Waiting.instance()));
