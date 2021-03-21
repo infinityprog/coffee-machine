@@ -30,9 +30,6 @@ class ChoiceProgramTest extends StateConfigTest {
     @InjectMocks
     private ChoiceProgram choiceProgram;
 
-    @Mock
-    private Program currentOptions;
-
     @Test
     void ok() {
         choiceProgram.setCurrentOptions(Cleaning.instance());

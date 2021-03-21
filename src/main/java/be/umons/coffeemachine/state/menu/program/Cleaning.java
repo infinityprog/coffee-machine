@@ -28,7 +28,7 @@ public class Cleaning extends CalcAndClean {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
-        if (coffeeMachine.isCalcAndClean()) {
+        if (CalcAndClean.instance().isCalcAndClean()) {
             run(coffeeMachine);
         } else {
             coffeeMachine.setTitleDisplay(getName().getName());
@@ -39,8 +39,9 @@ public class Cleaning extends CalcAndClean {
         be.umons.coffeemachine.model.program.Cleaning cleaning = be.umons.coffeemachine.model.program.Cleaning.instance();
         if (!cleaning.isInPreparing()) {
             cleaning.onFinish(() -> coffeeMachine.transition(Waiting.instance()));
-            if (coffeeMachine.isCalcAndClean()) {
-                coffeeMachine.setCalcAndClean(false);
+            CalcAndClean calcAndClean = CalcAndClean.instance();
+            if (calcAndClean.isCalcAndClean()) {
+                calcAndClean.setCalcAndClean(false);
             }
             cleaning.start(coffeeMachine);
         }
