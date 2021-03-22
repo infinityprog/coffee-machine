@@ -3,12 +3,10 @@ package be.umons.coffeemachine.state.menu;
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.Profile;
 import be.umons.coffeemachine.model.drink.Drink;
-import be.umons.coffeemachine.model.enums.ProfileName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashSet;
-import java.util.List;
 
 public class UpdateProfil extends Menu {
 
@@ -98,6 +96,6 @@ public class UpdateProfil extends Menu {
     }
 
     private Profile clone(Profile profile) {
-        return new Profile(profile.getName(), profile.isUsed(), new HashSet<>(profile.getFavoris()));
+        return new Profile(profile.getName(), new HashSet<>(profile.getFavoris()));
     }
 }

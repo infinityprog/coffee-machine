@@ -3,11 +3,10 @@ package be.umons.coffeemachine.model;
 import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
-import be.umons.coffeemachine.model.drink.coffee.MilkyDrink;
 import be.umons.coffeemachine.model.enums.ProfileName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ProfileTest {
 
@@ -17,7 +16,7 @@ class ProfileTest {
 
     private static final String DISPLAY_NAME = "A : Utilisé";
 
-    private Profile profile = new Profile(ProfileName.A, true);
+    private Profile profile = new Profile(ProfileName.A);
 
     @Test
     void getFavorite() {
@@ -34,6 +33,8 @@ class ProfileTest {
 
     @Test
     void getNameToDisplay() {
+
+        profile.addFavorite(new Coffee("test"));
 
         assertEquals(DISPLAY_NAME, profile.getNameToDisplay());
     }

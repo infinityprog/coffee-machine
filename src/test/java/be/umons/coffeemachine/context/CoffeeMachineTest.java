@@ -248,6 +248,15 @@ public class CoffeeMachineTest {
     }
 
     @Test
+    public void btnFavorite() {
+        coffeeMachine.setState(state);
+
+        coffeeMachine.btnFavorite();
+
+        verify(state, times(1)).favori(coffeeMachine);
+    }
+
+    @Test
     public void transition() {
         coffeeMachine.setState(state);
 

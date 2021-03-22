@@ -3,16 +3,12 @@ package be.umons.coffeemachine.model;
 import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.enums.ProfileName;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Profile {
 
     private ProfileName name;
-
-    private boolean used;
 
     private Set<Drink> favoris = new HashSet<>();
 
@@ -20,14 +16,12 @@ public class Profile {
         return name;
     }
 
-    public Profile(ProfileName name, boolean used) {
+    public Profile(ProfileName name) {
         this.name = name;
-        this.used = used;
     }
 
-    public Profile(ProfileName name, boolean used, Set<Drink> favoris) {
+    public Profile(ProfileName name, Set<Drink> favoris) {
         this.name = name;
-        this.used = used;
         this.favoris = favoris;
     }
 
@@ -48,14 +42,10 @@ public class Profile {
     }
 
     public boolean isUsed() {
-        return used;
-    }
-
-    public void setUsed(boolean used) {
-        this.used = used;
+        return favoris.size() > 0;
     }
 
     public String getNameToDisplay() {
-        return name + " : " + (used ? "Utilisé" : "Vide");
+        return name + " : " + (isUsed() ? "Utilisé" : "Vide");
     }
 }

@@ -159,7 +159,7 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     }
 
     public void onSecurity(ActionEvent event) {
-        coffeeMachine.btnSecurity();
+        coffeeMachine.btnFavorite();
     }
 
     public void onOk(ActionEvent event) {

@@ -2,7 +2,6 @@ package be.umons.coffeemachine.state.menu;
 
 import be.umons.coffeemachine.model.Profile;
 import be.umons.coffeemachine.model.enums.ProfileName;
-import be.umons.coffeemachine.state.Waiting;
 import be.umons.coffeemachine.state.config.StateConfigTest;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -11,14 +10,8 @@ import org.mockito.Mock;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.only;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class FavoriteTest extends StateConfigTest {
 
@@ -47,7 +40,7 @@ class FavoriteTest extends StateConfigTest {
     @Test
     void entry() {
         when(coffeeMachine.getProfils()).thenReturn(profiles);
-        Profile profile = new Profile(ProfileName.A, true);
+        Profile profile = new Profile(ProfileName.A);
         when(profiles.get(0)).thenReturn(profile);
         favorite.entry(coffeeMachine);
 
@@ -72,9 +65,8 @@ class FavoriteTest extends StateConfigTest {
         List<Profile> profiles = new ArrayList<>();
         ProfileName[] profileNames = ProfileName.values();
 
-        for (int i = 0; i < profileNames.length; i++) {
-            boolean used = i % 2 == 0;
-            profiles.add(new Profile(profileNames[i], used));
+        for (ProfileName profileName : profileNames) {
+            profiles.add(new Profile(profileName));
         }
 
         return profiles;

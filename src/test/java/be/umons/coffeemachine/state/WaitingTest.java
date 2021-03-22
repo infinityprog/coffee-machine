@@ -79,5 +79,8 @@ class WaitingTest extends StateConfigTest {
 
     @Test
     void favori() {
+        waiting.favori(coffeeMachine);
+
+        verify(coffeeMachine, times(1)).transition(any(ChoiceProfiles.class));
     }
 }

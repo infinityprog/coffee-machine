@@ -67,6 +67,6 @@ public class Waiting extends State {
 
     @Override
     public void favori(CoffeeMachine coffeeMachine) {
-        super.favori(coffeeMachine);
+        coffeeMachine.transition(ChoiceProfiles.instance());
     }
 }

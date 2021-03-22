@@ -152,6 +152,12 @@ public class CoffeeMachine extends Subject {
         state.milky(this);
     }
 
+    public void btnFavorite() {
+        logger.info("User presses on btn favoris");
+
+        state.favori(this);
+    }
+
     public void transition(State next) {
         logger.info("Change state to " + next.getClass().getName());
         state.exit(this);
@@ -323,9 +329,8 @@ public class CoffeeMachine extends Subject {
         List<Profile> profiles = new ArrayList<>();
         ProfileName[] profileNames = ProfileName.values();
 
-        for (int i = 0; i < profileNames.length; i++) {
-            boolean used = i % 2 == 0;
-            profiles.add(new Profile(profileNames[i], used));
+        for (ProfileName profileName : profileNames) {
+            profiles.add(new Profile(profileName));
         }
 
         return profiles;
@@ -344,7 +349,7 @@ public class CoffeeMachine extends Subject {
         return this;
     }
 
-    protected CoffeeMachine setDrink(Drink drink) {
+    public CoffeeMachine setDrink(Drink drink) {
         this.drink = drink;
         return this;
     }
