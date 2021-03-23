@@ -26,6 +26,7 @@ public class Rinsing extends State {
     public void entry(CoffeeMachine coffeeMachine) {
         logger.info("Execute entry method");
 
+        coffeeMachine.resetDisplayBtn();
         onPause(coffeeMachine,3);
     }
 

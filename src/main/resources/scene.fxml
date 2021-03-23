@@ -8,7 +8,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="936.0" spacing="20.0">
          <children>
             <Button fx:id="btnExpresso" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExpresso" prefHeight="50.0" prefWidth="80.0" text="Expresso" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="BtnExpressoMacc" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExpressoMacc" prefHeight="50.0" prefWidth="80.0" text="Expresso macc" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnExpressoMacc" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExpressoMacc" prefHeight="50.0" prefWidth="80.0" text="Expresso macc" textAlignment="CENTER" wrapText="true" />
             <Button fx:id="btnCoffee" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onCoffee" prefHeight="50.0" prefWidth="80.0" text="Café" textAlignment="CENTER" wrapText="true" />
             <Button fx:id="btnCappuccino" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onCappucino" prefHeight="50.0" prefWidth="80.0" text="Cappuccino" textAlignment="CENTER" wrapText="true" />
             <Button fx:id="btnLatteMacc" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLatteMacc" prefHeight="50.0" prefWidth="80.0" text="Latte Macchiato" textAlignment="CENTER" wrapText="true" />
@@ -46,7 +46,7 @@
       <HBox alignment="CENTER_LEFT" layoutX="684.0" layoutY="277.0" prefHeight="100.0" prefWidth="293.0" spacing="50.0">
          <children>
             <Button fx:id="btnQuantity" styleClass="btn" mnemonicParsing="false" onAction="#onQuantity" prefHeight="25.0" prefWidth="51.0" text="ml" />
-            <Button fx:id="btnSecurity" styleClass="btn" mnemonicParsing="false" onAction="#onSecurity" text="Security" />
+            <Button fx:id="btnFavorite" styleClass="btn" mnemonicParsing="false" onAction="#onSecurity" text="Security" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="684.0" layoutY="189.0" prefHeight="100.0" prefWidth="293.0" spacing="50.0">

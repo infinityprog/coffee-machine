@@ -12,3 +12,7 @@
 .display {
     -fx-background-color: #d9d9d9;
 }
+
+.btn:pressed {
+    -fx-border-color: #d9d9d9 !important;
+}

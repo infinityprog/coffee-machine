@@ -21,6 +21,8 @@ public class Waiting extends State {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableDrink(coffeeMachine);
+        coffeeMachine.setEnableBtnMenu(true);
         coffeeMachine.setTitleDisplay("En attente");
     }
 

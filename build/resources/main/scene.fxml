@@ -1,62 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
 <Pane fx:id="window" prefHeight="383.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.umons.coffeemachine.view.CoffeeMachineGUI">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="936.0" spacing="20.0">
          <children>
-            <Button fx:id="btnExpresso" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExpresso" prefHeight="50.0" prefWidth="80.0" text="Expresso" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="BtnExpressoMacc" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExpressoMacc" prefHeight="50.0" prefWidth="80.0" text="Expresso macc" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btnCoffee" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onCoffee" prefHeight="50.0" prefWidth="80.0" text="Café" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btnCappuccino" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onCappucino" prefHeight="50.0" prefWidth="80.0" text="Cappuccino" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btnLatteMacc" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLatteMacc" prefHeight="50.0" prefWidth="80.0" text="Latte Macchiato" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btnMilkCoffee" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMilkCoffee" prefHeight="50.0" prefWidth="80.0" text="Caffé au lait" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btnMilkFroth" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMilkFroth" prefHeight="50.0" prefWidth="80.0" text="Mousse de lait" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btnSpecial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSpecial" prefHeight="50.0" prefWidth="80.0" text="Boisson spécial" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btnStartStop" alignment="CENTER" contentDisplay="CENTER" layoutX="847.0" layoutY="35.0" mnemonicParsing="false" onAction="#onStartStop" prefHeight="50.0" prefWidth="80.0" text="Start / Stop" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnExpresso" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExpresso" prefHeight="50.0" prefWidth="80.0" text="Expresso" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnExpressoMacc" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExpressoMacc" prefHeight="50.0" prefWidth="80.0" text="Expresso macc" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnCoffee" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onCoffee" prefHeight="50.0" prefWidth="80.0" text="Café" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnCappuccino" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onCappucino" prefHeight="50.0" prefWidth="80.0" text="Cappuccino" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnLatteMacc" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLatteMacc" prefHeight="50.0" prefWidth="80.0" text="Latte Macchiato" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnMilkCoffee" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMilkCoffee" prefHeight="50.0" prefWidth="80.0" text="Caffé au lait" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnMilkFroth" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMilkFroth" prefHeight="50.0" prefWidth="80.0" text="Mousse de lait" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnSpecial" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSpecial" prefHeight="50.0" prefWidth="80.0" text="Boisson spécial" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnStartStop" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" layoutX="847.0" layoutY="35.0" mnemonicParsing="false" onAction="#onStartStop" prefHeight="50.0" prefWidth="80.0" text="Start / Stop" textAlignment="CENTER" wrapText="true" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="11.0" layoutY="100.0" prefHeight="61.0" prefWidth="914.0">
          <children>
-            <Button fx:id="btnScrolling" mnemonicParsing="false" onAction="#onScrolling" text="Scrolling" />
+            <Button fx:id="btnScrolling" styleClass="btn" mnemonicParsing="false" onAction="#onScrolling" text="Scrolling" />
          </children>
       </HBox>
       <HBox alignment="CENTER_RIGHT" layoutX="6.0" layoutY="285.0" prefHeight="83.0" prefWidth="242.0" spacing="50.0">
-         <Button fx:id="btnDouble" mnemonicParsing="false" onAction="#onDouble" text="Double"/>
-         <Button fx:id="btnIntensity" mnemonicParsing="false" onAction="#onIntensity" text="intensity"/>
+         <Button fx:id="btnDouble" styleClass="btn" mnemonicParsing="false" onAction="#onDouble" text="Double" />
+         <Button fx:id="btnIntensity" styleClass="btn" mnemonicParsing="false" onAction="#onIntensity" text="intensity" />
       </HBox>
       <VBox alignment="CENTER_RIGHT" layoutX="11.0" layoutY="193.0" prefHeight="91.0" prefWidth="235.0">
          <children>
-            <Button fx:id="btnExit" mnemonicParsing="false" onAction="#onExit" prefHeight="25.0" prefWidth="56.0" text="Exit" />
+            <Button fx:id="btnExit" styleClass="btn" mnemonicParsing="false" onAction="#onExit" prefHeight="25.0" prefWidth="56.0" text="Exit" />
          </children>
       </VBox>
-      <Pane layoutX="281.0" layoutY="177.0" prefHeight="200.0" prefWidth="375.0">
+      <Pane layoutX="281.0" styleClass="display" layoutY="177.0" prefHeight="200.0" prefWidth="375.0">
          <children>
-            <Label fx:id="lbTitle" textAlignment="CENTER" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="71.0" layoutY="37.0" prefHeight="85.0" prefWidth="235.0">
+            <Label fx:id="lbTitle" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="24.0" layoutY="20.0" prefHeight="128.0" prefWidth="325.0" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="lbIntensity" alignment="CENTER" layoutX="23.0" layoutY="136.0" prefHeight="39.0" prefWidth="62.0" />
+            <Label fx:id="lbIntensity" alignment="CENTER" layoutX="23.0" layoutY="136.0" prefHeight="39.0" prefWidth="135.0" />
             <Label fx:id="lbQuantity" alignment="CENTER" layoutX="279.0" layoutY="136.0" prefHeight="39.0" prefWidth="69.0" />
          </children>
       </Pane>
       <HBox alignment="CENTER_LEFT" layoutX="684.0" layoutY="277.0" prefHeight="100.0" prefWidth="293.0" spacing="50.0">
          <children>
-            <Button fx:id="btnQuantity" mnemonicParsing="false" onAction="#onQuantity" prefHeight="25.0" prefWidth="51.0" text="ml" />
-            <Button fx:id="btnSecurity" mnemonicParsing="false" onAction="#onSecurity" text="Security" />
+            <Button fx:id="btnQuantity" styleClass="btn" mnemonicParsing="false" onAction="#onQuantity" prefHeight="25.0" prefWidth="51.0" text="ml" />
+            <Button fx:id="btnFavorite" styleClass="btn" mnemonicParsing="false" onAction="#onSecurity" text="Security" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="684.0" layoutY="189.0" prefHeight="100.0" prefWidth="293.0" spacing="50.0">
          <children>
-            <Button fx:id="btnOk" mnemonicParsing="false" onAction="#onOk" prefHeight="25.0" prefWidth="54.0" text="Ok" />
-            <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#onMenu" text="Menu" />
+            <Button fx:id="btnOk" styleClass="btn" mnemonicParsing="false" onAction="#onOk" prefHeight="25.0" prefWidth="54.0" text="Ok" />
+            <Button fx:id="btnMenu" styleClass="btn" mnemonicParsing="false" onAction="#onMenu" text="Menu" />
          </children>
       </HBox>
    </children>

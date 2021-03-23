@@ -42,6 +42,24 @@ public class CoffeeMachine extends Subject {
     private List<Profile> profiles;
     private Profile selectedProfile;
 
+    private boolean enableBtnStartStop;
+    private boolean enableBtnOk;
+    private boolean enableBtnMenu;
+    private boolean enableBtnQuantity;
+    private boolean enableBtnIntensity;
+    private boolean enableBtnFavorite;
+    private boolean enableBtnBack;
+    private boolean enableBtnDouble;
+    private boolean enableBtnSpecial;
+    private boolean enableBtnExpresso;
+    private boolean enableBtnExpressoMacch;
+    private boolean enableBtnCoffee;
+    private boolean enableCappuccino;
+    private boolean enableBtnLatteMacchiate;
+    private boolean enableBtnMilkCoffee;
+    private boolean enableBtnMilkFroth;
+    private boolean enableBtnScrolling;
+
     public CoffeeMachine(Observer observer) {
         attach(observer);
         waterReservoir = new WaterReservoir();
@@ -352,5 +370,196 @@ public class CoffeeMachine extends Subject {
     public CoffeeMachine setDrink(Drink drink) {
         this.drink = drink;
         return this;
+    }
+
+    public boolean isEnableBtnStartStop() {
+        return enableBtnStartStop;
+    }
+
+    public CoffeeMachine setEnableBtnStartStop(boolean enableBtnStartStop) {
+        this.enableBtnStartStop = enableBtnStartStop;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnOk() {
+        return enableBtnOk;
+    }
+
+    public CoffeeMachine setEnableBtnOk(boolean enableBtnOk) {
+        this.enableBtnOk = enableBtnOk;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnMenu() {
+        return enableBtnMenu;
+    }
+
+    public CoffeeMachine setEnableBtnMenu(boolean enableBtnMenu) {
+        this.enableBtnMenu = enableBtnMenu;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnQuantity() {
+        return enableBtnQuantity;
+    }
+
+    public CoffeeMachine setEnableBtnQuantity(boolean enableBtnQuantity) {
+        this.enableBtnQuantity = enableBtnQuantity;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnIntensity() {
+        return enableBtnIntensity;
+    }
+
+    public CoffeeMachine setEnableBtnIntensity(boolean enableBtnIntensity) {
+        this.enableBtnIntensity = enableBtnIntensity;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnFavorite() {
+        return enableBtnFavorite;
+    }
+
+    public CoffeeMachine setEnableBtnFavorite(boolean enableBtnFavorite) {
+        this.enableBtnFavorite = enableBtnFavorite;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnBack() {
+        return enableBtnBack;
+    }
+
+    public CoffeeMachine setEnableBtnBack(boolean enableBtnBack) {
+        this.enableBtnBack = enableBtnBack;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnDouble() {
+        return enableBtnDouble;
+    }
+
+    public CoffeeMachine setEnableBtnDouble(boolean enableBtnDouble) {
+        this.enableBtnDouble = enableBtnDouble;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnSpecial() {
+        return enableBtnSpecial;
+    }
+
+    public CoffeeMachine setEnableBtnSpecial(boolean enableBtnSpecial) {
+        this.enableBtnSpecial = enableBtnSpecial;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnExpresso() {
+        return enableBtnExpresso;
+    }
+
+    public CoffeeMachine setEnableBtnExpresso(boolean enableBtnExpresso) {
+        this.enableBtnExpresso = enableBtnExpresso;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnExpressoMacch() {
+        return enableBtnExpressoMacch;
+    }
+
+    public CoffeeMachine setEnableBtnExpressoMacch(boolean enableBtnExpressoMacch) {
+        this.enableBtnExpressoMacch = enableBtnExpressoMacch;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnCoffee() {
+        return enableBtnCoffee;
+    }
+
+    public CoffeeMachine setEnableBtnCoffee(boolean enableBtnCoffee) {
+        this.enableBtnCoffee = enableBtnCoffee;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableCappuccino() {
+        return enableCappuccino;
+    }
+
+    public CoffeeMachine setEnableCappuccino(boolean enableCappuccino) {
+        this.enableCappuccino = enableCappuccino;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnLatteMacchiate() {
+        return enableBtnLatteMacchiate;
+    }
+
+    public CoffeeMachine setEnableBtnLatteMacchiate(boolean enableBtnLatteMacchiate) {
+        this.enableBtnLatteMacchiate = enableBtnLatteMacchiate;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnMilkCoffee() {
+        return enableBtnMilkCoffee;
+    }
+
+    public CoffeeMachine setEnableBtnMilkCoffee(boolean enableBtnMilkCoffee) {
+        this.enableBtnMilkCoffee = enableBtnMilkCoffee;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnMilkFroth() {
+        return enableBtnMilkFroth;
+    }
+
+    public CoffeeMachine setEnableBtnMilkFroth(boolean enableBtnMilkFroth) {
+        this.enableBtnMilkFroth = enableBtnMilkFroth;
+        notif();
+        return this;
+    }
+
+    public boolean isEnableBtnScrolling() {
+        return enableBtnScrolling;
+    }
+
+    public CoffeeMachine setEnableBtnScrolling(boolean enableBtnScrolling) {
+        this.enableBtnScrolling = enableBtnScrolling;
+        notif();
+        return this;
+    }
+
+    public void resetDisplayBtn() {
+        enableBtnStartStop = false;
+        enableBtnOk = false;
+        enableBtnMenu = false;
+        enableBtnQuantity = false;
+        enableBtnIntensity = false;
+        enableBtnFavorite = false;
+        enableBtnBack = false;
+        enableBtnDouble = false;
+        enableBtnSpecial = false;
+        enableBtnExpresso = false;
+        enableBtnExpressoMacch = false;
+        enableBtnCoffee = false;
+        enableCappuccino = false;
+        enableBtnLatteMacchiate = false;
+        enableBtnMilkCoffee = false;
+        enableBtnMilkFroth = false;
+        enableBtnScrolling = false;
+        notif();
     }
 }

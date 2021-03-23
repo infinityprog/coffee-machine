@@ -16,6 +16,10 @@ import java.util.ResourceBundle;
 
 public class CoffeeMachineGUI implements Initializable, Observer {
 
+    private static String COLOR_ENABLE = "#008037";
+
+    private static String COLOR_DISABLE = "#d9d9d9";
+
     private Logger logger = LogManager.getLogger(CoffeeMachineGUI.class);
 
     private CoffeeMachine coffeeMachine;
@@ -43,6 +47,9 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     private Button btnMilkCoffee;
 
     @FXML
+    private Button btnMilkFroth;
+
+    @FXML
     private Button btnSpecial;
 
     @FXML
@@ -65,7 +72,7 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     private Button btnQuantity;
 
     @FXML
-    private Button btnSecurity;
+    private Button btnFavorite;
 
     @FXML
     private Button btnOk;
@@ -89,6 +96,7 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         coffeeMachine = new CoffeeMachine(this);
+        btnStartStop.setStyle("-fx-border-color: " + COLOR_ENABLE);
     }
 
     @Override
@@ -96,6 +104,23 @@ public class CoffeeMachineGUI implements Initializable, Observer {
         lbTitle.setText(coffeeMachine.getTitleDisplay());
         lbQuantity.setText(coffeeMachine.getQuantityDisplay());
         lbIntensity.setText(coffeeMachine.getIntensityDisplay());
+        btnStartStop.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnStartStop()? COLOR_ENABLE : COLOR_DISABLE));
+        btnSpecial.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnSpecial()? COLOR_ENABLE : COLOR_DISABLE));
+        btnExpresso.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnExpresso()? COLOR_ENABLE : COLOR_DISABLE));
+        btnExpressoMacc.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnExpressoMacch()? COLOR_ENABLE : COLOR_DISABLE));
+        btnCoffee.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnCoffee()? COLOR_ENABLE : COLOR_DISABLE));
+        btnCappuccino.setStyle("-fx-border-color: " + (coffeeMachine.isEnableCappuccino()? COLOR_ENABLE : COLOR_DISABLE));
+        btnLatteMacc.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnLatteMacchiate()? COLOR_ENABLE : COLOR_DISABLE));
+        btnMilkCoffee.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMilkCoffee()? COLOR_ENABLE : COLOR_DISABLE));
+        btnMilkFroth.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMilkFroth()? COLOR_ENABLE : COLOR_DISABLE));
+        btnScrolling.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnScrolling()? COLOR_ENABLE : COLOR_DISABLE));
+        btnExit.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnBack()? COLOR_ENABLE : COLOR_DISABLE));
+        btnDouble.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnDouble()? COLOR_ENABLE : COLOR_DISABLE));
+        btnIntensity.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnIntensity()? COLOR_ENABLE : COLOR_DISABLE));
+        btnOk.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnOk()? COLOR_ENABLE : COLOR_DISABLE));
+        btnQuantity.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnQuantity()? COLOR_ENABLE : COLOR_DISABLE));
+        btnMenu.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMenu()? COLOR_ENABLE : COLOR_DISABLE));
+        btnFavorite.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnFavorite()? COLOR_ENABLE : COLOR_DISABLE));
     }
 
 

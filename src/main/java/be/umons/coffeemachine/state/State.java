@@ -74,6 +74,17 @@ public abstract class State {
 
     }
 
+    protected final void enableDrink(CoffeeMachine coffeeMachine) {
+        coffeeMachine.setEnableBtnExpresso(true);
+        coffeeMachine.setEnableBtnExpressoMacch(true);
+        coffeeMachine.setEnableBtnCoffee(true);
+        coffeeMachine.setEnableCappuccino(true);
+        coffeeMachine.setEnableBtnLatteMacchiate(true);
+        coffeeMachine.setEnableBtnMilkCoffee(true);
+        coffeeMachine.setEnableBtnMilkFroth(true);
+        coffeeMachine.setEnableBtnSpecial(true);
+    }
+
     public void changeOption() {
 
     }
