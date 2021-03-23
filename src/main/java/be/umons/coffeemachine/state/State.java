@@ -2,6 +2,8 @@ package be.umons.coffeemachine.state;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 
+import java.security.InvalidParameterException;
+
 public abstract class State {
 
     private Integer quantity;
@@ -83,6 +85,41 @@ public abstract class State {
         coffeeMachine.setEnableBtnMilkCoffee(true);
         coffeeMachine.setEnableBtnMilkFroth(true);
         coffeeMachine.setEnableBtnSpecial(true);
+    }
+
+    protected void changeModeBtn(CoffeeMachine coffeeMachine, String name, boolean value) {
+        switch (name) {
+            case "Expresso":
+                coffeeMachine.setEnableBtnExpresso(value);
+                break;
+            case "Expresso Macchiato":
+                coffeeMachine.setEnableBtnExpressoMacch(value);
+                break;
+            case "Caffé":
+                coffeeMachine.setEnableBtnCoffee(value);
+                break;
+            case "Cappuccino":
+                coffeeMachine.setEnableCappuccino(value);
+                break;
+            case "Latte Machiate":
+                coffeeMachine.setEnableBtnLatteMacchiate(value);
+                break;
+            case "Caffé au lait":
+                coffeeMachine.setEnableBtnMilkCoffee(value);
+                break;
+            case "Mousse de Lait":
+                coffeeMachine.setEnableBtnMilkFroth(value);
+                break;
+            case "Eau chaude":
+            case "Laît chaud":
+            case "Verseuse":
+            case "Flat white":
+            case "Café cordato":
+//                coffeeMachine.setEnableBtnSpecial(value);
+                break;
+            default:
+                throw new InvalidParameterException("this coffee " + name + " don't exist");
+        }
     }
 
     public void changeOption() {

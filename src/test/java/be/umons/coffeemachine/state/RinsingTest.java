@@ -8,7 +8,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -29,5 +28,6 @@ class RinsingTest {
         rinsing.entry(coffeeMachine);
 
         verify(pauseTransition, times(1)).play();
+        verify(coffeeMachine, times(1)).resetDisplayBtn();
     }
 }

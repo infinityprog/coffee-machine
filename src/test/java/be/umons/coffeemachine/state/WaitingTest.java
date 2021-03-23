@@ -22,6 +22,7 @@ class WaitingTest extends StateConfigTest {
         waiting.entry(coffeeMachine);
 
         verify(coffeeMachine, times(1)).setTitleDisplay("En attente");
+        verifyResetDrink(coffeeMachine);
     }
 
     @Test

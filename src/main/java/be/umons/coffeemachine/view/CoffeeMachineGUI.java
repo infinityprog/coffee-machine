@@ -16,9 +16,9 @@ import java.util.ResourceBundle;
 
 public class CoffeeMachineGUI implements Initializable, Observer {
 
-    private static String COLOR_ENABLE = "#008037";
+    private static String ENABLE_BTN = "#008037";
 
-    private static String COLOR_DISABLE = "#d9d9d9";
+    private static String DISABLE_BTN = "#d9d9d9; -fx-cursor: default;";
 
     private Logger logger = LogManager.getLogger(CoffeeMachineGUI.class);
 
@@ -96,7 +96,23 @@ public class CoffeeMachineGUI implements Initializable, Observer {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         coffeeMachine = new CoffeeMachine(this);
-        btnStartStop.setStyle("-fx-border-color: " + COLOR_ENABLE);
+        btnStartStop.setStyle("-fx-border-color: " + ENABLE_BTN);
+        btnSpecial.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnExpresso.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnExpressoMacc.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnCoffee.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnCappuccino.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnLatteMacc.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnMilkCoffee.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnMilkFroth.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnScrolling.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnExit.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnDouble.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnIntensity.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnOk.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnQuantity.setStyle("-fx-border-color: " +DISABLE_BTN);
+        btnMenu.setStyle("-fx-border-color: " + DISABLE_BTN);
+        btnFavorite.setStyle("-fx-border-color: " + DISABLE_BTN);
     }
 
     @Override
@@ -104,23 +120,23 @@ public class CoffeeMachineGUI implements Initializable, Observer {
         lbTitle.setText(coffeeMachine.getTitleDisplay());
         lbQuantity.setText(coffeeMachine.getQuantityDisplay());
         lbIntensity.setText(coffeeMachine.getIntensityDisplay());
-        btnStartStop.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnStartStop()? COLOR_ENABLE : COLOR_DISABLE));
-        btnSpecial.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnSpecial()? COLOR_ENABLE : COLOR_DISABLE));
-        btnExpresso.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnExpresso()? COLOR_ENABLE : COLOR_DISABLE));
-        btnExpressoMacc.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnExpressoMacch()? COLOR_ENABLE : COLOR_DISABLE));
-        btnCoffee.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnCoffee()? COLOR_ENABLE : COLOR_DISABLE));
-        btnCappuccino.setStyle("-fx-border-color: " + (coffeeMachine.isEnableCappuccino()? COLOR_ENABLE : COLOR_DISABLE));
-        btnLatteMacc.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnLatteMacchiate()? COLOR_ENABLE : COLOR_DISABLE));
-        btnMilkCoffee.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMilkCoffee()? COLOR_ENABLE : COLOR_DISABLE));
-        btnMilkFroth.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMilkFroth()? COLOR_ENABLE : COLOR_DISABLE));
-        btnScrolling.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnScrolling()? COLOR_ENABLE : COLOR_DISABLE));
-        btnExit.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnBack()? COLOR_ENABLE : COLOR_DISABLE));
-        btnDouble.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnDouble()? COLOR_ENABLE : COLOR_DISABLE));
-        btnIntensity.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnIntensity()? COLOR_ENABLE : COLOR_DISABLE));
-        btnOk.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnOk()? COLOR_ENABLE : COLOR_DISABLE));
-        btnQuantity.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnQuantity()? COLOR_ENABLE : COLOR_DISABLE));
-        btnMenu.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMenu()? COLOR_ENABLE : COLOR_DISABLE));
-        btnFavorite.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnFavorite()? COLOR_ENABLE : COLOR_DISABLE));
+        btnStartStop.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnStartStop()? ENABLE_BTN : DISABLE_BTN));
+        btnSpecial.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnSpecial()? ENABLE_BTN : DISABLE_BTN));
+        btnExpresso.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnExpresso()? ENABLE_BTN : DISABLE_BTN));
+        btnExpressoMacc.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnExpressoMacch()? ENABLE_BTN : DISABLE_BTN));
+        btnCoffee.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnCoffee()? ENABLE_BTN : DISABLE_BTN));
+        btnCappuccino.setStyle("-fx-border-color: " + (coffeeMachine.isEnableCappuccino()? ENABLE_BTN : DISABLE_BTN));
+        btnLatteMacc.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnLatteMacchiate()? ENABLE_BTN : DISABLE_BTN));
+        btnMilkCoffee.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMilkCoffee()? ENABLE_BTN : DISABLE_BTN));
+        btnMilkFroth.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMilkFroth()? ENABLE_BTN : DISABLE_BTN));
+        btnScrolling.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnScrolling()? ENABLE_BTN : DISABLE_BTN));
+        btnExit.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnBack()? ENABLE_BTN : DISABLE_BTN));
+        btnDouble.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnDouble()? ENABLE_BTN : DISABLE_BTN));
+        btnIntensity.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnIntensity()? ENABLE_BTN : DISABLE_BTN));
+        btnOk.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnOk()? ENABLE_BTN : DISABLE_BTN));
+        btnQuantity.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnQuantity()? ENABLE_BTN : DISABLE_BTN));
+        btnMenu.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMenu()? ENABLE_BTN : DISABLE_BTN));
+        btnFavorite.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnFavorite()? ENABLE_BTN : DISABLE_BTN));
     }
 
 
