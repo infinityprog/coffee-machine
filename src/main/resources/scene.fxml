@@ -15,7 +15,7 @@
             <Button fx:id="btnMilkCoffee" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMilkCoffee" prefHeight="50.0" prefWidth="80.0" text="Caffé au lait" textAlignment="CENTER" wrapText="true" />
             <Button fx:id="btnMilkFroth" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMilkFroth" prefHeight="50.0" prefWidth="80.0" text="Mousse de lait" textAlignment="CENTER" wrapText="true" />
             <Button fx:id="btnSpecial" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSpecial" prefHeight="50.0" prefWidth="80.0" text="Boisson spécial" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="btnStartStop" styleClass="btn" alignment="CENTER" contentDisplay="CENTER" layoutX="847.0" layoutY="35.0" mnemonicParsing="false" onAction="#onStartStop" prefHeight="50.0" prefWidth="80.0" text="Start / Stop" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="btnStartStop" styleClass="startStop" alignment="CENTER" contentDisplay="CENTER" layoutX="847.0" layoutY="35.0" mnemonicParsing="false" onAction="#onStartStop" prefHeight="70.0" prefWidth="70.0" textAlignment="CENTER" wrapText="true" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="11.0" layoutY="100.0" prefHeight="61.0" prefWidth="914.0">
@@ -29,7 +29,7 @@
       </HBox>
       <VBox alignment="CENTER_RIGHT" layoutX="11.0" layoutY="193.0" prefHeight="91.0" prefWidth="235.0">
          <children>
-            <Button fx:id="btnExit" styleClass="btn" mnemonicParsing="false" onAction="#onExit" prefHeight="25.0" prefWidth="56.0" text="Exit" />
+            <Button fx:id="btnExit" styleClass="btn, exit" mnemonicParsing="false" onAction="#onExit" prefHeight="50.0" prefWidth="56.0" />
          </children>
       </VBox>
       <Pane layoutX="281.0" styleClass="display" layoutY="177.0" prefHeight="200.0" prefWidth="375.0">

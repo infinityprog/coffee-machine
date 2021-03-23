@@ -17,6 +17,25 @@
     -fx-border-color: #d9d9d9 !important;
 }
 
-.btn:hover {
+.btn,.startStop:hover {
     -fx-cursor: hand;
+}
+
+.startStop {
+    -fx-background-image: url("picture/power.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 50 50;
+    -fx-background-position: 10 8.5;
+    -fx-background-color: transparent;
+    -fx-border-style: solid solid solid solid;
+    -fx-border-radius: 5em;
+    -fx-border-width: 2;
+    -fx-border-color: #d9d9d9;
+}
+
+.exit {
+    -fx-background-image: url("picture/logout.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 30 30;
+    -fx-background-position: center;
 }

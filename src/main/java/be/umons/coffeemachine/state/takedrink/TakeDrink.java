@@ -29,6 +29,7 @@ public abstract class TakeDrink extends State {
         coffeeMachine.setEnableBtnQuantity(true);
         coffeeMachine.setEnableBtnIntensity(true);
         coffeeMachine.setEnableBtnDouble(true);
+        coffeeMachine.setEnableBtnStartStop(true);
     }
 
     @Override
