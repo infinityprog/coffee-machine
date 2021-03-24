@@ -137,6 +137,8 @@ public class CoffeeMachineGUI implements Initializable, Observer {
         btnQuantity.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnQuantity()? ENABLE_BTN : DISABLE_BTN));
         btnMenu.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMenu()? ENABLE_BTN : DISABLE_BTN));
         btnFavorite.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnFavorite()? ENABLE_BTN : DISABLE_BTN));
+
+
     }
 
 

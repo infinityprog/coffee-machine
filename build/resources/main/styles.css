@@ -39,3 +39,38 @@
     -fx-background-size: 30 30;
     -fx-background-position: center;
 }
+
+.intensity {
+    -fx-background-image: url("picture/coffee-beans.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 30 30;
+    -fx-background-position: center;
+}
+
+.double {
+    -fx-background-image: url("picture/cups.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 30 30;
+    -fx-background-position: center;
+}
+
+.favorite {
+    -fx-background-image: url("picture/group.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 30 30;
+    -fx-background-position: center;
+}
+
+.scrolling {
+    -fx-background-image: url("picture/arrow.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 30 30;
+    -fx-background-position: center;
+}
+
+.doubleSelected {
+    -fx-background-image: url("picture/cups-green.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 30 30;
+    -fx-background-position: center;
+}
