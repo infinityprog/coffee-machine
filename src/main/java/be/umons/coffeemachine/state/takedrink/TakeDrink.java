@@ -8,8 +8,6 @@ import javafx.util.Duration;
 
 public abstract class TakeDrink extends State {
 
-    protected boolean ground;
-
     protected PauseTransition pause = new PauseTransition(Duration.seconds(3));
 
     @Override
@@ -41,5 +39,10 @@ public abstract class TakeDrink extends State {
         coffeeMachine.setTitleDisplay(message);
         pause.setOnFinished(event -> this.entry(coffeeMachine));
         pause.play();
+    }
+
+    @Override
+    public void special(CoffeeMachine coffeeMachine) {
+        coffeeMachine.transition(SpecialDrink.instance());
     }
 }

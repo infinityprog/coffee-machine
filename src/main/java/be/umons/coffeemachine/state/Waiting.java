@@ -5,6 +5,7 @@ import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.state.menu.MenuChoice;
 import be.umons.coffeemachine.state.takedrink.CoffeeDrink;
 import be.umons.coffeemachine.state.takedrink.MilkyDrink;
+import be.umons.coffeemachine.state.takedrink.SpecialDrink;
 import be.umons.coffeemachine.state.takedrink.special.VerseuseDrink;
 import be.umons.coffeemachine.state.takedrink.special.WaterDrink;
 
@@ -67,7 +68,7 @@ public class Waiting extends State {
 
     @Override
     public void special(CoffeeMachine coffeeMachine) {
-        super.special(coffeeMachine);
+        coffeeMachine.transition(SpecialDrink.instance());
     }
 
     @Override

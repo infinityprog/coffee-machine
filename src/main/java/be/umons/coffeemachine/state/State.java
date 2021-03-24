@@ -116,6 +116,7 @@ public abstract class State {
             case "Verseuse":
             case "Flat white":
             case "Café cordato":
+            case "Americano":
 //                coffeeMachine.setEnableBtnSpecial(value);
                 break;
             default:

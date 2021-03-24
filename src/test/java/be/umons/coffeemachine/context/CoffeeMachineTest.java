@@ -1,10 +1,8 @@
 package be.umons.coffeemachine.context;
 
-import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
 import be.umons.coffeemachine.model.drink.coffee.MilkyDrink;
-import be.umons.coffeemachine.model.drink.special.WarmWater;
 import be.umons.coffeemachine.state.State;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,11 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static be.umons.coffeemachine.model.enums.SpecialName.AMERICANO;
-import static be.umons.coffeemachine.model.enums.SpecialName.CORDATO_COFFEE;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -111,51 +104,12 @@ public class CoffeeMachineTest {
     }
 
     @Test
-    public void btnSpecialNotDrink() {
+    public void btnSpecial() {
         coffeeMachine.setState(state);
 
         coffeeMachine.btnSpecial();
 
-        verify(state, times(1)).water(coffeeMachine);
-        assertThat(coffeeMachine.getDrink()).isInstanceOf(WarmWater.class);
-
-    }
-
-    @Test
-    public void btnSpecialWithDrinkNameLess() {
-        coffeeMachine.setState(state);
-        coffeeMachine.setDrink(new Coffee(null));
-
-        coffeeMachine.btnSpecial();
-
-        verify(state, times(1)).water(coffeeMachine);
-        assertThat(coffeeMachine.getDrink()).isInstanceOf(WarmWater.class);
-
-    }
-
-    @Test
-    public void btnSpecialWithDrink() {
-        Drink drink = new Coffee(AMERICANO.getName());
-        coffeeMachine.setState(state);
-        coffeeMachine.setDrink(drink);
-
-        coffeeMachine.btnSpecial();
-
-        verify(state, times(1)).coffee(eq(coffeeMachine), any(Coffee.class));
-        assertThat(coffeeMachine.getDrink()).isInstanceOf(Coffee.class);
-
-    }
-
-    @Test
-    public void btnSpecialRestart() {
-        coffeeMachine.setState(state);
-        coffeeMachine.setDrink(new Coffee(CORDATO_COFFEE.getName()));
-
-        coffeeMachine.btnSpecial();
-
-        verify(state, times(1)).water(coffeeMachine);
-        assertThat(coffeeMachine.getDrink()).isInstanceOf(WarmWater.class);
-
+        verify(state, times(1)).special(coffeeMachine);
     }
 
     @Test

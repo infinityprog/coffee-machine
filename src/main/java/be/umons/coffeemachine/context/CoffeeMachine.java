@@ -7,8 +7,6 @@ import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
 import be.umons.coffeemachine.model.drink.coffee.MilkyDrink;
 import be.umons.coffeemachine.model.enums.ProfileName;
 import be.umons.coffeemachine.model.enums.Quantity;
-import be.umons.coffeemachine.model.enums.SpecialName;
-import be.umons.coffeemachine.model.factory.SpecialDrinkFactory;
 import be.umons.coffeemachine.model.pieces.MilkFrother;
 import be.umons.coffeemachine.model.pieces.MilkPipe;
 import be.umons.coffeemachine.model.pieces.WaterReservoir;
@@ -118,7 +116,7 @@ public class CoffeeMachine extends Subject {
     public void btnSpecial() {
         logger.info("User presses on btn special");
 
-        makeSpecial();
+        state.special(this);
     }
 
     public void btnExpresso() {
@@ -281,59 +279,6 @@ public class CoffeeMachine extends Subject {
 
     public Drink getDrink() {
         return drink;
-    }
-
-    private void  makeSpecial() {
-
-        try {
-            System.out.println(drink.getName());
-            SpecialName specialName = SpecialName.fromName(drink.getName());
-            changeSpecial(specialName);
-        } catch (Exception ignored){
-            SpecialDrinkFactory specialDrinkFactory = new SpecialDrinkFactory();
-            drink = specialDrinkFactory.getSpecialDrink(SpecialName.HOT_WATER);
-            state.water(this);
-        }
-
-    }
-
-    private void changeSpecial(SpecialName name) {
-        SpecialDrinkFactory specialDrinkFactory = new SpecialDrinkFactory();
-
-        if (name == null) {
-            drink = specialDrinkFactory.getSpecialDrink(SpecialName.HOT_WATER);
-            state.water(this);
-        }
-
-        SpecialName[] specialNames = SpecialName.values();
-
-        for (int i = 0; i < specialNames.length; i++) {
-            if (specialNames[i] == name &&  i + 1 < specialNames.length) {
-                drink = specialDrinkFactory.getSpecialDrink(specialNames[i + 1]);
-                choiceSpecialEvent(specialNames[i + 1], drink);
-
-            } else if (specialNames[i] == name &&  i + 1 == specialNames.length) {
-                drink = specialDrinkFactory.getSpecialDrink(specialNames[0]);
-                choiceSpecialEvent(specialNames[0], drink);
-            }
-        }
-    }
-
-    private void choiceSpecialEvent(SpecialName name, Drink drink) {
-        switch (name) {
-            case HOT_WATER:
-                state.water(this);
-                break;
-            case HOT_MILK:
-                state.milky(this, drink);
-                break;
-            case VERSEUSE:
-                state.verseuse(this);
-                break;
-            default:
-                state.coffee(this, drink);
-                break;
-        }
     }
 
     private List<Profile> createProfil() {
