@@ -124,50 +124,43 @@ public class CoffeeMachine extends Subject {
     public void btnExpresso() {
         logger.info("User presses on btn Expresso");
 
-        drink = new Coffee("Expresso");
-        state.coffee(this);
+        state.coffee(this, new Coffee("Expresso"));
     }
 
     public void btnExpressoMacch() {
         logger.info("User presses on btn Expresso Macch");
 
-        drink = new Coffee("Expresso Macchiato");
-        state.coffee(this);
+        state.coffee(this, new Coffee("Expresso Macchiato"));
     }
 
     public void btnCoffee() {
         logger.info("User presses on btn Coffee");
 
-        drink = new Coffee("Caffé");
-        state.coffee(this);
+        state.coffee(this, new Coffee("Caffé"));
     }
 
     public void btnCappuccino() {
         logger.info("User presses on btn Cappuccino");
 
-        drink = new MilkyDrink("Cappuccino", "Mousse de lait");
-        state.coffee(this);
+        state.coffee(this, new MilkyDrink("Cappuccino", "Mousse de lait"));
     }
 
     public void btnLatteMacchiate() {
         logger.info("User presses on btn Latte Macchiate");
 
-        drink = new MilkyDrink("Latte Machiate", "Lait");
-        state.milky(this);
+        state.milky(this, new MilkyDrink("Latte Machiate", "Lait"));
     }
 
     public void btnMilkCoffee() {
         logger.info("User presses on btn Milk Coffee");
 
-        drink = new MilkyDrink("Caffé au lait", "Lait");
-        state.milky(this);
+        state.milky(this, new MilkyDrink("Caffé au lait", "Lait"));
     }
 
     public void btnMilkFroth() {
         logger.info("User presses on btn Milk Froth");
 
-        drink = new MilkFroth("Mousse de Lait");
-        state.milky(this);
+        state.milky(this, new MilkFroth("Mousse de Lait"));
     }
 
     public void btnFavorite() {
@@ -317,28 +310,28 @@ public class CoffeeMachine extends Subject {
         for (int i = 0; i < specialNames.length; i++) {
             if (specialNames[i] == name &&  i + 1 < specialNames.length) {
                 drink = specialDrinkFactory.getSpecialDrink(specialNames[i + 1]);
-                choiceSpecialEvent(specialNames[i + 1]);
+                choiceSpecialEvent(specialNames[i + 1], drink);
 
             } else if (specialNames[i] == name &&  i + 1 == specialNames.length) {
                 drink = specialDrinkFactory.getSpecialDrink(specialNames[0]);
-                choiceSpecialEvent(specialNames[0]);
+                choiceSpecialEvent(specialNames[0], drink);
             }
         }
     }
 
-    private void choiceSpecialEvent(SpecialName name) {
+    private void choiceSpecialEvent(SpecialName name, Drink drink) {
         switch (name) {
             case HOT_WATER:
                 state.water(this);
                 break;
             case HOT_MILK:
-                state.milky(this);
+                state.milky(this, drink);
                 break;
             case VERSEUSE:
                 state.verseuse(this);
                 break;
             default:
-                state.coffee(this);
+                state.coffee(this, drink);
                 break;
         }
     }

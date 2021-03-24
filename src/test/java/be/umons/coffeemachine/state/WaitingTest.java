@@ -1,5 +1,8 @@
 package be.umons.coffeemachine.state;
 
+import be.umons.coffeemachine.model.drink.Drink;
+import be.umons.coffeemachine.model.drink.coffee.Coffee;
+import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
 import be.umons.coffeemachine.state.config.StateConfigTest;
 import be.umons.coffeemachine.state.menu.MenuChoice;
 import be.umons.coffeemachine.state.takedrink.CoffeeDrink;
@@ -46,15 +49,19 @@ class WaitingTest extends StateConfigTest {
 
     @Test
     void coffee() {
-        waiting.coffee(coffeeMachine);
+        Drink drink = new Coffee("Expresso");
+        waiting.coffee(coffeeMachine, drink);
 
+        verify(coffeeMachine, times(1)).setDrink(drink);
         verify(coffeeMachine, times(1)).transition(any(CoffeeDrink.class));
     }
 
     @Test
     void milky() {
-        waiting.milky(coffeeMachine);
+        Drink drink = new MilkFroth("test");
+        waiting.milky(coffeeMachine, drink);
 
+        verify(coffeeMachine, times(1)).setDrink(drink);
         verify(coffeeMachine, times(1)).transition(any(MilkyDrink.class));
     }
 

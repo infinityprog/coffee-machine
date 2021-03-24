@@ -34,25 +34,24 @@ public class UpdateProfil extends Menu {
     public void intensity(CoffeeMachine coffeeMachine) {
         LOGGER.info("Change intensity");
 
-        Drink drink = coffeeMachine.getDrink();
-        drink.changeIntensity();
-
-        coffeeMachine.setIntensityDisplay(drink.getIntensity().getName());
+        if (currentDrink != null) {
+            currentDrink.changeIntensity();
+            coffeeMachine.setIntensityDisplay(currentDrink.getIntensity().getName());
+        }
     }
 
     @Override
     public void quantity(CoffeeMachine coffeeMachine) {
         LOGGER.info("Change quantity");
 
-        Drink drink = coffeeMachine.getDrink();
-        drink.changeQuantity();
-
-        coffeeMachine.setQuantityDisplay(drink.getQuantity().getName());
+        if (currentDrink != null) {
+            currentDrink.changeQuantity();
+            coffeeMachine.setQuantityDisplay(currentDrink.getQuantity().getName());
+        }
     }
 
     @Override
-    public void coffee(CoffeeMachine coffeeMachine) {
-        Drink drink = coffeeMachine.getDrink();
+    public void coffee(CoffeeMachine coffeeMachine, Drink drink) {
 
         profile.addFavorite(drink);
         currentDrink = profile.getFavorite(drink);
@@ -64,8 +63,7 @@ public class UpdateProfil extends Menu {
     }
 
     @Override
-    public void milky(CoffeeMachine coffeeMachine) {
-        Drink drink = coffeeMachine.getDrink();
+    public void milky(CoffeeMachine coffeeMachine, Drink drink) {
 
         profile.addFavorite(drink);
         currentDrink = profile.getFavorite(drink);
@@ -92,10 +90,19 @@ public class UpdateProfil extends Menu {
 
     @Override
     public void back(CoffeeMachine coffeeMachine) {
+        currentDrink = null;
         coffeeMachine.transition(Favorite.instance());
     }
 
     private Profile clone(Profile profile) {
         return new Profile(profile.getName(), new HashSet<>(profile.getFavoris()));
+    }
+
+    /**
+     * Use only for testing
+     * @param drink
+     */
+    protected void setCurrentDrink(Drink drink) {
+        currentDrink = drink;
     }
 }

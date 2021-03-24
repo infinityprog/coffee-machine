@@ -15,7 +15,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static be.umons.coffeemachine.model.enums.SpecialName.AMERICANO;
 import static be.umons.coffeemachine.model.enums.SpecialName.CORDATO_COFFEE;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -134,12 +135,13 @@ public class CoffeeMachineTest {
 
     @Test
     public void btnSpecialWithDrink() {
+        Drink drink = new Coffee(AMERICANO.getName());
         coffeeMachine.setState(state);
-        coffeeMachine.setDrink(new Coffee(AMERICANO.getName()));
+        coffeeMachine.setDrink(drink);
 
         coffeeMachine.btnSpecial();
 
-        verify(state, times(1)).coffee(coffeeMachine);
+        verify(state, times(1)).coffee(eq(coffeeMachine), any(Coffee.class));
         assertThat(coffeeMachine.getDrink()).isInstanceOf(Coffee.class);
 
     }
@@ -162,11 +164,7 @@ public class CoffeeMachineTest {
 
         coffeeMachine.btnExpresso();
 
-        verify(state, times(1)).coffee(coffeeMachine);
-
-        Drink drink = coffeeMachine.getDrink();
-        assertThat(drink).isInstanceOf(Coffee.class);
-        assertEquals("Expresso", drink.getName());
+        verify(state, times(1)).coffee(coffeeMachine, new Coffee("Expresso"));
     }
 
     @Test
@@ -175,11 +173,7 @@ public class CoffeeMachineTest {
 
         coffeeMachine.btnExpressoMacch();
 
-        verify(state, times(1)).coffee(coffeeMachine);
-
-        Drink drink = coffeeMachine.getDrink();
-        assertThat(drink).isInstanceOf(Coffee.class);
-        assertEquals("Expresso Macchiato", drink.getName());
+        verify(state, times(1)).coffee(coffeeMachine, new Coffee("Expresso Macchiato"));
     }
 
     @Test
@@ -188,11 +182,7 @@ public class CoffeeMachineTest {
 
         coffeeMachine.btnCoffee();
 
-        verify(state, times(1)).coffee(coffeeMachine);
-
-        Drink drink = coffeeMachine.getDrink();
-        assertThat(drink).isInstanceOf(Coffee.class);
-        assertEquals("Caffé", drink.getName());
+        verify(state, times(1)).coffee(coffeeMachine, new Coffee("Caffé"));
     }
 
     @Test
@@ -201,11 +191,7 @@ public class CoffeeMachineTest {
 
         coffeeMachine.btnCappuccino();
 
-        verify(state, times(1)).coffee(coffeeMachine);
-
-        Drink drink = coffeeMachine.getDrink();
-        assertThat(drink).isInstanceOf(MilkyDrink.class);
-        assertEquals("Cappuccino", drink.getName());
+        verify(state, times(1)).coffee(coffeeMachine, new MilkyDrink("Cappuccino", "Mousse de lait"));
     }
 
     @Test
@@ -214,11 +200,7 @@ public class CoffeeMachineTest {
 
         coffeeMachine.btnLatteMacchiate();
 
-        verify(state, times(1)).milky(coffeeMachine);
-
-        Drink drink = coffeeMachine.getDrink();
-        assertThat(drink).isInstanceOf(MilkyDrink.class);
-        assertEquals("Latte Machiate", drink.getName());
+        verify(state, times(1)).milky(coffeeMachine, new MilkyDrink("Latte Machiate", "Lait"));
     }
 
     @Test
@@ -227,11 +209,7 @@ public class CoffeeMachineTest {
 
         coffeeMachine.btnMilkCoffee();
 
-        verify(state, times(1)).milky(coffeeMachine);
-
-        Drink drink = coffeeMachine.getDrink();
-        assertThat(drink).isInstanceOf(MilkyDrink.class);
-        assertEquals("Caffé au lait", drink.getName());
+        verify(state, times(1)).milky(coffeeMachine, new MilkyDrink("Caffé au lait", "Lait"));
     }
 
     @Test
@@ -240,11 +218,7 @@ public class CoffeeMachineTest {
 
         coffeeMachine.btnMilkFroth();
 
-        verify(state, times(1)).milky(coffeeMachine);
-
-        Drink drink = coffeeMachine.getDrink();
-        assertThat(drink).isInstanceOf(MilkFroth.class);
-        assertEquals("Mousse de Lait", drink.getName());
+        verify(state, times(1)).milky(coffeeMachine, new MilkFroth("Mousse de Lait"));
     }
 
     @Test

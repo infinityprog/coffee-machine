@@ -1,6 +1,7 @@
 package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.state.takedrink.special.VerseuseDrink;
 import be.umons.coffeemachine.state.takedrink.special.WaterDrink;
 
@@ -32,12 +33,12 @@ public class MilkFroth extends TakeDrink {
     }
 
     @Override
-    public void coffee(CoffeeMachine coffeeMachine) {
+    public void coffee(CoffeeMachine coffeeMachine, Drink drink) {
         coffeeMachine.transition(CoffeeDrink.instance());
     }
 
     @Override
-    public void milky(CoffeeMachine coffeeMachine) {
+    public void milky(CoffeeMachine coffeeMachine, Drink drink) {
         coffeeMachine.transition(MilkyDrink.instance());
     }
 

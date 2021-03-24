@@ -59,12 +59,14 @@ public class VerseuseDrink extends TakeDrink {
     }
 
     @Override
-    public void coffee(CoffeeMachine coffeeMachine) {
+    public void coffee(CoffeeMachine coffeeMachine, Drink drink) {
+        coffeeMachine.setDrink(drink);
         coffeeMachine.transition(CoffeeDrink.instance());
     }
 
     @Override
-    public void milky(CoffeeMachine coffeeMachine) {
+    public void milky(CoffeeMachine coffeeMachine, Drink drink) {
+        coffeeMachine.setDrink(drink);
         coffeeMachine.transition(MilkyDrink.instance());
     }
 

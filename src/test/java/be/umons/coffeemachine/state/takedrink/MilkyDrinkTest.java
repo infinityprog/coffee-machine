@@ -1,5 +1,8 @@
 package be.umons.coffeemachine.state.takedrink;
 
+import be.umons.coffeemachine.model.drink.Drink;
+import be.umons.coffeemachine.model.drink.coffee.Coffee;
+import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
 import be.umons.coffeemachine.model.enums.Intensity;
 import be.umons.coffeemachine.state.config.TakeDrinkConfigTest;
 import be.umons.coffeemachine.state.takedrink.special.VerseuseDrink;
@@ -9,14 +12,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class MilkyDrinkTest extends TakeDrinkConfigTest {
 
@@ -85,15 +83,19 @@ class MilkyDrinkTest extends TakeDrinkConfigTest {
 
     @Test
     void coffee() {
-        milkyDrink.coffee(coffeeMachine);
+        Drink drink = new Coffee("Expresso");
+        milkyDrink.coffee(coffeeMachine, drink);
 
+        verify(coffeeMachine, times(1)).setDrink(drink);
         verify(coffeeMachine, times(1)).transition(any(CoffeeDrink.class));
     }
 
     @Test
     void milky() {
-        milkyDrink.milky(coffeeMachine);
+        Drink drink = new MilkFroth("test");
+        milkyDrink.milky(coffeeMachine, drink);
 
+        verify(coffeeMachine, times(1)).setDrink(drink);
         verify(coffeeMachine, times(1)).transition(any(MilkyDrink.class));
 
     }

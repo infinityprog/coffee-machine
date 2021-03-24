@@ -2,24 +2,16 @@ package be.umons.coffeemachine.state.menu;
 
 import be.umons.coffeemachine.model.Profile;
 import be.umons.coffeemachine.model.drink.Drink;
-import be.umons.coffeemachine.model.enums.Intensity;
-import be.umons.coffeemachine.model.enums.Quantity;
 import be.umons.coffeemachine.state.config.StateConfigTest;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import java.lang.ref.PhantomReference;
-import java.util.List;
-
 import static be.umons.coffeemachine.model.enums.Intensity.NORMAL;
 import static be.umons.coffeemachine.model.enums.Quantity.MEDIUM;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anySet;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class UpdateProfilTest extends StateConfigTest {
 
@@ -34,7 +26,7 @@ class UpdateProfilTest extends StateConfigTest {
 
     @Test
     void intensity() {
-        when(coffeeMachine.getDrink()).thenReturn(drink);
+        updateProfil.setCurrentDrink(drink);
         when(drink.getIntensity()).thenReturn(NORMAL);
 
         updateProfil.intensity(coffeeMachine);
@@ -44,8 +36,18 @@ class UpdateProfilTest extends StateConfigTest {
     }
 
     @Test
+    void intensityWithCurrentDrinkNull() {
+        updateProfil.setCurrentDrink(null);
+
+        updateProfil.intensity(coffeeMachine);
+
+        verify(coffeeMachine, never()).setIntensityDisplay(NORMAL.getName());
+        verify(drink, never()).changeIntensity();
+    }
+
+    @Test
     void quantity() {
-        when(coffeeMachine.getDrink()).thenReturn(drink);
+        updateProfil.setCurrentDrink(drink);
         when(drink.getQuantity()).thenReturn(MEDIUM);
 
         updateProfil.quantity(coffeeMachine);
@@ -55,14 +57,22 @@ class UpdateProfilTest extends StateConfigTest {
     }
 
     @Test
+    void quantityWithCurrentDrinkNull() {
+        updateProfil.setCurrentDrink(null);
+        updateProfil.quantity(coffeeMachine);
+
+        verify(coffeeMachine, never()).setQuantityDisplay(MEDIUM.getName());
+        verify(drink, never()).changeQuantity();
+    }
+
+    @Test
     void coffee() {
-        when(coffeeMachine.getDrink()).thenReturn(drink);
         when(drink.getQuantity()).thenReturn(MEDIUM);
         when(drink.getIntensity()).thenReturn(NORMAL);
         when(drink.getName()).thenReturn("Test");
         when(profile.getFavorite(drink)).thenReturn(drink);
 
-        updateProfil.coffee(coffeeMachine);
+        updateProfil.coffee(coffeeMachine, drink);
 
         verify(profile, times(1)).addFavorite(drink);
         verify(profile, times(1)).getFavorite(drink);
@@ -74,13 +84,12 @@ class UpdateProfilTest extends StateConfigTest {
 
     @Test
     void milky() {
-        when(coffeeMachine.getDrink()).thenReturn(drink);
         when(drink.getQuantity()).thenReturn(MEDIUM);
         when(drink.getIntensity()).thenReturn(NORMAL);
         when(drink.getName()).thenReturn("Test");
         when(profile.getFavorite(drink)).thenReturn(drink);
 
-        updateProfil.coffee(coffeeMachine);
+        updateProfil.coffee(coffeeMachine, drink);
 
         verify(profile, times(1)).addFavorite(drink);
         verify(profile, times(1)).getFavorite(drink);

@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.state.takedrink;
 
+import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.state.config.TakeDrinkConfigTest;
 import be.umons.coffeemachine.state.takedrink.special.VerseuseDrink;
 import be.umons.coffeemachine.state.takedrink.special.WaterDrink;
@@ -38,14 +39,14 @@ class MilkFrothTest extends TakeDrinkConfigTest {
 
     @Test
     void coffee() {
-        milkFroth.coffee(coffeeMachine);
+        milkFroth.coffee(coffeeMachine, new Coffee("Expresso"));
 
         verify(coffeeMachine, times(1)).transition(any(CoffeeDrink.class));
     }
 
     @Test
     void milky() {
-        milkFroth.milky(coffeeMachine);
+        milkFroth.milky(coffeeMachine, new be.umons.coffeemachine.model.drink.coffee.MilkFroth("test"));
 
         verify(coffeeMachine, times(1)).transition(any(MilkyDrink.class));
 

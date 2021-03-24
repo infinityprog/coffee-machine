@@ -1,6 +1,7 @@
 package be.umons.coffeemachine.state;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.model.drink.Drink;
 
 import java.security.InvalidParameterException;
 
@@ -52,11 +53,11 @@ public abstract class State {
 
     }
 
-    public void coffee(CoffeeMachine coffeeMachine) {
+    public void coffee(CoffeeMachine coffeeMachine, Drink drink) {
 
     }
 
-    public void milky(CoffeeMachine coffeeMachine) {
+    public void milky(CoffeeMachine coffeeMachine, Drink drink) {
 
     }
 
