@@ -37,6 +37,8 @@ public class ChoiceProfiles extends State {
             coffeeMachine.setTitleDisplay("Profile : " + currentProfile.getName().name());
 
         } else {
+            coffeeMachine.setEnableBtnOk(false);
+            coffeeMachine.setEnableBtnScrolling(false);
             coffeeMachine.setTitleDisplay("Tous les profiles sont vide");
         }
 
@@ -90,8 +92,11 @@ public class ChoiceProfiles extends State {
 
     @Override
     public void ok(CoffeeMachine coffeeMachine) {
-        coffeeMachine.setSelectedProfile(currentProfile);
-        coffeeMachine.transition(ChoiceFavorite.instance());
+        List<Profile> profiles = coffeeMachine.getProfils();
+        if (profiles.stream().anyMatch(Profile::isUsed)) {
+            coffeeMachine.setSelectedProfile(currentProfile);
+            coffeeMachine.transition(ChoiceFavorite.instance());
+        }
     }
 
     protected ChoiceProfiles setCurrentProfile(Profile currentProfile) {

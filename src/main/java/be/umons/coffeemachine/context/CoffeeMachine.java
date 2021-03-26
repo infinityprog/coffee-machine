@@ -39,6 +39,7 @@ public class CoffeeMachine extends Subject {
     private String quantityDisplay;
     private List<Profile> profiles;
     private Profile selectedProfile;
+    private int nbrDrinksServed = 0;
 
     private boolean enableBtnStartStop;
     private boolean enableBtnOk;
@@ -499,5 +500,13 @@ public class CoffeeMachine extends Subject {
         enableBtnMilkFroth = false;
         enableBtnScrolling = false;
         notif();
+    }
+
+    public String getNbrDrinksServed() {
+        return String.valueOf(nbrDrinksServed);
+    }
+
+    public void addDrinksServed(int nbr) {
+        this.nbrDrinksServed += nbr;
     }
 }

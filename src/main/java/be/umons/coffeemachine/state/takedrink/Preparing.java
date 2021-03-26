@@ -2,6 +2,7 @@ package be.umons.coffeemachine.state.takedrink;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.drink.Drink;
+import be.umons.coffeemachine.model.drink.special.Verseuse;
 import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.Waiting;
 
@@ -24,7 +25,10 @@ public class Preparing extends State {
         coffeeMachine.setQuantityDisplay("");
 
         Drink drink = coffeeMachine.getDrink();
-        drink.onFinish(() -> coffeeMachine.transition(Waiting.instance()));
+        drink.onFinish(() -> {
+            addDrink(coffeeMachine, drink);
+            coffeeMachine.transition(Waiting.instance());
+        });
         drink.makeDrink(coffeeMachine);
     }
 
@@ -33,6 +37,7 @@ public class Preparing extends State {
         Drink drink = coffeeMachine.getDrink();
         drink.stop(coffeeMachine);
         if (drink.isPreparing()) {
+            addDrink(coffeeMachine, drink);
             coffeeMachine.transition(Waiting.instance());
         }
     }
@@ -50,6 +55,19 @@ public class Preparing extends State {
         coffeeMachine.setQuantityDisplay("");
         if (drink.isPreparing()) {
             drink.resetPieces(coffeeMachine);
+        }
+    }
+
+    private void addDrink(CoffeeMachine coffeeMachine, Drink drink) {
+
+        if (drink instanceof Verseuse && drink.isTwo()) {
+            coffeeMachine.addDrinksServed(6);
+        } else if (drink instanceof Verseuse && !drink.isTwo()) {
+            coffeeMachine.addDrinksServed(4);
+        } else if (drink.isTwo()) {
+            coffeeMachine.addDrinksServed(2);
+        } else {
+            coffeeMachine.addDrinksServed(1);
         }
     }
 }

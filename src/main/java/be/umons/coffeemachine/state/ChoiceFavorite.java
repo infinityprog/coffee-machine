@@ -39,7 +39,7 @@ public class ChoiceFavorite extends State {
         coffeeMachine.resetDisplayBtn();
 
         coffeeMachine.setEnableBtnFavorite(true);
-        coffeeMachine.setEnableBtnOk(true);
+        coffeeMachine.setEnableBtnStartStop(true);
         coffeeMachine.setEnableBtnScrolling(true);
     }
 
