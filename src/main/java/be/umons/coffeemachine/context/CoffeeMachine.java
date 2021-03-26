@@ -32,7 +32,6 @@ public class CoffeeMachine extends Subject {
     private MilkFrother milkFrother;
     private MilkPipe milkPipe;
     private boolean hot;
-    private boolean served;
     private Observer observer;
     private String titleDisplay;
     private String intensityDisplay;
@@ -168,6 +167,10 @@ public class CoffeeMachine extends Subject {
         state.favori(this);
     }
 
+    public void stop() {
+        state.stop(this);
+    }
+
     public void transition(State next) {
         logger.info("Change state to " + next.getClass().getName());
         state.exit(this);
@@ -270,12 +273,7 @@ public class CoffeeMachine extends Subject {
     }
 
     public Boolean isServed() {
-        return served;
-    }
-
-    public CoffeeMachine setServed(Boolean served) {
-        this.served = served;
-        return this;
+        return nbrDrinksServed > 0;
     }
 
     public Drink getDrink() {

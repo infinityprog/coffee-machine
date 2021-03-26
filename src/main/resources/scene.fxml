@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<Pane fx:id="window" prefHeight="383.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.umons.coffeemachine.view.CoffeeMachineGUI">
+<Pane fx:id="window" onKeyPressed="#onStop" prefHeight="383.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.umons.coffeemachine.view.CoffeeMachineGUI">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="936.0" spacing="20.0">
          <children>

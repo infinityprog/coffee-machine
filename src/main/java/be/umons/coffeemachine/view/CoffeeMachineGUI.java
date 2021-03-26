@@ -213,6 +213,8 @@ public class CoffeeMachineGUI implements Initializable, Observer {
         coffeeMachine.btnMenu();
     }
 
+    //todo stop
+
     public CoffeeMachineGUI setCoffeeMachine(CoffeeMachine coffeeMachine) {
         this.coffeeMachine = coffeeMachine;
         return this;

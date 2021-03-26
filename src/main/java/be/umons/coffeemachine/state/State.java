@@ -77,6 +77,10 @@ public abstract class State {
 
     }
 
+    public void stop(CoffeeMachine coffeeMachine) {
+        coffeeMachine.transition(Stop.instance());
+    }
+
     protected final void enableDrink(CoffeeMachine coffeeMachine) {
         coffeeMachine.setEnableBtnExpresso(true);
         coffeeMachine.setEnableBtnExpressoMacch(true);
