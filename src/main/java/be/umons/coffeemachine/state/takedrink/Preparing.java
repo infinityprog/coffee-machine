@@ -22,6 +22,7 @@ public class Preparing extends State {
     public void entry(CoffeeMachine coffeeMachine) {
         coffeeMachine.setIntensityDisplay("");
         coffeeMachine.setQuantityDisplay("");
+
         Drink drink = coffeeMachine.getDrink();
         drink.onFinish(() -> coffeeMachine.transition(Waiting.instance()));
         drink.makeDrink(coffeeMachine);
@@ -34,6 +35,12 @@ public class Preparing extends State {
         if (drink.isPreparing()) {
             coffeeMachine.transition(Waiting.instance());
         }
+    }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+        coffeeMachine.setEnableBtnStartStop(true);
     }
 
     @Override

@@ -24,4 +24,9 @@ public class Reset extends Menu {
         super.startStop(coffeeMachine);
     }
 
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+
+    }
+
 }

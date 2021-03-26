@@ -1,5 +1,7 @@
 package be.umons.coffeemachine.state;
 
+import be.umons.coffeemachine.context.CoffeeMachine;
+
 public class Stop extends State {
 
     private static Stop instance;
@@ -10,5 +12,10 @@ public class Stop extends State {
         }
 
         return instance;
+    }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+
     }
 }

@@ -28,6 +28,7 @@ public class Cleaning extends CalcAndClean {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
         if (CalcAndClean.instance().isCalcAndClean()) {
             run(coffeeMachine);
         } else {
@@ -36,6 +37,8 @@ public class Cleaning extends CalcAndClean {
     }
 
     private void run(CoffeeMachine coffeeMachine) {
+        coffeeMachine.setEnableBtnMenu(false);
+        coffeeMachine.setEnableBtnBack(false);
         be.umons.coffeemachine.model.program.Cleaning cleaning = be.umons.coffeemachine.model.program.Cleaning.instance();
         if (!cleaning.isInPreparing()) {
             cleaning.onFinish(() -> coffeeMachine.transition(Waiting.instance()));

@@ -36,6 +36,7 @@ public class Descaling extends Program {
         fixError();
 
         if (isReady()) {
+            coffeeMachine.setEnableBtnStartStop(false);
             onPreparing(coffeeMachine);
         } else {
             coffeeMachine.setTitleDisplay(errorMessage());

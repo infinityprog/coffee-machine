@@ -31,4 +31,9 @@ public class SettingsQuantity extends Menu {
     public void scrolling(CoffeeMachine coffeeMachine) {
         super.scrolling(coffeeMachine);
     }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+
+    }
 }

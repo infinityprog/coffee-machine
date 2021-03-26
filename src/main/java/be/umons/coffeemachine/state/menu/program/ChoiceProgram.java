@@ -57,6 +57,15 @@ public class ChoiceProgram extends Menu {
         coffeeMachine.setTitleDisplay(currentOptions.getName().getName());
     }
 
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+        coffeeMachine.setEnableBtnMenu(true);
+        coffeeMachine.setEnableBtnBack(true);
+        coffeeMachine.setEnableBtnOk(true);
+        coffeeMachine.setEnableBtnScrolling(true);
+    }
+
     public Program getCurrentOptions() {
         return currentOptions;
     }

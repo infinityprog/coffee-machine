@@ -22,6 +22,7 @@ public class ChoiceProfiles extends State {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
         List<Profile> profiles = coffeeMachine.getProfils();
 
         if (profiles.stream().anyMatch(Profile::isUsed)) {
@@ -60,6 +61,15 @@ public class ChoiceProfiles extends State {
     @Override
     public void favori(CoffeeMachine coffeeMachine) {
         coffeeMachine.transition(Waiting.instance());
+    }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+
+        coffeeMachine.setEnableBtnFavorite(true);
+        coffeeMachine.setEnableBtnOk(true);
+        coffeeMachine.setEnableBtnScrolling(true);
     }
 
     private Profile changeProfil(List<Profile> profiles) {

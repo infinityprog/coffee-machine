@@ -25,6 +25,13 @@ public class ConnectMilkPipe extends TakeDrink {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
         coffeeMachine.setTitleDisplay("Connecetez le tuyaux à lait");
+    }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+        coffeeMachine.setEnableBtnStartStop(true);
     }
 }

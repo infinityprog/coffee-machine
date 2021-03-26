@@ -18,4 +18,9 @@ public class Security extends State {
     public void security(CoffeeMachine coffeeMachine) {
         super.security(coffeeMachine);
     }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+
+    }
 }

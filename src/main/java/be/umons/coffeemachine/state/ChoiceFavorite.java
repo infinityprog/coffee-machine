@@ -24,12 +24,23 @@ public class ChoiceFavorite extends State {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
+
         Set<Drink> drinks = coffeeMachine.getSelectedProfile()
                 .getFavoris();
 
         currentDrink = new ArrayList<>(drinks).get(0);
 
         display(coffeeMachine);
+    }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+
+        coffeeMachine.setEnableBtnFavorite(true);
+        coffeeMachine.setEnableBtnOk(true);
+        coffeeMachine.setEnableBtnScrolling(true);
     }
 
     @Override

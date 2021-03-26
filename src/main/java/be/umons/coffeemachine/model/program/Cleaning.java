@@ -38,6 +38,7 @@ public class Cleaning extends Program {
         fixError();
 
         if (isReady()) {
+            coffeeMachine.setEnableBtnStartStop(false);
             onPreparing(coffeeMachine);
         } else {
             coffeeMachine.setTitleDisplay(errorMessage());

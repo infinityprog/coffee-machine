@@ -25,6 +25,13 @@ public class FillReservoir extends TakeDrink {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
         coffeeMachine.setTitleDisplay("Le réservoir d'eau doit être remplit");
+    }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+        coffeeMachine.setEnableBtnStartStop(true);
     }
 }

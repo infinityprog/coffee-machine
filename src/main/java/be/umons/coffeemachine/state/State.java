@@ -124,7 +124,5 @@ public abstract class State {
         }
     }
 
-    public void changeOption() {
-
-    }
+    abstract public void enableBtn(CoffeeMachine coffeeMachine);
 }

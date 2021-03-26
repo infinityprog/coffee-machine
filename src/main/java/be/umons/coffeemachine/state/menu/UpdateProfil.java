@@ -56,6 +56,8 @@ public class UpdateProfil extends Menu {
         profile.addFavorite(drink);
         currentDrink = profile.getFavorite(drink);
 
+        enableBtnDrinkState(coffeeMachine, drink.getName());
+
         coffeeMachine.setTitleDisplay("Favoris : " + currentDrink.getName());
         coffeeMachine.setIntensityDisplay(currentDrink.getIntensity().getName());
         coffeeMachine.setQuantityDisplay(currentDrink.getQuantity().getName());
@@ -68,25 +70,49 @@ public class UpdateProfil extends Menu {
         profile.addFavorite(drink);
         currentDrink = profile.getFavorite(drink);
 
+        enableBtnDrinkState(coffeeMachine, drink.getName());
+
         coffeeMachine.setTitleDisplay("Favoris : " + currentDrink.getName());
         coffeeMachine.setIntensityDisplay(currentDrink.getIntensity().getName());
         coffeeMachine.setQuantityDisplay(currentDrink.getQuantity().getName());
     }
 
     @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+        coffeeMachine.setEnableBtnBack(true);
+        coffeeMachine.setEnableBtnMenu(true);
+        enableDrink(coffeeMachine);
+    }
+
+    private void enableBtnDrinkState(CoffeeMachine coffeeMachine, String name) {
+        coffeeMachine.setEnableBtnQuantity(true);
+        coffeeMachine.setEnableBtnIntensity(true);
+        coffeeMachine.setEnableBtnOk(true);
+        coffeeMachine.setEnableBtnSpecial(false);
+        changeModeBtn(coffeeMachine, name, false);
+    }
+
+    @Override
     public void ok(CoffeeMachine coffeeMachine) {
-        Profile profile = coffeeMachine.getSelectedProfile();
+        if (currentDrink != null) {
 
-        profile.setFavoris(this.profile.getFavoris());
+            Profile profile = coffeeMachine.getSelectedProfile();
 
-        this.back(coffeeMachine);
+            profile.setFavoris(this.profile.getFavoris());
+
+            this.back(coffeeMachine);
+        }
     }
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
         profile = clone(coffeeMachine.getSelectedProfile());
         coffeeMachine.setTitleDisplay("Choisissez une boisson pour " + profile.getName());
     }
+
+
 
     @Override
     public void back(CoffeeMachine coffeeMachine) {

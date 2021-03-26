@@ -23,4 +23,9 @@ public class FrostProtection extends Menu {
     public void entry(CoffeeMachine coffeeMachine) {
         super.entry(coffeeMachine);
     }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+
+    }
 }

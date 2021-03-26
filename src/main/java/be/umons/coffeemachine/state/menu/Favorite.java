@@ -37,6 +37,8 @@ public class Favorite extends Menu {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
+
         if (currentProfile == null) {
             currentProfile = coffeeMachine.getProfils().get(0);
         }
@@ -46,11 +48,22 @@ public class Favorite extends Menu {
         coffeeMachine.setIntensityDisplay("");
     }
 
+
+
     @Override
     public void scrolling(CoffeeMachine coffeeMachine) {
         currentProfile = changeProfil(coffeeMachine.getProfils());
 
         coffeeMachine.setTitleDisplay(currentProfile.getNameToDisplay());
+    }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+        coffeeMachine.setEnableBtnScrolling(true);
+        coffeeMachine.setEnableBtnOk(true);
+        coffeeMachine.setEnableBtnMenu(true);
+        coffeeMachine.setEnableBtnBack(true);
     }
 
     private Profile changeProfil(List<Profile> profiles) {

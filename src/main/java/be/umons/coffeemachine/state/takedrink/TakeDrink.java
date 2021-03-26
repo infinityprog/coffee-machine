@@ -21,9 +21,14 @@ public abstract class TakeDrink extends State {
         coffeeMachine.setTitleDisplay(drink.getName());
         coffeeMachine.setIntensityDisplay(drink.getIntensity().getName());
         coffeeMachine.setQuantityDisplay(drink.getQuantity().getName());
+        enableBtn(coffeeMachine);
+        changeModeBtn(coffeeMachine, drink.getName(), false);
+    }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
         coffeeMachine.resetDisplayBtn();
         enableDrink(coffeeMachine);
-        changeModeBtn(coffeeMachine, drink.getName(), false);
         coffeeMachine.setEnableBtnQuantity(true);
         coffeeMachine.setEnableBtnIntensity(true);
         coffeeMachine.setEnableBtnDouble(true);

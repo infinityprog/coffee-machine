@@ -1,21 +1,16 @@
 package be.umons.coffeemachine.state.menu;
 
 import be.umons.coffeemachine.context.CoffeeMachine;
-import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.enums.MenuName;
 import be.umons.coffeemachine.model.factory.MenuFactory;
 import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.Waiting;
-import be.umons.coffeemachine.state.takedrink.special.WaterDrink;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static be.umons.coffeemachine.model.enums.MenuName.CALC_AND_CLEAN;
-import static be.umons.coffeemachine.model.enums.MenuName.CLEANING;
-import static be.umons.coffeemachine.model.enums.MenuName.CLEANING_MILK_FROTH;
-import static be.umons.coffeemachine.model.enums.MenuName.DESCALING;
+import static be.umons.coffeemachine.model.enums.MenuName.*;
 
 public class MenuChoice extends State {
 
@@ -53,7 +48,18 @@ public class MenuChoice extends State {
     }
 
     @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+        coffeeMachine.resetDisplayBtn();
+        coffeeMachine.setEnableBtnMenu(true);
+        coffeeMachine.setEnableBtnBack(true);
+        coffeeMachine.setEnableBtnOk(true);
+        coffeeMachine.setEnableBtnScrolling(true);
+    }
+
+    @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
+
         if (currentMenu == null) {
             currentMenu = Favorite.instance();
         }

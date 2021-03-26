@@ -22,4 +22,9 @@ public class Start extends State {
             coffeeMachine.transition(Waiting.instance());
         }
     }
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+
+    }
 }

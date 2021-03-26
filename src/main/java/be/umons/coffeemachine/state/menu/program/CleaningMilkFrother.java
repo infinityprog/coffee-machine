@@ -22,6 +22,7 @@ public class CleaningMilkFrother extends Program {
 
     @Override
     public void startStop(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
         super.startStop(coffeeMachine);
     }
 }

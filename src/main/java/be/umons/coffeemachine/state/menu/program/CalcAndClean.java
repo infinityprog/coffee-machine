@@ -21,6 +21,7 @@ public class CalcAndClean extends Program {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
+        enableBtn(coffeeMachine);
         coffeeMachine.setTitleDisplay(getName().getName());
     }
 

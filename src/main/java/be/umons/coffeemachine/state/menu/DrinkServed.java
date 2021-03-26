@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.state.menu;
 
+import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.enums.MenuName;
 
 public class DrinkServed extends Menu {
@@ -15,5 +16,11 @@ public class DrinkServed extends Menu {
 
     public DrinkServed() {
         super(MenuName.DRINK_SERVED);
+    }
+
+
+    @Override
+    public void enableBtn(CoffeeMachine coffeeMachine) {
+
     }
 }
