@@ -24,6 +24,10 @@ public class CoffeeMachineGUI implements Initializable, Observer {
 
     private CoffeeMachine coffeeMachine;
 
+    private Long beginTime = 0L;
+
+    private boolean interrupt = false;
+
     @FXML
     private Pane window;
 
@@ -138,7 +142,7 @@ public class CoffeeMachineGUI implements Initializable, Observer {
         btnMenu.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnMenu()? ENABLE_BTN : DISABLE_BTN));
         btnFavorite.setStyle("-fx-border-color: " + (coffeeMachine.isEnableBtnFavorite()? ENABLE_BTN : DISABLE_BTN));
 
-
+        onStop();
     }
 
 
@@ -213,7 +217,40 @@ public class CoffeeMachineGUI implements Initializable, Observer {
         coffeeMachine.btnMenu();
     }
 
-    //todo stop
+    public void onStop() {
+
+        btnStartStop.setOnMousePressed(event -> {
+
+            Thread stop = new Thread(() -> {
+                beginTime = System.currentTimeMillis();
+                interrupt = false;
+
+                try {
+                    Thread.sleep(650);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                if (!interrupt) {
+                    btnStartStop.setStyle("-fx-border-color: red");
+                }
+
+            });
+
+            stop.start();
+        });
+
+        btnStartStop.setOnMouseReleased(event -> {
+            interrupt = true;
+            long resultTime = System.currentTimeMillis() - beginTime;
+
+            if (resultTime > 600) {
+                coffeeMachine.stop();
+            }
+
+            beginTime = 0L;
+        });
+    }
 
     public CoffeeMachineGUI setCoffeeMachine(CoffeeMachine coffeeMachine) {
         this.coffeeMachine = coffeeMachine;

@@ -12,7 +12,7 @@ import be.umons.coffeemachine.model.pieces.MilkPipe;
 import be.umons.coffeemachine.model.pieces.WaterReservoir;
 import be.umons.coffeemachine.observer.Observer;
 import be.umons.coffeemachine.observer.Subject;
-import be.umons.coffeemachine.state.Start;
+import be.umons.coffeemachine.state.StartAndStop;
 import be.umons.coffeemachine.state.State;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -64,7 +64,7 @@ public class CoffeeMachine extends Subject {
         milkFrother = new MilkFrother();
         milkPipe = new MilkPipe();
         profiles = createProfil();
-        state = Start.instance();
+        state = StartAndStop.instance();
     }
 
     public void btnStartStop() {

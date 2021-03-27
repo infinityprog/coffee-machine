@@ -78,7 +78,7 @@ public abstract class State {
     }
 
     public void stop(CoffeeMachine coffeeMachine) {
-        coffeeMachine.transition(Stop.instance());
+        coffeeMachine.transition(StartAndStop.instance());
     }
 
     protected final void enableDrink(CoffeeMachine coffeeMachine) {
