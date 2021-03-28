@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.model.drink.special;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.enums.Quantity;
 import javafx.animation.PauseTransition;
@@ -16,7 +17,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Verseuse Model")
-class VerseuseTest {
+class VerseuseTest extends TestConfig {
 
     @InjectMocks
     private Verseuse verseuse;

@@ -6,6 +6,7 @@ import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
 public class Rinsing extends State {
 
     private Logger logger = LogManager.getLogger(Rinsing.class);

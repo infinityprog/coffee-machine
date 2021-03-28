@@ -5,8 +5,8 @@ import be.umons.coffeemachine.model.enums.Intensity;
 import be.umons.coffeemachine.model.enums.Quantity;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.Objects;

@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.model.factory;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.menu.DrinkServed;
 import be.umons.coffeemachine.state.menu.Favorite;
@@ -16,7 +17,7 @@ import static be.umons.coffeemachine.model.enums.MenuName.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Menu Factory")
-class MenuFactoryTest {
+class MenuFactoryTest extends TestConfig {
 
     private MenuFactory menuFactory = new MenuFactory();
 

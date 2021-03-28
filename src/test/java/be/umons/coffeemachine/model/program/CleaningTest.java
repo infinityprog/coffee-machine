@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.model.program;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.context.CoffeeMachine;
 import javafx.animation.PauseTransition;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,16 +13,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static be.umons.coffeemachine.model.enums.CleaningError.COLLECTING_TRAY;
 import static be.umons.coffeemachine.model.enums.CleaningError.INSERT_TABLET;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Cleaning Model")
-class CleaningTest {
+class CleaningTest extends TestConfig {
 
     @InjectMocks
     private Cleaning cleaning;

@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.model.program;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.context.CoffeeMachine;
 import javafx.animation.PauseTransition;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,13 +14,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static be.umons.coffeemachine.model.enums.DescalingError.COLLECTING_TRAY;
 import static be.umons.coffeemachine.model.enums.DescalingError.WATER_FILTER;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Descaling Model")
-class DescalingTest {
+class DescalingTest extends TestConfig {
 
     @InjectMocks
     private Descaling descaling;

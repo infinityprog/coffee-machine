@@ -1,6 +1,7 @@
 package be.umons.coffeemachine.model.drink.coffee;
 
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.enums.Intensity;
 import be.umons.coffeemachine.model.pieces.WaterReservoir;
@@ -20,7 +21,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Coffee Model")
-public class CoffeeTest {
+public class CoffeeTest extends TestConfig {
 
     @InjectMocks
     private Coffee coffee;

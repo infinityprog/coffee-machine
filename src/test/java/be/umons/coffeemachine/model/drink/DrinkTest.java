@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.model.drink;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.context.CoffeeMachine;
 import be.umons.coffeemachine.model.enums.Intensity;
 import be.umons.coffeemachine.model.enums.Quantity;
@@ -20,7 +21,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Abstract Drink Model")
-class DrinkTest {
+class DrinkTest extends TestConfig {
 
     @InjectMocks
     private Drink drink = mock(Drink.class, Mockito.CALLS_REAL_METHODS);

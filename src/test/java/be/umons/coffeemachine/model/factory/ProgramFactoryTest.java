@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.model.factory;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.menu.program.CalcAndClean;
 import be.umons.coffeemachine.state.menu.program.Cleaning;
@@ -15,7 +16,7 @@ import static be.umons.coffeemachine.model.enums.MenuName.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Program Factory")
-class ProgramFactoryTest {
+class ProgramFactoryTest extends TestConfig {
 
     private ProgramFactory programFactory = new ProgramFactory();
 

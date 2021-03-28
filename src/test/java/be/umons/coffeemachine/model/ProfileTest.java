@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.model;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ProfileTest {
+class ProfileTest extends TestConfig {
 
     private static final String COFFEE = "coffee";
 

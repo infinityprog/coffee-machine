@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.model.factory;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.model.drink.Drink;
 import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
@@ -11,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import static be.umons.coffeemachine.model.enums.SpecialName.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SpecialDrinkFactoryTest {
+class SpecialDrinkFactoryTest extends TestConfig {
 
     private SpecialDrinkFactory specialDrinkFactory = new SpecialDrinkFactory();
 

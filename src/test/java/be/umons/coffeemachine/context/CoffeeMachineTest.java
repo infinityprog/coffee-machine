@@ -1,5 +1,6 @@
 package be.umons.coffeemachine.context;
 
+import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.model.drink.coffee.Coffee;
 import be.umons.coffeemachine.model.drink.coffee.MilkFroth;
 import be.umons.coffeemachine.model.drink.coffee.MilkyDrink;
@@ -14,7 +15,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-public class CoffeeMachineTest {
+public class CoffeeMachineTest extends TestConfig {
 
     @InjectMocks
     private CoffeeMachine coffeeMachine;
