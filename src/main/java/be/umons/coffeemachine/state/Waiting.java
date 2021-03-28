@@ -23,10 +23,14 @@ public class Waiting extends State {
 
     @Override
     public void entry(CoffeeMachine coffeeMachine) {
-        enableBtn(coffeeMachine);
-        coffeeMachine.setTitleDisplay("En attente");
-        coffeeMachine.setQuantityDisplay("");
-        coffeeMachine.setIntensityDisplay("");
+        if (coffeeMachine.isError()) {
+            coffeeMachine.transition(Error.instance());
+        } else {
+            enableBtn(coffeeMachine);
+            coffeeMachine.setTitleDisplay("En attente");
+            coffeeMachine.setQuantityDisplay("");
+            coffeeMachine.setIntensityDisplay("");
+        }
     }
 
     @Override

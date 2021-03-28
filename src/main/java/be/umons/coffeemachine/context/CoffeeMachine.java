@@ -14,8 +14,8 @@ import be.umons.coffeemachine.observer.Observer;
 import be.umons.coffeemachine.observer.Subject;
 import be.umons.coffeemachine.state.StartAndStop;
 import be.umons.coffeemachine.state.State;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +58,7 @@ public class CoffeeMachine extends Subject {
     private boolean enableBtnMilkFroth;
     private boolean enableBtnScrolling;
     private boolean two;
+    private boolean error = true;
 
     public CoffeeMachine(Observer observer) {
         attach(observer);
@@ -518,5 +519,9 @@ public class CoffeeMachine extends Subject {
         this.two = two;
         notif();
         return this;
+    }
+
+    public boolean isError() {
+        return error;
     }
 }

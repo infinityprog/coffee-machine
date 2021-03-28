@@ -34,4 +34,8 @@ public abstract class StateConfigTest {
     protected CoffeeMachine verifyCoffeeMachine(int nbr) {
         return verify(coffeeMachine, times(nbr));
     }
+
+//    public StateConfigTest() {
+//        Configurator.setRootLevel(Level.DEBUG);
+//    }
 }

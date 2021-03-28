@@ -22,6 +22,8 @@ class WaitingTest extends StateConfigTest {
 
     @Test
     void entry() {
+        when(coffeeMachine.isError()).thenReturn(false);
+
         waiting.entry(coffeeMachine);
 
         verify(coffeeMachine, times(1)).setTitleDisplay("En attente");
@@ -29,6 +31,19 @@ class WaitingTest extends StateConfigTest {
         verify(coffeeMachine, times(1)).setIntensityDisplay("");
 
         verifyEnableBtn();
+    }
+
+    @Test
+    void entryError() {
+        when(coffeeMachine.isError()).thenReturn(true);
+
+        waiting.entry(coffeeMachine);
+
+        verify(coffeeMachine, never()).setTitleDisplay("En attente");
+        verify(coffeeMachine, never()).setQuantityDisplay("");
+        verify(coffeeMachine, never()).setIntensityDisplay("");
+
+        verifyCoffeeMachineOnce().transition(any(Error.class));
     }
 
     @Test
