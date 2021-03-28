@@ -24,6 +24,8 @@ public class Preparing extends State {
         coffeeMachine.setIntensityDisplay("");
         coffeeMachine.setQuantityDisplay("");
 
+        enableBtn(coffeeMachine);
+
         Drink drink = coffeeMachine.getDrink();
         drink.onFinish(() -> {
             addDrink(coffeeMachine, drink);

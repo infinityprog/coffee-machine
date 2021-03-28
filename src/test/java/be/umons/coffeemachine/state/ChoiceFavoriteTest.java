@@ -32,6 +32,8 @@ class ChoiceFavoriteTest extends StateConfigTest {
         verify(coffeeMachine, times(1)).setTitleDisplay("Favori \ntest");
         verify(coffeeMachine, times(1)).setIntensityDisplay(Intensity.NORMAL.getName());
         verify(coffeeMachine, times(1)).setQuantityDisplay(Quantity.MEDIUM.getName());
+
+        verifyEnableBtn();
     }
 
     @Test
@@ -84,5 +86,13 @@ class ChoiceFavoriteTest extends StateConfigTest {
         Drink milkFroth = new MilkFroth("Mousse de lait");
 
         return Set.of(coffee, milky, milkFroth);
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnFavorite(true);
+        verifyCoffeeMachineOnce().setEnableBtnStartStop(true);
+        verifyCoffeeMachineOnce().setEnableBtnScrolling(true);
     }
 }

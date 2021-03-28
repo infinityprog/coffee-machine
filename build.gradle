@@ -24,11 +24,6 @@ dependencies {
     testCompile "org.powermock:powermock-module-junit4:1.7.3"
     testCompile "org.powermock:powermock-api-mockito2:1.7.3"
     testCompile("org.assertj:assertj-core:3.11.1")
-
-
-
-
-
 }
 
 javafx {
@@ -38,6 +33,14 @@ javafx {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'be.umons.coffeemachine.Main'
+        )
+    }
 }
 
 mainClassName = 'be.umons.coffeemachine.Main'

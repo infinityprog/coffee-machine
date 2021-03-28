@@ -5,12 +5,8 @@ import be.umons.coffeemachine.state.config.TakeDrinkConfigTest;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class PreparingTest extends TakeDrinkConfigTest {
 
@@ -28,6 +24,7 @@ class PreparingTest extends TakeDrinkConfigTest {
         verify(drink, times(1)).onFinish(any(Runnable.class));
         verify(drink, times(1)).makeDrink(coffeeMachine);
 
+        verifyEnableBtn();
     }
 
     @Test
@@ -77,4 +74,9 @@ class PreparingTest extends TakeDrinkConfigTest {
     }
 
 
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnStartStop(true);
+    }
 }

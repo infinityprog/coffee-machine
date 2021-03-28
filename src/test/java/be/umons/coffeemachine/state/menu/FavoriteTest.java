@@ -48,6 +48,8 @@ class FavoriteTest extends StateConfigTest {
         verify(coffeeMachine, times(1)).setTitleDisplay(profile.getNameToDisplay());
         verify(coffeeMachine, times(1)).setQuantityDisplay("");
         verify(coffeeMachine, times(1)).setIntensityDisplay("");
+
+        verifyEnableBtn();
     }
 
     @Test
@@ -70,5 +72,14 @@ class FavoriteTest extends StateConfigTest {
         }
 
         return profiles;
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnMenu(true);
+        verifyCoffeeMachineOnce().setEnableBtnBack(true);
+        verifyCoffeeMachineOnce().setEnableBtnOk(true);
+        verifyCoffeeMachineOnce().setEnableBtnScrolling(true);
     }
 }

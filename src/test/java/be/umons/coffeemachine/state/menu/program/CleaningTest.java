@@ -50,4 +50,12 @@ class CleaningTest extends StateConfigTest {
 
         assertFalse(CalcAndClean.instance().isCalcAndClean());
     }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnMenu(true);
+        verifyCoffeeMachineOnce().setEnableBtnBack(true);
+        verifyCoffeeMachineOnce().setEnableBtnStartStop(true);
+    }
 }

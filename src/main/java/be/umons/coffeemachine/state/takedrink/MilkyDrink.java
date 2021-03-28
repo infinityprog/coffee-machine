@@ -23,11 +23,6 @@ public class MilkyDrink extends TakeDrink {
     }
 
     @Override
-    public void entry(CoffeeMachine coffeeMachine) {
-        super.entry(coffeeMachine);
-    }
-
-    @Override
     public void startStop(CoffeeMachine coffeeMachine) {
         coffeeMachine.transition(Preparing.instance());
     }

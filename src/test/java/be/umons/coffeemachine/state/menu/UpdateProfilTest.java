@@ -69,7 +69,7 @@ class UpdateProfilTest extends StateConfigTest {
     void coffee() {
         when(drink.getQuantity()).thenReturn(MEDIUM);
         when(drink.getIntensity()).thenReturn(NORMAL);
-        when(drink.getName()).thenReturn("Test");
+        when(drink.getName()).thenReturn("Expresso");
         when(profile.getFavorite(drink)).thenReturn(drink);
 
         updateProfil.coffee(coffeeMachine, drink);
@@ -77,16 +77,18 @@ class UpdateProfilTest extends StateConfigTest {
         verify(profile, times(1)).addFavorite(drink);
         verify(profile, times(1)).getFavorite(drink);
 
-        verify(coffeeMachine, times(1)).setTitleDisplay("Favoris : Test");
+        verify(coffeeMachine, times(1)).setTitleDisplay("Favoris : Expresso");
         verify(coffeeMachine, times(1)).setIntensityDisplay(NORMAL.getName());
         verify(coffeeMachine, times(1)).setQuantityDisplay(MEDIUM.getName());
+
+        enableBtnDrinkState();
     }
 
     @Test
     void milky() {
         when(drink.getQuantity()).thenReturn(MEDIUM);
         when(drink.getIntensity()).thenReturn(NORMAL);
-        when(drink.getName()).thenReturn("Test");
+        when(drink.getName()).thenReturn("Expresso");
         when(profile.getFavorite(drink)).thenReturn(drink);
 
         updateProfil.coffee(coffeeMachine, drink);
@@ -94,9 +96,11 @@ class UpdateProfilTest extends StateConfigTest {
         verify(profile, times(1)).addFavorite(drink);
         verify(profile, times(1)).getFavorite(drink);
 
-        verify(coffeeMachine, times(1)).setTitleDisplay("Favoris : Test");
+        verify(coffeeMachine, times(1)).setTitleDisplay("Favoris : Expresso");
         verify(coffeeMachine, times(1)).setIntensityDisplay(NORMAL.getName());
         verify(coffeeMachine, times(1)).setQuantityDisplay(MEDIUM.getName());
+
+        enableBtnDrinkState();
     }
 
     @Test
@@ -116,6 +120,8 @@ class UpdateProfilTest extends StateConfigTest {
         updateProfil.entry(coffeeMachine);
 
         verify(coffeeMachine, times(1)).setTitleDisplay("Choisissez une boisson pour " + profile.getName());
+
+        verifyEnableBtn();
     }
 
     @Test
@@ -123,5 +129,21 @@ class UpdateProfilTest extends StateConfigTest {
         updateProfil.back(coffeeMachine);
 
         verify(coffeeMachine, times(1)).transition(any(Favorite.class));
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnBack(true);
+        verifyCoffeeMachineOnce().setEnableBtnMenu(true);
+        verifyEnableDrink(coffeeMachine);
+    }
+
+    private void enableBtnDrinkState() {
+        verify(coffeeMachine, times(1)).setEnableBtnExpresso(false);
+        verify(coffeeMachine, times(1)).setEnableBtnQuantity(true);
+        verify(coffeeMachine, times(1)).setEnableBtnIntensity(true);
+        verify(coffeeMachine, times(1)).setEnableBtnOk(true);
+        verify(coffeeMachine, times(1)).setEnableBtnSpecial(false);
     }
 }

@@ -31,4 +31,21 @@ class StartAndStopTest extends StateConfigTest {
 
         verify(coffeeMachine, times(1)).transition(any(Waiting.class));
     }
+
+    @Test
+    void entry() {
+        startAndStop.entry(coffeeMachine);
+
+
+        verify(coffeeMachine, times(1)).setIntensityDisplay("");
+        verify(coffeeMachine, times(1)).setQuantityDisplay("");
+        verify(coffeeMachine, times(1)).setTitleDisplay("");
+        verifyEnableBtn();
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verify(coffeeMachine, times(1)).setEnableBtnStartStop(true);
+        verify(coffeeMachine, times(1)).resetDisplayBtn();
+    }
 }

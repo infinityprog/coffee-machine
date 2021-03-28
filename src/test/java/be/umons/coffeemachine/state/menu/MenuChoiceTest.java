@@ -4,23 +4,13 @@ import be.umons.coffeemachine.model.enums.MenuName;
 import be.umons.coffeemachine.state.Waiting;
 import be.umons.coffeemachine.state.config.StateConfigTest;
 import be.umons.coffeemachine.state.menu.program.ChoiceProgram;
-import be.umons.coffeemachine.state.menu.program.Descaling;
-import be.umons.coffeemachine.state.takedrink.CoffeeDrink;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 
-import static be.umons.coffeemachine.model.enums.MenuName.CLEANING_AND_MAINTENANCE;
-import static be.umons.coffeemachine.model.enums.MenuName.FAVORI;
-import static be.umons.coffeemachine.model.enums.MenuName.RESET;
-import static be.umons.coffeemachine.model.enums.MenuName.SETTINGS_DRINK_QUANTITY;
+import static be.umons.coffeemachine.model.enums.MenuName.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class MenuChoiceTest extends StateConfigTest {
 
@@ -80,5 +70,16 @@ class MenuChoiceTest extends StateConfigTest {
         verify(coffeeMachine, times(1)).setQuantityDisplay("");
         verify(coffeeMachine, times(1)).setIntensityDisplay("");
         verify(coffeeMachine, times(1)).setTitleDisplay(MenuName.FAVORI.getName());
+
+        verifyEnableBtn();
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnMenu(true);
+        verifyCoffeeMachineOnce().setEnableBtnBack(true);
+        verifyCoffeeMachineOnce().setEnableBtnOk(true);
+        verifyCoffeeMachineOnce().setEnableBtnScrolling(true);
     }
 }

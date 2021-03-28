@@ -25,6 +25,8 @@ public class Waiting extends State {
     public void entry(CoffeeMachine coffeeMachine) {
         enableBtn(coffeeMachine);
         coffeeMachine.setTitleDisplay("En attente");
+        coffeeMachine.setQuantityDisplay("");
+        coffeeMachine.setIntensityDisplay("");
     }
 
     @Override

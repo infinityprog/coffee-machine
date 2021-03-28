@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -27,6 +28,9 @@ class ChoiceProfilesTest extends StateConfigTest {
         verify(coffeeMachine, times(1)).setTitleDisplay("Tous les profiles sont vide");
         verify(coffeeMachine, times(1)).setQuantityDisplay("");
         verify(coffeeMachine, times(1)).setIntensityDisplay("");
+        verifyEnableBtn();
+        verifyCoffeeMachineOnce().setEnableBtnOk(false);
+        verifyCoffeeMachineOnce().setEnableBtnScrolling(false);
     }
 
     @Test
@@ -38,6 +42,8 @@ class ChoiceProfilesTest extends StateConfigTest {
         verify(coffeeMachine, times(1)).setTitleDisplay("Profile : " + ProfileName.B.name());
         verify(coffeeMachine, times(1)).setQuantityDisplay("");
         verify(coffeeMachine, times(1)).setIntensityDisplay("");
+
+        verifyEnableBtn();
     }
 
     @Test
@@ -87,14 +93,30 @@ class ChoiceProfilesTest extends StateConfigTest {
     }
 
     @Test
-    void ok() {
+    void okIsUsed() {
         Profile profile = new Profile(ProfileName.A);
+        profile.addFavorite(new Coffee("test"));
         choiceProfiles.setCurrentProfile(profile);
+
+        when(coffeeMachine.getProfils()).thenReturn(Collections.singletonList(profile));
 
         choiceProfiles.ok(coffeeMachine);
 
         verify(coffeeMachine, times(1)).setSelectedProfile(profile);
         verify(coffeeMachine, times(1)).transition(any(ChoiceFavorite.class));
+    }
+
+    @Test
+    void okIsNotUsed() {
+        Profile profile = new Profile(ProfileName.A);
+        choiceProfiles.setCurrentProfile(profile);
+
+        when(coffeeMachine.getProfils()).thenReturn(Collections.singletonList(profile));
+
+        choiceProfiles.ok(coffeeMachine);
+
+        verify(coffeeMachine, never()).setSelectedProfile(profile);
+        verify(coffeeMachine, never()).transition(any(ChoiceFavorite.class));
     }
 
     private List<Profile> createProfile() {
@@ -106,5 +128,13 @@ class ChoiceProfilesTest extends StateConfigTest {
         profile3.addFavorite(new Coffee("test"));
 
         return Arrays.asList(profile1, profile2, profile3);
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnFavorite(true);
+        verifyCoffeeMachineOnce().setEnableBtnOk(true);
+        verifyCoffeeMachineOnce().setEnableBtnScrolling(true);
     }
 }

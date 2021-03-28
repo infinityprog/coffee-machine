@@ -25,7 +25,10 @@ class WaitingTest extends StateConfigTest {
         waiting.entry(coffeeMachine);
 
         verify(coffeeMachine, times(1)).setTitleDisplay("En attente");
-        verifyResetDrink(coffeeMachine);
+        verify(coffeeMachine, times(1)).setQuantityDisplay("");
+        verify(coffeeMachine, times(1)).setIntensityDisplay("");
+
+        verifyEnableBtn();
     }
 
     @Test
@@ -90,5 +93,11 @@ class WaitingTest extends StateConfigTest {
         waiting.favori(coffeeMachine);
 
         verify(coffeeMachine, times(1)).transition(any(ChoiceProfiles.class));
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verify(coffeeMachine, times(1)).resetDisplayBtn();
+        verifyEnableDrink(coffeeMachine);
     }
 }

@@ -25,4 +25,9 @@ public abstract class TakeDrinkConfigTest extends StateConfigTest {
         verify(coffeeMachine, times(1)).setQuantityDisplay(Quantity.MEDIUM.getName());
 
     }
+
+    @Override
+    protected void verifyEnableBtn() {
+
+    }
 }

@@ -30,5 +30,15 @@ class DescalingTest extends StateConfigTest {
         descaling.entry(coffeeMachine);
 
         verify(coffeeMachine, times(1)).setTitleDisplay(anyString());
+
+        verifyEnableBtn();
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnMenu(true);
+        verifyCoffeeMachineOnce().setEnableBtnBack(true);
+        verifyCoffeeMachineOnce().setEnableBtnStartStop(true);
     }
 }

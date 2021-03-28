@@ -45,4 +45,9 @@ class SpecialDrinkTest extends TakeDrinkConfigTest {
         verify(coffeeMachine, times(1)).transition(any(WaterDrink.class));
         verify(coffeeMachine, times(1)).setDrink(any(WarmWater.class));
     }
+
+    @Override
+    protected void verifyEnableBtn() {
+
+    }
 }

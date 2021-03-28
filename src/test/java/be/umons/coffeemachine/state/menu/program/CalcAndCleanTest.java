@@ -37,4 +37,12 @@ class CalcAndCleanTest extends StateConfigTest {
 
         verify(coffeeMachine, times(1)).transition(any(ChoiceProgram.class));
     }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyCoffeeMachineOnce().setEnableBtnMenu(true);
+        verifyCoffeeMachineOnce().setEnableBtnBack(true);
+        verifyCoffeeMachineOnce().setEnableBtnStartStop(true);
+    }
 }

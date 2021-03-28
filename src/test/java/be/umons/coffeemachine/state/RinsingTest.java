@@ -1,24 +1,18 @@
 package be.umons.coffeemachine.state;
 
-import be.umons.coffeemachine.context.CoffeeMachine;
+import be.umons.coffeemachine.state.config.StateConfigTest;
 import javafx.animation.PauseTransition;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-@ExtendWith(MockitoExtension.class)
-class RinsingTest {
+class RinsingTest extends StateConfigTest {
 
     @InjectMocks
     private Rinsing rinsing;
-
-    @Mock
-    private CoffeeMachine coffeeMachine;
 
     @Mock
     private PauseTransition pauseTransition;
@@ -28,6 +22,11 @@ class RinsingTest {
         rinsing.entry(coffeeMachine);
 
         verify(pauseTransition, times(1)).play();
-        verify(coffeeMachine, times(1)).resetDisplayBtn();
+        verifyEnableBtn();
+    }
+
+    @Override
+    protected void verifyEnableBtn() {
+        verifyCoffeeMachineOnce().resetDisplayBtn();
     }
 }

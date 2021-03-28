@@ -14,14 +14,24 @@ public abstract class StateConfigTest {
     @Mock
     protected CoffeeMachine coffeeMachine;
 
-    protected void verifyResetDrink(CoffeeMachine coffeeMachine) {
-        verify(coffeeMachine, times(1)).setEnableBtnExpresso(true);
-        verify(coffeeMachine, times(1)).setEnableBtnExpressoMacch(true);
-        verify(coffeeMachine, times(1)).setEnableBtnCoffee(true);
-        verify(coffeeMachine, times(1)).setEnableCappuccino(true);
-        verify(coffeeMachine, times(1)).setEnableBtnLatteMacchiate(true);
-        verify(coffeeMachine, times(1)).setEnableBtnMilkCoffee(true);
-        verify(coffeeMachine, times(1)).setEnableBtnMilkFroth(true);
-        verify(coffeeMachine, times(1)).setEnableBtnSpecial(true);
+    protected void verifyEnableDrink(CoffeeMachine coffeeMachine) {
+        verify(coffeeMachine).setEnableBtnExpresso(true);
+        verify(coffeeMachine).setEnableBtnExpressoMacch(true);
+        verify(coffeeMachine).setEnableBtnCoffee(true);
+        verify(coffeeMachine).setEnableCappuccino(true);
+        verify(coffeeMachine).setEnableBtnLatteMacchiate(true);
+        verify(coffeeMachine).setEnableBtnMilkCoffee(true);
+        verify(coffeeMachine).setEnableBtnMilkFroth(true);
+        verify(coffeeMachine).setEnableBtnSpecial(true);
+    }
+
+    abstract protected void verifyEnableBtn();
+
+    protected CoffeeMachine verifyCoffeeMachineOnce() {
+        return verify(coffeeMachine, times(1));
+    }
+
+    protected CoffeeMachine verifyCoffeeMachine(int nbr) {
+        return verify(coffeeMachine, times(nbr));
     }
 }
