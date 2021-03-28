@@ -41,6 +41,7 @@ public class Rinsing extends State {
 
     private void onPause(CoffeeMachine coffeeMachine, int start, int end) {
         pause.setOnFinished(event -> {
+            enableBtn(coffeeMachine);
             String evolution = "";
             for (int i = 0; i < start; i++) {
                 evolution += ".";
@@ -58,5 +59,8 @@ public class Rinsing extends State {
         pause.play();
     }
 
+    @Override
+    public void startStop(CoffeeMachine coffeeMachine) {
 
+    }
 }

@@ -67,8 +67,9 @@ class MilkyDrinkTest extends TakeDrinkConfigTest {
 
         milkyDrink.two(coffeeMachine);
 
-        verify(drink, times(1)).setTwo(!drink.isTwo());
+        verify(drink, times(1)).setTwo(any(boolean.class));
         verify(coffeeMachine, never()).setTitleDisplay(anyString());
+        verifyCoffeeMachineOnce().setTwo(any(boolean.class));
     }
 
     @Test

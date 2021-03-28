@@ -42,6 +42,7 @@ public class MilkyDrink extends TakeDrink {
         Drink drink = coffeeMachine.getDrink();
         if (drink.getIntensity() != Intensity.DOUBLESHOT_STRONG_MORE && drink.getIntensity() != Intensity.DOUBLESHOT_STRONG) {
             drink.setTwo(!drink.isTwo());
+            coffeeMachine.setTwo(drink.isTwo());
         } else {
             displayErrorMessage(coffeeMachine,"Vous ne pouvez pas faire deux café si l'intensité est sur double shot");
         }

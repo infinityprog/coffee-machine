@@ -44,8 +44,9 @@ public class CoffeeDrink extends TakeDrink {
                 && drink.getIntensity() != Intensity.DOUBLESHOT_STRONG
                 && drink.getIntensity() != Intensity.COMP_POWDER) {
             drink.setTwo(!drink.isTwo());
+            coffeeMachine.setTwo(drink.isTwo());
         } else {
-            displayErrorMessage(coffeeMachine,"Vous ne pouvez pas faire deux café si l'intensité est sur double shot");
+            displayErrorMessage(coffeeMachine,"Vous ne pouvez pas faire deux cafés si l'intensité est sur double shot");
         }
 
     }

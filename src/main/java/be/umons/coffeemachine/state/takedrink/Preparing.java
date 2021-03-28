@@ -29,6 +29,7 @@ public class Preparing extends State {
         Drink drink = coffeeMachine.getDrink();
         drink.onFinish(() -> {
             addDrink(coffeeMachine, drink);
+            coffeeMachine.setTwo(false);
             coffeeMachine.transition(Waiting.instance());
         });
         drink.makeDrink(coffeeMachine);
@@ -40,6 +41,7 @@ public class Preparing extends State {
         drink.stop(coffeeMachine);
         if (drink.isPreparing()) {
             addDrink(coffeeMachine, drink);
+            coffeeMachine.setTwo(false);
             coffeeMachine.transition(Waiting.instance());
         }
     }
@@ -55,6 +57,7 @@ public class Preparing extends State {
         Drink drink = coffeeMachine.getDrink();
         coffeeMachine.setIntensityDisplay("");
         coffeeMachine.setQuantityDisplay("");
+        coffeeMachine.setTwo(false);
         if (drink.isPreparing()) {
             drink.resetPieces(coffeeMachine);
         }

@@ -57,6 +57,7 @@ public class CoffeeMachine extends Subject {
     private boolean enableBtnMilkCoffee;
     private boolean enableBtnMilkFroth;
     private boolean enableBtnScrolling;
+    private boolean two;
 
     public CoffeeMachine(Observer observer) {
         attach(observer);
@@ -306,6 +307,7 @@ public class CoffeeMachine extends Subject {
 
     public CoffeeMachine setDrink(Drink drink) {
         this.drink = drink;
+        setTwo(drink.isTwo());
         return this;
     }
 
@@ -506,5 +508,15 @@ public class CoffeeMachine extends Subject {
 
     public void addDrinksServed(int nbr) {
         this.nbrDrinksServed += nbr;
+    }
+
+    public boolean isTwo() {
+        return two;
+    }
+
+    public CoffeeMachine setTwo(boolean two) {
+        this.two = two;
+        notif();
+        return this;
     }
 }
