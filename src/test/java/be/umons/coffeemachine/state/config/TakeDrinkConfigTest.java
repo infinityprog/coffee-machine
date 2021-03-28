@@ -28,6 +28,7 @@ public abstract class TakeDrinkConfigTest extends StateConfigTest {
 
     @Override
     protected void verifyEnableBtn() {
-
+        verifyCoffeeMachineOnce().resetDisplayBtn();
+        verifyEnableDrink(coffeeMachine);
     }
 }

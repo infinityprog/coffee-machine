@@ -11,11 +11,6 @@ public abstract class TakeDrink extends State {
     protected PauseTransition pause = new PauseTransition(Duration.seconds(3));
 
     @Override
-    public void back(CoffeeMachine coffeeMachine) {
-        super.back(coffeeMachine);
-    }
-
-    @Override
     public void entry(CoffeeMachine coffeeMachine) {
         Drink drink = coffeeMachine.getDrink();
         coffeeMachine.setTitleDisplay(drink.getName());
