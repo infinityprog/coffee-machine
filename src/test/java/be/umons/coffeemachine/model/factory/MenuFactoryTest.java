@@ -61,7 +61,7 @@ class MenuFactoryTest extends TestConfig {
         assertThat(result).isInstanceOf(ChoiceProgram.class);
     }
 
-    @Test()
+    @Test
     @DisplayName("Get Menu throw exception")
     void getMenuThrowException() {
 
