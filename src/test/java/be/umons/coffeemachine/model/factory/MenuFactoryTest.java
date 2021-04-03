@@ -5,7 +5,6 @@ import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.menu.DrinkServed;
 import be.umons.coffeemachine.state.menu.Favorite;
 import be.umons.coffeemachine.state.menu.Reset;
-import be.umons.coffeemachine.state.menu.SettingsQuantity;
 import be.umons.coffeemachine.state.menu.program.ChoiceProgram;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -37,13 +36,13 @@ class MenuFactoryTest extends TestConfig {
         assertThat(result).isInstanceOf(Favorite.class);
     }
 
-    @Test
+    /*@Test
     @DisplayName("Get State SettingsQuantity")
     void getMenuSettingsQuantity() {
         State result = menuFactory.getMenu(SETTINGS_DRINK_QUANTITY);
 
         assertThat(result).isInstanceOf(SettingsQuantity.class);
-    }
+    }*/
 
     @Test
     @DisplayName("Get State DrinkServed")

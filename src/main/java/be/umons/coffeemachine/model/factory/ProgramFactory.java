@@ -12,8 +12,8 @@ public class ProgramFactory {
         switch (name) {
             case CLEANING:
                 return Cleaning.instance();
-            case CLEANING_MILK_FROTH:
-                return CleaningMilkFrother.instance();
+//            case CLEANING_MILK_FROTH:
+//                return CleaningMilkFrother.instance();
             case DESCALING:
                 return Descaling.instance();
             case CALC_AND_CLEAN:

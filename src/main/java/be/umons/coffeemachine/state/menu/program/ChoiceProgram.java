@@ -98,6 +98,6 @@ public class ChoiceProgram extends Menu {
     }
 
     private boolean isProgram(MenuName name) {
-        return name == CLEANING || name == DESCALING || name == CLEANING_MILK_FROTH || name == CALC_AND_CLEAN;
+        return name == CLEANING || name == DESCALING /*|| name == CLEANING_MILK_FROTH*/ || name == CALC_AND_CLEAN;
     }
 }

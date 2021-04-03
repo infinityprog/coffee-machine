@@ -46,8 +46,8 @@ class MenuChoiceTest extends StateConfigTest {
         menuChoice.setCurrentMenu(favorite);
         menuChoice.scrolling(coffeeMachine);
 
-        verify(coffeeMachine, times(1)).setTitleDisplay(SETTINGS_DRINK_QUANTITY.getName());
-        assertThat(menuChoice.getCurrentMenu()).isInstanceOf(SettingsQuantity.class);
+        verify(coffeeMachine, times(1)).setTitleDisplay(DRINK_SERVED.getName());
+        assertThat(menuChoice.getCurrentMenu()).isInstanceOf(DrinkServed.class);
     }
 
     @Test

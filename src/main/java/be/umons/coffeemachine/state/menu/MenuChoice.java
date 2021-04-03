@@ -101,7 +101,7 @@ public class MenuChoice extends State {
     }
 
     private boolean withoutProgram(MenuName name) {
-        return name != CALC_AND_CLEAN && name != CLEANING && name != CLEANING_MILK_FROTH
+        return name != CALC_AND_CLEAN && name != CLEANING /*&& name != CLEANING_MILK_FROTH*/
                 && name != DESCALING;
     }
 }

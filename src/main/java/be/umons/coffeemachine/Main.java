@@ -20,7 +20,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Configurator.setRootLevel(Level.DEBUG);
+        //Configurator.setRootLevel(Level.DEBUG);
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("scene.fxml")));
 

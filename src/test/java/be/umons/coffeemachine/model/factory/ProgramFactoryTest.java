@@ -4,7 +4,6 @@ import be.umons.coffeemachine.config.TestConfig;
 import be.umons.coffeemachine.state.State;
 import be.umons.coffeemachine.state.menu.program.CalcAndClean;
 import be.umons.coffeemachine.state.menu.program.Cleaning;
-import be.umons.coffeemachine.state.menu.program.CleaningMilkFrother;
 import be.umons.coffeemachine.state.menu.program.Descaling;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -28,13 +27,13 @@ class ProgramFactoryTest extends TestConfig {
         assertThat(result).isInstanceOf(Cleaning.class);
     }
 
-    @Test
+    /*@Test
     @DisplayName("Get State SettingsQuantity")
     void getProgramCleaningMilkFrother() {
         State result = programFactory.getProgram(CLEANING_MILK_FROTH);
 
         assertThat(result).isInstanceOf(CleaningMilkFrother.class);
-    }
+    }*/
 
     @Test
     @DisplayName("Get State Descaling")

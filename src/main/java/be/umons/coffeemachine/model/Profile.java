@@ -33,6 +33,10 @@ public class Profile {
         return favoris.stream().filter(drink::equals).findAny().orElse(null);
     }
 
+    public void clear() {
+        favoris.clear();
+    }
+
     public void setFavoris(Set<Drink> favoris) {
         this.favoris = favoris;
     }
