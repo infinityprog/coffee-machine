@@ -7,6 +7,7 @@ group 'be.umons.coffeemachine'
 version '1.0-SNAPSHOT'
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -27,7 +28,7 @@ dependencies {
 }
 
 javafx {
-    version = "13"
+    version = "16"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
@@ -41,6 +42,10 @@ jar {
                 'Main-Class': 'be.umons.coffeemachine.Main'
         )
     }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
+
 
 mainClassName = 'be.umons.coffeemachine.Main'
